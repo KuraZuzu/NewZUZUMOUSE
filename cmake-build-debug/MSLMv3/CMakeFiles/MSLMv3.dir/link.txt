@@ -1,0 +1,2 @@
+/usr/local/bin/arm-none-eabi-ar qc libMSLMv3.a  CMakeFiles/MSLMv3.dir/Motor.cpp.obj CMakeFiles/MSLMv3.dir/sensor.cpp.obj
+/usr/local/bin/arm-none-eabi-ranlib libMSLMv3.a
