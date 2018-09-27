@@ -37,6 +37,10 @@ void StepMotor::set_wise(bool wise) {
 
 }
 
+void StepMotor::reset_count() {
+    _pulse_count = 0;
+}
+
 MotorManager::MotorManager(StepMotor left, StepMotor right, PinName refout) :
         _left_motor(left), _right_motor(right), RefOut(refout)
 {
@@ -105,4 +109,9 @@ void MotorManager::init(timestamp_t tick_speed) {
 
 void MotorManager::kill() {
     run.detach();
+}
+
+void MotorManager::reset_counts() {
+    _left_motor.reset_count();
+    _right_motor.reset_count();
 }

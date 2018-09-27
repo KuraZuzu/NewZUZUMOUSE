@@ -23,9 +23,12 @@ public:
 
     void step();
 
+    void reset_count();
+
     void pulse_counter();
 
     int64_t counts();
+
 
     void set_wise(bool wise);
 
@@ -56,6 +59,8 @@ public:
 
     int64_t left_distance();
     int64_t  right_distance();
+
+    void reset_counts();
 
     void loop();
     void init(timestamp_t tick_speed=50);

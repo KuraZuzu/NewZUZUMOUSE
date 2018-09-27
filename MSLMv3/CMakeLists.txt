@@ -2,9 +2,9 @@ project(MSLMv3)
 
 set(MSLM_SOURCE
         Motor.h
+        Motor.cpp
         sensor.h
         deftype.h
-        Motor.cpp
         sensor.cpp
         switch.h
         )

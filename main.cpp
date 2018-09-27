@@ -6,7 +6,6 @@ DigitalOut myled2(LED2);
 DigitalOut myled3(LED3);
 DigitalOut myled4(LED4);
 Serial pc(USBTX, USBRX);
-
 NewZuzumouse me;
 Switch sw2(p8,PullUp);
 Switch sw3(p7,PullNone);
@@ -27,34 +26,47 @@ int main() {
     myled4.write(1);
     wait(0.5);
 
-    ZUZU::MODE mode = ZUZU::COMMAND_MODE;
+    me.left_hand();
 
-    while (true){
-        switch (mode){
-            case ZUZU::COMMAND_MODE:
-                if(sw2.update())
-                    mode = ZUZU::TEST_MODE;
-                else if(sw4.update())
-                    mode = ZUZU::LEFT_HAND_METHOD;
+//    me.move_p(2000, ONE_BLOCK * 3);
+//    ZUZU::MODE mode = ZUZU::COMMAND_MODE;
 
-                break;
+    while (true) {
 
-            case ZUZU::LEFT_HAND_METHOD:
+//        pc.printf("\r\b\r");
+//       　使いたかったら NewZuzumouse の public について。
+//        pc.printf("LEFT:%d,CENTER:%d,RIGHT:%d\n\r",me.left_sensor.get_val(),me.center_sensor.get_val(),me.right_sensor.get_val());
+//
+//        while (true){
+//            switch (mode){
+//                case ZUZU::COMMAND_MODE:
+//                    if(sw2.update())
+//                        mode = ZUZU::TEST_MODE;
+//                    else if(sw4.update())
+//                        mode = ZUZU::LEFT_HAND_METHOD;
+//                    break;
+//
+//                case ZUZU::LEFT_HAND_METHOD:
+//
+//
+//
+//                    break;
+//
+//                case ZUZU::TEST_MODE:
+//                    myled1 = 0;
+//                    myled2 = 0;
+//
+//                    mode = ZUZU::COMMAND_MODE;
+//                    break;
+//
+//                default:
+//                    break;
+//
+//            }
 
-
-
-                break;
-
-            case ZUZU::TEST_MODE:
-                myled1 = 0;
-                myled2 = 0;
-
-                mode = ZUZU::COMMAND_MODE;
-                break;
-
-            default:
-                break;
-
-        }
     }
+
 }
+
+
+
