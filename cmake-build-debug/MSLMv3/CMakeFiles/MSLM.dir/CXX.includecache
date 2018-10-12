@@ -544,17 +544,11 @@ ticker_api.h
 
 ../mbed/wait_api.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
+/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.cpp
+Motor.h
+/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h
+
+/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h
 mbed.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/mbed.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.cpp
-sensor.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h
-mbed.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/mbed.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h
-deftype.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
 

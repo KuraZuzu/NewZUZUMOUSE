@@ -21,6 +21,8 @@ class StepMotor{
 public:
     StepMotor(PinName clock, PinName reset, PinName wise, bool default_wise, PinName m3);
 
+    void set_m3(bool m3);
+
     void step();
 
     void reset_count();
@@ -65,6 +67,10 @@ public:
     void loop();
     void init(timestamp_t tick_speed=50);
     void kill();
+
+    void motor_on();
+    void motor_off();
+
 
 };
 

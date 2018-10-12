@@ -59,10 +59,10 @@ RM = /usr/local/Cellar/cmake/3.12.2/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/zuzukun/CLionProjects/newzuzumouse
+CMAKE_SOURCE_DIR = /Users/zuzukun/CLionProjects/mouse
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/newzuzumouse/build
+CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/mouse/build
 
 #=============================================================================
 # Target rules for target CMakeFiles/new_zuzumouse.dir
@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/newzuzumouse/build
 CMakeFiles/new_zuzumouse.dir/all: MSLMv3/CMakeFiles/MSLM.dir/all
 	$(MAKE) -f CMakeFiles/new_zuzumouse.dir/build.make CMakeFiles/new_zuzumouse.dir/depend
 	$(MAKE) -f CMakeFiles/new_zuzumouse.dir/build.make CMakeFiles/new_zuzumouse.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles --progress-num=3,4 "Built target new_zuzumouse"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/mouse/build/CMakeFiles --progress-num=3,4 "Built target new_zuzumouse"
 .PHONY : CMakeFiles/new_zuzumouse.dir/all
 
 # Include target in all.
@@ -81,9 +81,9 @@ all: CMakeFiles/new_zuzumouse.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/new_zuzumouse.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/new_zuzumouse.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 0
 .PHONY : CMakeFiles/new_zuzumouse.dir/rule
 
 # Convenience name for target.
@@ -108,14 +108,14 @@ clean: CMakeFiles/new_zuzumouse.dir/clean
 CMakeFiles/sercon.dir/all:
 	$(MAKE) -f CMakeFiles/sercon.dir/build.make CMakeFiles/sercon.dir/depend
 	$(MAKE) -f CMakeFiles/sercon.dir/build.make CMakeFiles/sercon.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles --progress-num= "Built target sercon"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/mouse/build/CMakeFiles --progress-num= "Built target sercon"
 .PHONY : CMakeFiles/sercon.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/sercon.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/sercon.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 0
 .PHONY : CMakeFiles/sercon.dir/rule
 
 # Convenience name for target.
@@ -140,14 +140,14 @@ clean: CMakeFiles/sercon.dir/clean
 CMakeFiles/upload.dir/all:
 	$(MAKE) -f CMakeFiles/upload.dir/build.make CMakeFiles/upload.dir/depend
 	$(MAKE) -f CMakeFiles/upload.dir/build.make CMakeFiles/upload.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles --progress-num= "Built target upload"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/mouse/build/CMakeFiles --progress-num= "Built target upload"
 .PHONY : CMakeFiles/upload.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/upload.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/upload.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 0
 .PHONY : CMakeFiles/upload.dir/rule
 
 # Convenience name for target.
@@ -190,7 +190,7 @@ MSLMv3/preinstall:
 MSLMv3/CMakeFiles/MSLM.dir/all:
 	$(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/depend
 	$(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles --progress-num=1,2 "Built target MSLM"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/mouse/build/CMakeFiles --progress-num=1,2 "Built target MSLM"
 .PHONY : MSLMv3/CMakeFiles/MSLM.dir/all
 
 # Include target in all.
@@ -200,9 +200,9 @@ all: MSLMv3/CMakeFiles/MSLM.dir/all
 
 # Build rule for subdir invocation for target.
 MSLMv3/CMakeFiles/MSLM.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 MSLMv3/CMakeFiles/MSLM.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 0
 .PHONY : MSLMv3/CMakeFiles/MSLM.dir/rule
 
 # Convenience name for target.

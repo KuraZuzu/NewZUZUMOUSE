@@ -544,11 +544,11 @@ ticker_api.h
 
 ../mbed/wait_api.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.cpp
+/Users/zuzukun/CLionProjects/mouse/MSLMv3/Motor.cpp
 Motor.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h
+/Users/zuzukun/CLionProjects/mouse/MSLMv3/Motor.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h
+/Users/zuzukun/CLionProjects/mouse/MSLMv3/Motor.h
 mbed.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/mbed.h
+/Users/zuzukun/CLionProjects/mouse/MSLMv3/mbed.h
 

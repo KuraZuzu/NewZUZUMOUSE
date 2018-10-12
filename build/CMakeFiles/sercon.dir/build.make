@@ -43,10 +43,10 @@ RM = /usr/local/Cellar/cmake/3.12.2/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/zuzukun/CLionProjects/newzuzumouse
+CMAKE_SOURCE_DIR = /Users/zuzukun/CLionProjects/mouse
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/newzuzumouse/build
+CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/mouse/build
 
 # Utility rule file for sercon.
 
@@ -71,6 +71,6 @@ CMakeFiles/sercon.dir/clean:
 .PHONY : CMakeFiles/sercon.dir/clean
 
 CMakeFiles/sercon.dir/depend:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/zuzukun/CLionProjects/newzuzumouse /Users/zuzukun/CLionProjects/newzuzumouse /Users/zuzukun/CLionProjects/newzuzumouse/build /Users/zuzukun/CLionProjects/newzuzumouse/build /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles/sercon.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/zuzukun/CLionProjects/mouse /Users/zuzukun/CLionProjects/mouse /Users/zuzukun/CLionProjects/mouse/build /Users/zuzukun/CLionProjects/mouse/build /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles/sercon.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/sercon.dir/depend
 

@@ -48,10 +48,10 @@ RM = /usr/local/Cellar/cmake/3.12.2/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/zuzukun/CLionProjects/newzuzumouse
+CMAKE_SOURCE_DIR = /Users/zuzukun/CLionProjects/mouse
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/newzuzumouse/build
+CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/mouse/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,14 +80,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles /Users/zuzukun/CLionProjects/newzuzumouse/build/MSLMv3/CMakeFiles/progress.marks
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/build/CMakeFiles 0
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles /Users/zuzukun/CLionProjects/mouse/build/MSLMv3/CMakeFiles/progress.marks
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/mouse/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/clean
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/clean
 .PHONY : clean
 
 # The main clean target
@@ -97,22 +97,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/preinstall
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/preinstall
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 MSLMv3/CMakeFiles/MSLM.dir/rule:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/CMakeFiles/MSLM.dir/rule
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f CMakeFiles/Makefile2 MSLMv3/CMakeFiles/MSLM.dir/rule
 .PHONY : MSLMv3/CMakeFiles/MSLM.dir/rule
 
 # Convenience name for target.
@@ -122,7 +122,7 @@ MSLM: MSLMv3/CMakeFiles/MSLM.dir/rule
 
 # fast build rule for target.
 MSLM/fast:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/build
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/build
 .PHONY : MSLM/fast
 
 Motor.obj: Motor.cpp.obj
@@ -131,7 +131,7 @@ Motor.obj: Motor.cpp.obj
 
 # target to build an object file
 Motor.cpp.obj:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj
 .PHONY : Motor.cpp.obj
 
 Motor.i: Motor.cpp.i
@@ -140,7 +140,7 @@ Motor.i: Motor.cpp.i
 
 # target to preprocess a source file
 Motor.cpp.i:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.i
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.i
 .PHONY : Motor.cpp.i
 
 Motor.s: Motor.cpp.s
@@ -149,7 +149,7 @@ Motor.s: Motor.cpp.s
 
 # target to generate assembly for a file
 Motor.cpp.s:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.s
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.s
 .PHONY : Motor.cpp.s
 
 # Help Target
@@ -175,6 +175,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /Users/zuzukun/CLionProjects/mouse/build && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

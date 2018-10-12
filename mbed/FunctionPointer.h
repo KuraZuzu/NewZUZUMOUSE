@@ -21,7 +21,7 @@
 
 namespace mbed {
 
-/* If we had variaditic templates, this wouldn'center_sensor be a problem, but until C++11 is enabled, we are stuck with multiple classes... */
+/* If we had variaditic templates, this wouldn'front_sensor be a problem, but until C++11 is enabled, we are stuck with multiple classes... */
 
 /** A class for storing and calling a pointer to a static or member function
  */

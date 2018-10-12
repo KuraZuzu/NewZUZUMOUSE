@@ -7,14 +7,19 @@ StepMotor::StepMotor(PinName clock, PinName reset, PinName wise, bool default_wi
 _clock(clock, false), _m3(m3, false), _wise(wise, default_wise), _reset(reset, false)
 {
     _forward_wise = default_wise;
-    _m3.write(0);
+//    _m3.write(1);
     _pulse_count = 0;
 }
+
+
+
 
 void StepMotor::step(){
     _clock = !_clock;
     pulse_counter();
 }
+
+
 
 void StepMotor::pulse_counter(){
     if(_forward_wise == _wise.read())
@@ -26,6 +31,11 @@ void StepMotor::pulse_counter(){
 int64_t StepMotor::counts(){
     return _pulse_count;
 }
+
+void StepMotor::set_m3(bool m3) {
+    _m3.write(m3);
+}
+
 
 void StepMotor::set_wise(bool wise) {
 
@@ -44,10 +54,11 @@ void StepMotor::reset_count() {
 MotorManager::MotorManager(StepMotor left, StepMotor right, PinName refout) :
         _left_motor(left), _right_motor(right), RefOut(refout)
 {
-    RefOut.write(static_cast<float>(0.06 / 3.3));
+    RefOut.write(static_cast<float>(0.07 / 3.3));
     l_flag = false;
     r_flag = false;
 }
+
 
 void MotorManager::set_left_speed(double_t l_speed) {
 
@@ -74,6 +85,7 @@ void MotorManager::set_right_speed(double_t r_speed) {
 
     _r_speed = 20000.0 / r_speed;
 }
+
 
 int64_t MotorManager::left_distance() {
     return _left_motor.counts();
@@ -111,7 +123,18 @@ void MotorManager::kill() {
     run.detach();
 }
 
+
 void MotorManager::reset_counts() {
     _left_motor.reset_count();
     _right_motor.reset_count();
+}
+
+void MotorManager::motor_on() {
+    _left_motor.set_m3(true);
+    _right_motor.set_m3(true);
+}
+
+void MotorManager::motor_off() {
+    _left_motor.set_m3(false);
+    _right_motor.set_m3(false);
 }

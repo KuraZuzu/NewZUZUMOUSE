@@ -6,5 +6,5 @@ CXX_FLAGS =  -Wall -Wextra -Wno-unused-parameter -Wno-missing-field-initializers
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/zuzukun/CLionProjects/newzuzumouse/mbed -I/Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768 -I/Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_ARM -I/Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X -I/Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768 
+CXX_INCLUDES = -I/Users/zuzukun/CLionProjects/mouse/mbed -I/Users/zuzukun/CLionProjects/mouse/mbed/TARGET_LPC1768 -I/Users/zuzukun/CLionProjects/mouse/mbed/TARGET_LPC1768/TOOLCHAIN_GCC_ARM -I/Users/zuzukun/CLionProjects/mouse/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X -I/Users/zuzukun/CLionProjects/mouse/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768
 

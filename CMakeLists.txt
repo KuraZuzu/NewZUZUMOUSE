@@ -31,7 +31,9 @@ set(SERCON /dev/tty.usbmodem1412)
 set(SOURCE_FILE
         main.cpp
         new_zuzumouse.h
-        defines.h)
+        defines.h
+        explore.cpp
+        explore.h)
 
 
 

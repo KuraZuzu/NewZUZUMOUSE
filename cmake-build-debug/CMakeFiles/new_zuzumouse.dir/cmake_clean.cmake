@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/new_zuzumouse.dir/main.cpp.obj"
+  "CMakeFiles/new_zuzumouse.dir/explore.cpp.obj"
   "new_zuzumouse.pdb"
   "new_zuzumouse"
 )

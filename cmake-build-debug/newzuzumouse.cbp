@@ -183,6 +183,12 @@
 		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/defines.h">
 			<Option target="new_zuzumouse"/>
 		</Unit>
+		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/explore.cpp">
+			<Option target="new_zuzumouse"/>
+		</Unit>
+		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/explore.h">
+			<Option target="new_zuzumouse"/>
+		</Unit>
 		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/main.cpp">
 			<Option target="new_zuzumouse"/>
 		</Unit>

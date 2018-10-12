@@ -162,6 +162,33 @@ MSLM/fast:
 	$(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/build
 .PHONY : MSLM/fast
 
+explore.obj: explore.cpp.obj
+
+.PHONY : explore.obj
+
+# target to build an object file
+explore.cpp.obj:
+	$(MAKE) -f CMakeFiles/new_zuzumouse.dir/build.make CMakeFiles/new_zuzumouse.dir/explore.cpp.obj
+.PHONY : explore.cpp.obj
+
+explore.i: explore.cpp.i
+
+.PHONY : explore.i
+
+# target to preprocess a source file
+explore.cpp.i:
+	$(MAKE) -f CMakeFiles/new_zuzumouse.dir/build.make CMakeFiles/new_zuzumouse.dir/explore.cpp.i
+.PHONY : explore.cpp.i
+
+explore.s: explore.cpp.s
+
+.PHONY : explore.s
+
+# target to generate assembly for a file
+explore.cpp.s:
+	$(MAKE) -f CMakeFiles/new_zuzumouse.dir/build.make CMakeFiles/new_zuzumouse.dir/explore.cpp.s
+.PHONY : explore.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -201,6 +228,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... upload"
 	@echo "... MSLM"
+	@echo "... explore.obj"
+	@echo "... explore.i"
+	@echo "... explore.s"
 	@echo "... main.obj"
 	@echo "... main.i"
 	@echo "... main.s"

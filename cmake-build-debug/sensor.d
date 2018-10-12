@@ -1,5 +1,5 @@
 sensor.o: \
-  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-36dc9a.pch \
+  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-f631f3.pch \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/wait_api.h \
