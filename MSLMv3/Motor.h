@@ -49,6 +49,14 @@ class MotorManager{
     timestamp_t r_t{0};
     bool l_flag{false};
     bool r_flag{false};
+    int32_t old_l_v;
+    int32_t l_v;
+    int32_t diff_l_v;
+    int32_t old_r_v;
+    int32_t r_v;
+    int32_t diff_r_v;
+    int l_count = 0;
+    int r_count = 0;
 
 
 public:
@@ -59,8 +67,10 @@ public:
 
     void set_right_speed(double_t r_speed);
 
+    int64_t  counts();
+
     int64_t left_distance();
-    int64_t  right_distance();
+    int64_t right_distance();
 
     void reset_counts();
 

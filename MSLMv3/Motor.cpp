@@ -4,10 +4,9 @@
 #include "Motor.h"
 //コンストラクタ
 StepMotor::StepMotor(PinName clock, PinName reset, PinName wise, bool default_wise, PinName m3):
-_clock(clock, false), _m3(m3, false), _wise(wise, default_wise), _reset(reset, false)
+_clock(clock, false), _m3(m3, true), _wise(wise, default_wise), _reset(reset, false)
 {
     _forward_wise = default_wise;
-//    _m3.write(1);
     _pulse_count = 0;
 }
 
@@ -52,8 +51,8 @@ void StepMotor::reset_count() {
 }
 
 MotorManager::MotorManager(StepMotor left, StepMotor right, PinName refout) :
-        _left_motor(left), _right_motor(right), RefOut(refout)
-{
+        _left_motor(left), _right_motor(right), RefOut(refout) {
+
     RefOut.write(static_cast<float>(0.07 / 3.3));
     l_flag = false;
     r_flag = false;
@@ -101,6 +100,15 @@ void MotorManager::loop() {
     if ((_l_speed < l_t) && l_flag) {
         _left_motor.step();
         l_t = 0;
+
+//        l_count++; // サンプリングレート
+//        if(l_count == 10){
+//            old_l_v = l_v;
+//            l_v = l_t / 500000000 / 10 ;    //50msを10回毎に取得している
+//            diff_l_v = l_v - old_l_v;
+//            l_count = 0;
+//        }
+
     } else {
         l_t++;
     }
@@ -109,6 +117,15 @@ void MotorManager::loop() {
     if((_r_speed < r_t) && r_flag) {
         _right_motor.step();
         r_t = 0;
+
+//        r_count++;//サンプリングレート
+//        if(r_count == 10){
+//            old_r_v = r_v;
+//            r_v = r_count / 50000000 / 10 ;
+//            diff_r_v = r_v - old_r_v;
+//            r_count = 0;
+//        }
+
     } else{
         r_t++;
     }
@@ -123,18 +140,21 @@ void MotorManager::kill() {
     run.detach();
 }
 
-
 void MotorManager::reset_counts() {
     _left_motor.reset_count();
     _right_motor.reset_count();
 }
 
 void MotorManager::motor_on() {
+    _left_motor.set_m3(false);
+    _right_motor.set_m3(false);
+}
+
+void MotorManager::motor_off() {
     _left_motor.set_m3(true);
     _right_motor.set_m3(true);
 }
 
-void MotorManager::motor_off() {
-    _left_motor.set_m3(false);
-    _right_motor.set_m3(false);
+int64_t MotorManager::counts() {
+    return (left_distance() + right_distance()) / 2;
 }

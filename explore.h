@@ -2,6 +2,8 @@
 #define NEWZUZUMOUSE_EXPLORE_H
 
 #include "new_zuzumouse.h"
+//class NewZuzumouse;
+
 
 class Explore {
     NewZuzumouse& mouse;
@@ -16,8 +18,6 @@ public:
     void center_left_hand();
 
     void metyakutya();
-
-//    void chusya();
 
 };
 

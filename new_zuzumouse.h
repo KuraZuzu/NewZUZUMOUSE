@@ -25,8 +25,7 @@ public:
     NewZuzumouse() :
             motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18),
             left_sensor(p17), front_sensor(p20), right_sensor(p16) {
-        //コンストラクタ
-        motor.init(); //レイジするよ！
+        motor.init(); //走る準備するよ！(初期値のフラグが0で割り込み開始)
     }
 
 
@@ -64,15 +63,6 @@ public:
         }
         stop();
     }
-
-
-//    void move_p(double _speed, double _distance){
-//        while(_distance > motor.left_distance()){
-//            motor.set_left_speed(_speed);
-//            motor.set_right_speed(_speed);
-//        }
-//        stop();
-//    }
 
 
 
@@ -135,7 +125,6 @@ public:
             motor.set_left_speed(_speed);
             motor.set_right_speed(_speed);
 
-
         } else if (left_sensor < WALL_TH && right_sensor < WALL_TH) {
             const int y_t = left_sensor - right_sensor;
             const int e_t = 0 - y_t;
@@ -180,9 +169,25 @@ public:
         //stop();
     }
 
+    void move_d(double _speed, double _distance, bool _mode) {
 
+        //mode 0 = 走り始め
+        //mode 1 = 走り終わり
 
-};  //class
+        double _lowest_speed = 1000;
+        double a = ((_speed - _lowest_speed) / _distance);  //傾き
 
+//        a = (_mode==0)?a:-a;
+        motor.reset_counts();
+
+        while (_distance > motor.counts()) {
+            double d_speed = (_mode==0)?a * motor.counts() + _lowest_speed:
+                      a * (_distance - motor.counts())+ _lowest_speed;
+            p_control(d_speed);
+        }
+        motor.reset_counts();
+
+    }
+};
 
 #endif //NEWZUZUMOUSE_NEW_ZUZUMOUSE_H

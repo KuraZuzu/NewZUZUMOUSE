@@ -33,7 +33,8 @@ set(SOURCE_FILE
         new_zuzumouse.h
         defines.h
         explore.cpp
-        explore.h)
+        explore.h
+        )
 
 
 

@@ -1,6 +1,5 @@
 #include "explore.h"
 
-
 void Explore::left_hand() {
 
     double _speed = 3000;
@@ -42,7 +41,7 @@ void Explore::left_hand() {
 
 void Explore::center_left_hand() {
 
-    double _speed = 3000;
+    double _speed = 4500;
     double _turn_speed = 3000;
     int wait_time = 300;
     mouse.move_p(_speed, START_BLOCK + HALF_BLOCK);
@@ -50,31 +49,32 @@ void Explore::center_left_hand() {
     while (true){
 
         if(mouse.is_opened_center_wall()){
-            mouse.move_p(_speed, ONE_BLOCK);
+                mouse.move_p(_speed, ONE_BLOCK);
 
         }else if(mouse.is_opened_left_wall()){
-            mouse.move_p(_speed, HALF_BLOCK);
+
+            mouse.move_d(_speed, HALF_BLOCK, 1);
             mouse.stop();
             wait_ms(wait_time);
             mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
             wait_ms(wait_time);
-            mouse.move_p(_speed, HALF_BLOCK);
+            mouse.move_d(_speed, HALF_BLOCK, 0);
 
         }else if(mouse.is_opened_right_wall()){
-            mouse.move_p(_speed, HALF_BLOCK);
+            mouse.move_d(_speed, HALF_BLOCK, 1);
             mouse.stop();
             wait_ms(wait_time);
             mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
             wait_ms(wait_time);
-            mouse.move_p(_speed, HALF_BLOCK);
+            mouse.move_d(_speed, HALF_BLOCK, 0);
 
         }else{
-            mouse.move_p(_speed, HALF_BLOCK);
+            mouse.move_d(_speed, HALF_BLOCK, 1);
             mouse.stop();
             wait_ms(wait_time);
             mouse.turn(_turn_speed, ZUZU::TURN_MACHINE);
             wait_ms(wait_time);
-            mouse.move_p(_speed, HALF_BLOCK);
+            mouse.move_d(_speed, HALF_BLOCK, 0);
 
         }
     }

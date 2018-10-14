@@ -1,5 +1,6 @@
-sensor.o: /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h \
-  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h \
+sensor.o: /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.cpp \
+  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.cpp \
+  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/platform.h \

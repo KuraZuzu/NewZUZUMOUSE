@@ -11,6 +11,7 @@ namespace ZUZU{
         LEFT_HAND_METHOD,
         TEST_MODE,
         CENTER_LEFT_METHOD,
+        D_MODE,
         CHUSYA
     };
 
