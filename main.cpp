@@ -74,8 +74,11 @@ int main() {
 
 
             case ZUZU::TEST_MODE:
+                wait(1);
                 myled1 = 1;
-                myled2 = 1;
+                motor.motor_on();
+                    me.move(700,ONE_BLOCK * 2.77);
+
 
 //                {
 //                    double turn_speed = 1000;

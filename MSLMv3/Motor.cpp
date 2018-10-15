@@ -69,7 +69,9 @@ void MotorManager::set_left_speed(double_t l_speed) {
         _left_motor.set_wise(true);
     }
 
-    _l_speed = 20000.0 / l_speed;
+//    _l_speed = 20000.0 / l_speed;
+//    _l_speed = 180 * 55 / /l_speed;  //180mm進んで欲しい時に55回、回ったらモータが起動してほしい
+    _l_speed = 24 * 88 / l_speed;  //タイヤ全周88mmで400パルス欲しい(立ち上がりと立ち下がり分)
 }
 
 void MotorManager::set_right_speed(double_t r_speed) {
@@ -82,7 +84,9 @@ void MotorManager::set_right_speed(double_t r_speed) {
         _right_motor.set_wise(true);
     }
 
-    _r_speed = 20000.0 / r_speed;
+//    _r_speed = 20000.0 / r_speed;
+//    _r_speed = 180 * 55 / r_speed;
+    _r_speed = 24 * 88 / r_speed;
 }
 
 

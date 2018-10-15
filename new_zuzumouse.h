@@ -174,7 +174,7 @@ public:
         //mode 0 = 走り始め
         //mode 1 = 走り終わり
 
-        double _lowest_speed = 1000;
+        double _lowest_speed = 250;
         double a = ((_speed - _lowest_speed) / _distance);  //傾き
 
 //        a = (_mode==0)?a:-a;

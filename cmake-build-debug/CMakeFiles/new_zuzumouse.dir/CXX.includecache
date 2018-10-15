@@ -556,23 +556,15 @@ mbed.h
 deftype.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/switch.h
-deftype.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
-
 /Users/zuzukun/CLionProjects/newzuzumouse/defines.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/explore.h
-new_zuzumouse.h
-/Users/zuzukun/CLionProjects/newzuzumouse/new_zuzumouse.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/main.cpp
-new_zuzumouse.h
-/Users/zuzukun/CLionProjects/newzuzumouse/new_zuzumouse.h
-MSLMv3/switch.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/switch.h
+/Users/zuzukun/CLionProjects/newzuzumouse/explore.cpp
 explore.h
 /Users/zuzukun/CLionProjects/newzuzumouse/explore.h
+
+/Users/zuzukun/CLionProjects/newzuzumouse/explore.h
+new_zuzumouse.h
+/Users/zuzukun/CLionProjects/newzuzumouse/new_zuzumouse.h
 
 /Users/zuzukun/CLionProjects/newzuzumouse/new_zuzumouse.h
 defines.h

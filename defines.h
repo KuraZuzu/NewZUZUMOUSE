@@ -37,5 +37,5 @@ namespace ZUZU{
 #define HALF_TURN (WIDTH * 3.141592 / 2 * MM_TO_PULSE)
 #define LEFT_TURN (WIDTH * 3.141592 / 4 * MM_TO_PULSE)
 #define RIGHT_TURN (WIDTH * 3.141592 / 4 * MM_TO_PULSE)
-#define KP 15.0  //15.0
+#define KP 0.5  //15.0
 #endif //NEWZUZUMOUSE_DEFINES_H

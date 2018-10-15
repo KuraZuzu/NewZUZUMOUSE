@@ -2,10 +2,10 @@
 
 void Explore::left_hand() {
 
-    double _speed = 3000;
-    double _turn_speed = 3000;
+    double _speed = 180;
+    double _turn_speed = 300;
     int wait_time = 300;
-    mouse.move_p(_speed, START_BLOCK + HALF_BLOCK);
+    mouse.move_p(250 , START_BLOCK + HALF_BLOCK);
 
     while (true){
         if(mouse.is_opened_left_wall()){
@@ -41,10 +41,10 @@ void Explore::left_hand() {
 
 void Explore::center_left_hand() {
 
-    double _speed = 4500;
-    double _turn_speed = 3000;
+    double _speed = 450;
+    double _turn_speed = 300;
     int wait_time = 300;
-    mouse.move_p(_speed, START_BLOCK + HALF_BLOCK);
+    mouse.move_p(250, START_BLOCK + HALF_BLOCK);
 
     while (true){
 
