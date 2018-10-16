@@ -77,7 +77,7 @@ int main() {
                 wait(1);
                 myled1 = 1;
                 motor.motor_on();
-                    me.move(700,ONE_BLOCK * 2.77);
+                    me.move(400, 400 * MM_TO_PULSE);
 
 
 //                {

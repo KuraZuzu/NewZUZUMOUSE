@@ -71,7 +71,10 @@ void MotorManager::set_left_speed(double_t l_speed) {
 
 //    _l_speed = 20000.0 / l_speed;
 //    _l_speed = 180 * 55 / /l_speed;  //180mm進んで欲しい時に55回、回ったらモータが起動してほしい
-    _l_speed = 24 * 88 / l_speed;  //タイヤ全周88mmで400パルス欲しい(立ち上がりと立ち下がり分)
+//    _l_speed = 24 * 88 / l_speed;  //タイヤ全周88mmで400パルス欲しい(立ち上がりと立ち下がり分) 50usの時
+//    _l_speed = 125 * 88 / l_speed; //10usの時
+    _l_speed = 50 * 88 / l_speed;
+
 }
 
 void MotorManager::set_right_speed(double_t r_speed) {
@@ -86,7 +89,10 @@ void MotorManager::set_right_speed(double_t r_speed) {
 
 //    _r_speed = 20000.0 / r_speed;
 //    _r_speed = 180 * 55 / r_speed;
-    _r_speed = 24 * 88 / r_speed;
+//    _r_speed = 25 * 88 / r_speed;  //25回　タイヤの全周88mm　1(結果2)パルスで1.8度　一周400パルス 50us
+//    _r_speed = 125 * 88 / r_speed;  //10us時
+    _r_speed = 50 * 88 / r_speed;
+
 }
 
 
@@ -101,7 +107,7 @@ int64_t MotorManager::right_distance() {
 
 void MotorManager::loop() {
 
-    if ((_l_speed < l_t) && l_flag) {
+    if ((_l_speed <= l_t) && l_flag) {
         _left_motor.step();
         l_t = 0;
 
@@ -118,7 +124,7 @@ void MotorManager::loop() {
     }
 
 
-    if((_r_speed < r_t) && r_flag) {
+    if((_r_speed <= r_t) && r_flag) {
         _right_motor.step();
         r_t = 0;
 

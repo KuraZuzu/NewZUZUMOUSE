@@ -75,12 +75,11 @@ public:
     void reset_counts();
 
     void loop();
-    void init(timestamp_t tick_speed=50);
+    void init(timestamp_t tick_speed=25);  //元は50us　次に10us
     void kill();
 
     void motor_on();
     void motor_off();
-
 
 };
 
