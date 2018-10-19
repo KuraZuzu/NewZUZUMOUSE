@@ -11,6 +11,7 @@
 
 class StepMotor{
 
+private:
     DigitalOut _clock;
     DigitalOut _m3;
     DigitalOut _wise;
@@ -49,15 +50,18 @@ class MotorManager{
     timestamp_t r_t{0};
     bool l_flag{false};
     bool r_flag{false};
-    int32_t old_l_v;
+    int32_t old_l_pulse;
+    int32_t old_r_pulse;
+    int32_t moved_l_pulse;
+    int32_t moved_r_pulse;
+    int32_t l_pulse;
+    int32_t r_pulse;
     int32_t l_v;
-    int32_t diff_l_v;
-    int32_t old_r_v;
     int32_t r_v;
-    int32_t diff_r_v;
-    int l_count = 0;
-    int r_count = 0;
+    int32_t moved_l_distance = 0;
+    int32_t moved_r_distance = 0;
 
+    int v_count;
 
 public:
 

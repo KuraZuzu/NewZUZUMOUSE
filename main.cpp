@@ -77,8 +77,18 @@ int main() {
                 wait(1);
                 myled1 = 1;
                 motor.motor_on();
-                    me.move(400, 400 * MM_TO_PULSE);
+                {
+                    for (int i = 100;; i += 20) {
+                        me.turn(i, ZUZU::LEFT_MACHINE);
+                        me.turn(i, ZUZU::LEFT_MACHINE);
+                        me.turn(i, ZUZU::LEFT_MACHINE);
+                        me.turn(i, ZUZU::LEFT_MACHINE);
 
+
+                    }
+
+                }
+                motor.motor_off();
 
 //                {
 //                    double turn_speed = 1000;

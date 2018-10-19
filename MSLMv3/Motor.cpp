@@ -69,7 +69,6 @@ void MotorManager::set_left_speed(double_t l_speed) {
         _left_motor.set_wise(true);
     }
 
-//    _l_speed = 20000.0 / l_speed;
 //    _l_speed = 180 * 55 / /l_speed;  //180mm進んで欲しい時に55回、回ったらモータが起動してほしい
 //    _l_speed = 24 * 88 / l_speed;  //タイヤ全周88mmで400パルス欲しい(立ち上がりと立ち下がり分) 50usの時
 //    _l_speed = 125 * 88 / l_speed; //10usの時
@@ -87,11 +86,9 @@ void MotorManager::set_right_speed(double_t r_speed) {
         _right_motor.set_wise(true);
     }
 
-//    _r_speed = 20000.0 / r_speed;
-//    _r_speed = 180 * 55 / r_speed;
 //    _r_speed = 25 * 88 / r_speed;  //25回　タイヤの全周88mm　1(結果2)パルスで1.8度　一周400パルス 50us
-//    _r_speed = 125 * 88 / r_speed;  //10us時
-    _r_speed = 50 * 88 / r_speed;
+//    _r_speed = 125 * 88 / r_speed;  //1 0us時
+    _r_speed = 50 * 88 / r_speed;   //計算結果の参考として、set_left_spped(180)とした時には 24となる
 
 }
 
@@ -108,16 +105,9 @@ int64_t MotorManager::right_distance() {
 void MotorManager::loop() {
 
     if ((_l_speed <= l_t) && l_flag) {
-        _left_motor.step();
+        _left_motor.step();   //一回通過で1パルス(立ち上がりor立ち下がりのみなので動いてない)
         l_t = 0;
-
-//        l_count++; // サンプリングレート
-//        if(l_count == 10){
-//            old_l_v = l_v;
-//            l_v = l_t / 500000000 / 10 ;    //50msを10回毎に取得している
-//            diff_l_v = l_v - old_l_v;
-//            l_count = 0;
-//        }
+        l_pulse++;
 
     } else {
         l_t++;
@@ -127,17 +117,33 @@ void MotorManager::loop() {
     if((_r_speed <= r_t) && r_flag) {
         _right_motor.step();
         r_t = 0;
-
-//        r_count++;//サンプリングレート
-//        if(r_count == 10){
-//            old_r_v = r_v;
-//            r_v = r_count / 50000000 / 10 ;
-//            diff_r_v = r_v - old_r_v;
-//            r_count = 0;
-//        }
+        r_pulse++;
 
     } else{
         r_t++;
+    }
+
+
+    v_count++;  //サンプリングレートのためのカウント
+
+
+    if (v_count == 100000) {  // 10us * 100000 = 100000us のサンプリングレートとなる (0.1s となる)
+
+        moved_l_pulse = l_pulse - old_l_pulse;  //100000us1ごとに、どれくらいのパルスが入ったか
+        moved_r_pulse = r_pulse - old_r_pulse;
+
+        old_l_pulse = l_pulse;
+        old_r_pulse = r_pulse;
+
+        //タイヤのスペックは、直径28.0mm、モーターが1セットのパルス(2pulse)で1.8度回転
+
+        l_v = (moved_l_pulse / 2) * 28 * 3.14159265 / 200 * 100000;  //200は,(360/1.8)であり、モーター2パルスの1回転に対する割合
+        r_v = (moved_r_pulse / 2) * 28 * 3.14159265 / 200 * 100000;  //これで、100000us = 0.1s毎に、その時の mm/s が分かる
+
+        moved_l_distance += l_v / 10;
+        moved_r_distance += r_v /10;   //0.1s毎に進んだ距離を足している
+
+        v_count = 0;
     }
 
 }

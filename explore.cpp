@@ -41,8 +41,8 @@ void Explore::left_hand() {
 
 void Explore::center_left_hand() {
 
-    double _speed = 750;
-    double _turn_speed = 300;
+    double _speed = 800;
+    double _turn_speed = 400;
     int wait_time = 300;
     mouse.move_p(250, START_BLOCK + HALF_BLOCK);
 
