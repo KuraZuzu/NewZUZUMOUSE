@@ -135,14 +135,14 @@ void MotorManager::loop() {
 
         //タイヤのスペックは、直径28.0mm、モーターが1セットのパルス(2pulse)で1.8度回転
 
-        l_v = (moved_l_pulse) * 28 * 3.14159265 / 200 / 2 * 10 / 1.9;  //　"/ 200"は,(360/1.8)であり、モーター2パルスの1回転に対する割合が "/ 2"
-        r_v = (moved_r_pulse) * 28 * 3.14159265 / 200 / 2 * 10 / 1.9;  //　これだと 0.1 * mm/s なので最後に10をかける.これで、100000us = 0.1s毎に、その時の mm/s が分かる
+        l_v = (moved_l_pulse) * 28 * 3.14159265 / 400 / 2 * 10 * 180 / 169;   //　"/ 400"は,(360/0.9)であり、モーター2パルスの1回転に対する割合が "/ 2"  (0.9 or 1.8  ?)
+        r_v = (moved_r_pulse) * 28 * 3.14159265 / 400 / 2 * 10 * 180 / 169;   //　これだと 0.1 * mm/s なので最後に10をかける.これで、100000us = 0.1s毎に、その時の mm/s が分かる
+                                                                                // 誤算を埋めるための (180 / 169)　の乗算
 
         moved_l_distance += l_v / 10;    //ここの処理に入るのが0.1s毎なので
         moved_r_distance += r_v / 10;    //1(s)/10　で0.1s毎に進んだ距離を足している
 
-        //atan2(l_v / 10 - r_v / 10, 77.7);   //WIDTH 77.7
-        //オドメトリのための角度計算で用いる
+        delta_rad = atan2(l_v / 10 - r_v / 10, 77.7);   //WIDTH 77.7  //オドメトリのための角度計算で用いる
 
         //printf("l_v:%d  r_v:%d   距離l:%d  距離r:%d  \n\r", l_v, r_v, moved_l_distance, moved_r_distance);
         //printfは処理が重すぎてモーターが止まる.
@@ -156,25 +156,18 @@ void MotorManager::loop() {
         wathc_v[1][watch_count] = r_v;
         wathc_v[2][watch_count] = moved_l_distance;
         wathc_v[3][watch_count] = moved_r_distance;
+        wathc_v[4][watch_count] = delta_rad;
 
         watch_count = (watch_count<99)?watch_count+1:watch_count;
-
-//        printf("%d \r\n",watch_count);
-//        watch_count++;
-
-//        disp_l_v();
-//        disp_r_v();
-//        disp_moved_l_pulse();
-//        disp_moved_r_pulse();
 
         v_count = 0;
     }
 
 }
 
-//int32_t MotorManager::disp_watch_count() {
-//    return watch_count;
-//}
+int32_t MotorManager::disp_delta_rad() {
+    return delta_rad;
+}
 
 int32_t MotorManager::disp_l_v() {
     return wathc_v[0][watch_count];

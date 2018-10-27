@@ -27,22 +27,19 @@ public:
             left_sensor(p17), front_sensor(p20), right_sensor(p16) {
 
         motor.init(); //走る準備するよ！(初期値のフラグが0で割り込み開始)
-        motor.disp_l_v();
-        motor.disp_r_v();
-        motor.disp_moved_l_pulse();
-        motor.disp_moved_r_pulse();
-//        motor.disp_watch_count();
+
     }
 
 
     inline void disp_odometry(){
-        for(int i = 70; i < 100; i++){
-            printf("l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d  %d\n\r",
-                   motor.wathc_v[0][i],
-                   motor.wathc_v[1][i],
-                   motor.wathc_v[2][i],
-                   motor.wathc_v[3][i],
-                   i
+        for(int i = motor.delta_rad; i < 100; i++){
+            printf("Time:%d s^(-10)  l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d  delta_rad%d\n\r",
+                    i,
+                    motor.wathc_v[0][i],
+                    motor.wathc_v[1][i],
+                    motor.wathc_v[2][i],
+                    motor.wathc_v[3][i],
+                    motor.wathc_v[4][i]
             );
         }
     }
@@ -79,6 +76,14 @@ public:
         while (_distance > motor.left_distance()) {
             motor.set_left_speed(_speed);
             motor.set_right_speed(_speed);
+        }
+        stop();
+    }
+
+    void test_move(double l_speed, double r_speed, double _distance) {
+        while (_distance > motor.left_distance()) {
+            motor.set_left_speed(l_speed);
+            motor.set_right_speed(r_speed);
         }
         stop();
     }

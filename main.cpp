@@ -81,6 +81,11 @@ int main() {
                 motor.motor_on();
                 motor.watch_count = 0;
                 me.move(180, ONE_BLOCK*5);
+//                me.turn(180, ZUZU::TURN_MACHINE);
+//                me.test_move(100, 200, ONE_BLOCK * 2);
+
+                me.stop();
+
                 motor.motor_off();
 
                 me.disp_odometry();

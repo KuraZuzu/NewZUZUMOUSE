@@ -65,9 +65,10 @@ public:
     int32_t r_v;
     int32_t moved_l_distance = 0;
     int32_t moved_r_distance = 0;
+    int32_t delta_rad;
 
-    int wathc_v[4][100];
-    int watch_count;
+    int wathc_v[5][100];
+    unsigned int watch_count;
     Vector<int> l_v_log;
 
     int v_count;
@@ -84,8 +85,8 @@ public:
     int32_t disp_r_v();
     int32_t disp_moved_l_pulse();
     int32_t disp_moved_r_pulse();
-//    int32_t disp_watch_count();
-
+    unsigned int disp_watch_count();
+    int32_t disp_delta_rad();
 
     int64_t  counts();
 
