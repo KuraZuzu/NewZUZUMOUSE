@@ -81,6 +81,7 @@ MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj
  ../mbed/wait_api.h
  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.cpp
  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h
+ /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h
 MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj
  ../mbed/AnalogIn.h
  ../mbed/AnalogOut.h
@@ -162,3 +163,6 @@ MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj
  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.cpp
  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h
+MSLMv3/CMakeFiles/MSLM.dir/vector.cpp.obj
+ /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.cpp
+ /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h

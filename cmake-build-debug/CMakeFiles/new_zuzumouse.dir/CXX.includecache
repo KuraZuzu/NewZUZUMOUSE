@@ -547,6 +547,8 @@ ticker_api.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h
 mbed.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/mbed.h
+vector.h
+/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h
 
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
 mbed.h
@@ -559,6 +561,8 @@ deftype.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/switch.h
 deftype.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
+
+/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h
 
 /Users/zuzukun/CLionProjects/newzuzumouse/defines.h
 

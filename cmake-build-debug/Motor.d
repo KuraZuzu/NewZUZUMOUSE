@@ -1,4 +1,7 @@
-Motor.o: /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
+Motor.o: \
+  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-079c94.pch \
+  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h \
+  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/wait_api.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/gpio_irq_api.h \
@@ -90,6 +93,5 @@ Motor.o: /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768/device.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/platform.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed.h \
-  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h \
-  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.cpp \
-  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.cpp
+  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h \
+  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h

@@ -88,6 +88,12 @@
 		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/switch.h">
 			<Option target="MSLM"/>
 		</Unit>
+		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.cpp">
+			<Option target="MSLM"/>
+		</Unit>
+		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h">
+			<Option target="MSLM"/>
+		</Unit>
 		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

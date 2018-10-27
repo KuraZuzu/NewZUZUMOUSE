@@ -6,10 +6,12 @@
 
 
 class Explore {
+
+private:
     NewZuzumouse& mouse;
 
 public:
-    Explore(NewZuzumouse& _mouse):mouse(_mouse){
+    Explore(NewZuzumouse& _mouse):mouse(_mouse){  //コンストラクタ
 
     }
 

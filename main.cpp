@@ -2,7 +2,6 @@
 #include "MSLMv3/switch.h"
 #include "explore.h"
 
-
 DigitalOut myled1(LED1);
 DigitalOut myled2(LED2);
 DigitalOut myled3(LED3);
@@ -22,11 +21,13 @@ int main() {
 
     myled1.write(1);
     wait(1);
+
 //    me.move(1000, 1000);
+
 
     ZUZU::MODE mode = ZUZU::COMMAND_MODE;
     uint8_t mode_i = 0;
-    while (true){
+    while (true) {
 
 //        test.metyakutya();
 //        printf("\n\r\n");
@@ -35,10 +36,10 @@ int main() {
         switch (mode) {
             case ZUZU::COMMAND_MODE:
                 if (select_sw3.update())
-                    mode = (ZUZU::MODE)mode_i;
-                else if(plus_sw4.update())
+                    mode = (ZUZU::MODE) mode_i;
+                else if (plus_sw4.update())
                     ++mode_i;
-                else if(minus_sw5.update())
+                else if (minus_sw5.update())
                     --mode_i;
 
                 led = mode_i;
@@ -76,34 +77,55 @@ int main() {
             case ZUZU::TEST_MODE:
                 wait(1);
                 myled1 = 1;
+//                motor.l_v_log.push_back(123);
                 motor.motor_on();
-                {
-                    for (int i = 100;; i += 20) {
-                        me.turn(i, ZUZU::LEFT_MACHINE);
-                        me.turn(i, ZUZU::LEFT_MACHINE);
-                        me.turn(i, ZUZU::LEFT_MACHINE);
-                        me.turn(i, ZUZU::LEFT_MACHINE);
-
-
-                    }
-
-                }
+                motor.watch_count = 0;
+                me.move(180, ONE_BLOCK*5);
                 motor.motor_off();
 
-//                {
-//                    double turn_speed = 1000;
-//                    wait(2);
-//                    me.turn(turn_speed, ZUZU::RIGHT_MACHINE);
-//
+                me.disp_odometry();
+
+
+//                for(int i = 0; i < 100; i++) {
+//                    printf("l_v:%d  r_v:%d  moved_l_distance:%d   moved_r_distance:%d  count:%d \n\r",
+//                            motor.disp_l_v(),
+//                            motor.disp_r_v(),
+//                            motor.disp_moved_l_pulse(),
+//                            motor.disp_moved_r_pulse(),
+//                            i
+//                    );
 //                }
 
-                pc.printf("\r\b\r");
-                printf("%d %d %d diff=%d\n\r",
-                       me.get_left_wall_distance(),
-                       me.get_front_wall_distance(),
-                       me.get_right_wall_distance(),
-                       me.get_left_wall_distance()-me.get_right_wall_distance()
-                       );
+//
+//                printf("log_size = %d \r\n",motor.l_v_log.size());
+//                for(int i = 0; i < motor.l_v_log.size(); i++) {
+//                    printf("l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d %d\n\r",
+//                           motor.l_v_log.at(i),
+//                           motor.wathc_v[1][i],
+//                           motor.wathc_v[2][i],
+//                           motor.wathc_v[3][i],
+//                           motor.watch_count
+//                    );
+//                }
+
+//                for (int i = 0; i < 100; i++) {
+//                    printf("l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d  %d\n\r",
+//                           motor.wathc_v[0][i],
+//                           motor.wathc_v[1][i],
+//                           motor.wathc_v[2][i],
+//                           motor.wathc_v[3][i],
+//                           motor.watch_count
+//                    );
+//                }
+
+
+//                pc.printf("\r\b\r");
+//                printf("%d %d %d diff=%d\n\r",
+//                       me.get_left_wall_distance(),
+//                       me.get_front_wall_distance(),
+//                       me.get_right_wall_distance(),
+//                       me.get_left_wall_distance()-me.get_right_wall_distance()
+//                       );
 
                 mode = ZUZU::COMMAND_MODE;
                 break;
@@ -116,7 +138,7 @@ int main() {
 //                me.move(3000, ONE_BLOCK);
                 me.stop();
                 wait(10);
-                me.move_d(1000,HALF_BLOCK,1);
+                me.move_d(1000, HALF_BLOCK, 1);
                 me.stop();
                 wait(1);
                 motor.motor_off();
@@ -126,12 +148,9 @@ int main() {
 
             default:
                 break;
-
         }
-
     }
 
 }
-
 
 

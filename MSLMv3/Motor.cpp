@@ -12,7 +12,6 @@ _clock(clock, false), _m3(m3, true), _wise(wise, default_wise), _reset(reset, fa
 
 
 
-
 void StepMotor::step(){
     _clock = !_clock;
     pulse_counter();
@@ -51,9 +50,10 @@ void StepMotor::reset_count() {
 }
 
 MotorManager::MotorManager(StepMotor left, StepMotor right, PinName refout) :
-        _left_motor(left), _right_motor(right), RefOut(refout) {
+        _left_motor(left), _right_motor(right), RefOut(refout), watch_count(0),l_v_log(){
 
-    RefOut.write(static_cast<float>(0.07 / 3.3));
+//    watch_count = 0;
+    RefOut.write(static_cast<float>(0.08 / 3.3));
     l_flag = false;
     r_flag = false;
 }
@@ -89,7 +89,6 @@ void MotorManager::set_right_speed(double_t r_speed) {
 //    _r_speed = 25 * 88 / r_speed;  //25回　タイヤの全周88mm　1(結果2)パルスで1.8度　一周400パルス 50us
 //    _r_speed = 125 * 88 / r_speed;  //1 0us時
     _r_speed = 50 * 88 / r_speed;   //計算結果の参考として、set_left_spped(180)とした時には 24となる
-
 }
 
 
@@ -126,8 +125,7 @@ void MotorManager::loop() {
 
     v_count++;  //サンプリングレートのためのカウント
 
-
-    if (v_count == 100000) {  // 10us * 100000 = 100000us のサンプリングレートとなる (0.1s となる)
+    if (v_count == 4000) {  // 25us * 4000 = 100000us のサンプリングレートとなる (0.1s となる)
 
         moved_l_pulse = l_pulse - old_l_pulse;  //100000us1ごとに、どれくらいのパルスが入ったか
         moved_r_pulse = r_pulse - old_r_pulse;
@@ -137,15 +135,61 @@ void MotorManager::loop() {
 
         //タイヤのスペックは、直径28.0mm、モーターが1セットのパルス(2pulse)で1.8度回転
 
-        l_v = (moved_l_pulse / 2) * 28 * 3.14159265 / 200 * 100000;  //200は,(360/1.8)であり、モーター2パルスの1回転に対する割合
-        r_v = (moved_r_pulse / 2) * 28 * 3.14159265 / 200 * 100000;  //これで、100000us = 0.1s毎に、その時の mm/s が分かる
+        l_v = (moved_l_pulse) * 28 * 3.14159265 / 200 / 2 * 10 / 1.9;  //　"/ 200"は,(360/1.8)であり、モーター2パルスの1回転に対する割合が "/ 2"
+        r_v = (moved_r_pulse) * 28 * 3.14159265 / 200 / 2 * 10 / 1.9;  //　これだと 0.1 * mm/s なので最後に10をかける.これで、100000us = 0.1s毎に、その時の mm/s が分かる
 
-        moved_l_distance += l_v / 10;
-        moved_r_distance += r_v /10;   //0.1s毎に進んだ距離を足している
+        moved_l_distance += l_v / 10;    //ここの処理に入るのが0.1s毎なので
+        moved_r_distance += r_v / 10;    //1(s)/10　で0.1s毎に進んだ距離を足している
+
+        //atan2(l_v / 10 - r_v / 10, 77.7);   //WIDTH 77.7
+        //オドメトリのための角度計算で用いる
+
+        //printf("l_v:%d  r_v:%d   距離l:%d  距離r:%d  \n\r", l_v, r_v, moved_l_distance, moved_r_distance);
+        //printfは処理が重すぎてモーターが止まる.
+
+//        if(watch_count < 50) {
+//            printf("%d \r\n", l_v_log.size()/);
+//            l_v_log.push_back(l_v);
+//        }
+
+        wathc_v[0][watch_count] = l_v;
+        wathc_v[1][watch_count] = r_v;
+        wathc_v[2][watch_count] = moved_l_distance;
+        wathc_v[3][watch_count] = moved_r_distance;
+
+        watch_count = (watch_count<99)?watch_count+1:watch_count;
+
+//        printf("%d \r\n",watch_count);
+//        watch_count++;
+
+//        disp_l_v();
+//        disp_r_v();
+//        disp_moved_l_pulse();
+//        disp_moved_r_pulse();
 
         v_count = 0;
     }
 
+}
+
+//int32_t MotorManager::disp_watch_count() {
+//    return watch_count;
+//}
+
+int32_t MotorManager::disp_l_v() {
+    return wathc_v[0][watch_count];
+}
+
+int32_t MotorManager::disp_r_v() {
+    return wathc_v[1][watch_count];
+}
+
+int32_t MotorManager::disp_moved_l_pulse() {
+    return wathc_v[2][watch_count];
+}
+
+int32_t MotorManager::disp_moved_r_pulse() {
+    return wathc_v[3][watch_count];
 }
 
 void MotorManager::init(timestamp_t tick_speed) {

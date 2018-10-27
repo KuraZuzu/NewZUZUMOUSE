@@ -14,6 +14,7 @@ class DistanceSensor{
         }
 };
 
+
 class gp2y_i2c{
     private:
         I2C i2c;

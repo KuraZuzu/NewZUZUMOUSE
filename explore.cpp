@@ -8,6 +8,7 @@ void Explore::left_hand() {
     mouse.move_p(250 , START_BLOCK + HALF_BLOCK);
 
     while (true){
+
         if(mouse.is_opened_left_wall()){
             mouse.move_p(_speed, HALF_BLOCK);
             mouse.stop();
@@ -41,8 +42,8 @@ void Explore::left_hand() {
 
 void Explore::center_left_hand() {
 
-    double _speed = 800;
-    double _turn_speed = 400;
+    double _speed = 450;
+    double _turn_speed = 250;
     int wait_time = 300;
     mouse.move_p(250, START_BLOCK + HALF_BLOCK);
 

@@ -2,6 +2,7 @@ main.o: /Users/zuzukun/CLionProjects/newzuzumouse/explore.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/switch.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h \
+  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \

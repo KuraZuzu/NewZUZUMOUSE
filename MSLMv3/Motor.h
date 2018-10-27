@@ -8,6 +8,7 @@
 #define NEWZUZUMOUSE_MOTOR_H
 
 #include "mbed.h"
+#include "vector.h"
 
 class StepMotor{
 
@@ -38,6 +39,7 @@ public:
 };
 
 
+
 class MotorManager{
 
     AnalogOut RefOut;
@@ -50,6 +52,9 @@ class MotorManager{
     timestamp_t r_t{0};
     bool l_flag{false};
     bool r_flag{false};
+
+public:
+
     int32_t old_l_pulse;
     int32_t old_r_pulse;
     int32_t moved_l_pulse;
@@ -61,6 +66,10 @@ class MotorManager{
     int32_t moved_l_distance = 0;
     int32_t moved_r_distance = 0;
 
+    int wathc_v[4][100];
+    int watch_count;
+    Vector<int> l_v_log;
+
     int v_count;
 
 public:
@@ -71,6 +80,13 @@ public:
 
     void set_right_speed(double_t r_speed);
 
+    int32_t disp_l_v();
+    int32_t disp_r_v();
+    int32_t disp_moved_l_pulse();
+    int32_t disp_moved_r_pulse();
+//    int32_t disp_watch_count();
+
+
     int64_t  counts();
 
     int64_t left_distance();
@@ -79,7 +95,7 @@ public:
     void reset_counts();
 
     void loop();
-    void init(timestamp_t tick_speed=25);  //元は50us　次に10us
+    void init(timestamp_t tick_speed=25);  //元は50us　次に10us(10usは早すぎて無理だった)
     void kill();
 
     void motor_on();

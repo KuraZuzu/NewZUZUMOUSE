@@ -25,7 +25,26 @@ public:
     NewZuzumouse() :
             motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18),
             left_sensor(p17), front_sensor(p20), right_sensor(p16) {
+
         motor.init(); //走る準備するよ！(初期値のフラグが0で割り込み開始)
+        motor.disp_l_v();
+        motor.disp_r_v();
+        motor.disp_moved_l_pulse();
+        motor.disp_moved_r_pulse();
+//        motor.disp_watch_count();
+    }
+
+
+    inline void disp_odometry(){
+        for(int i = 70; i < 100; i++){
+            printf("l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d  %d\n\r",
+                   motor.wathc_v[0][i],
+                   motor.wathc_v[1][i],
+                   motor.wathc_v[2][i],
+                   motor.wathc_v[3][i],
+                   i
+            );
+        }
     }
 
 

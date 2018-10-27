@@ -80,6 +80,7 @@ MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj: ../mbed/us_ticker_api.h
 MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj: ../mbed/wait_api.h
 MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj: ../MSLMv3/Motor.cpp
 MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj: ../MSLMv3/Motor.h
+MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj: ../MSLMv3/vector.h
 
 MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj: ../mbed/AnalogIn.h
 MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj: ../mbed/AnalogOut.h
@@ -161,4 +162,7 @@ MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj: ../mbed/wait_api.h
 MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj: ../MSLMv3/deftype.h
 MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj: ../MSLMv3/sensor.cpp
 MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj: ../MSLMv3/sensor.h
+
+MSLMv3/CMakeFiles/MSLM.dir/vector.cpp.obj: ../MSLMv3/vector.cpp
+MSLMv3/CMakeFiles/MSLM.dir/vector.cpp.obj: ../MSLMv3/vector.h
 
