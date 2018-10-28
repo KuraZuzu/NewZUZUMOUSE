@@ -66,9 +66,10 @@ public:
     int32_t moved_l_distance = 0;
     int32_t moved_r_distance = 0;
     float delta_rad;
-
+    float total_delta_rad;
     int wathc_v[4][100];
     float watch_rad[100];
+    float watch_total_rad[100];
     unsigned int watch_count;
     Vector<int> l_v_log;
 
