@@ -80,9 +80,9 @@ int main() {
 //                motor.l_v_log.push_back(123);
                 motor.motor_on();
                 motor.watch_count = 0;
-                me.move(180, ONE_BLOCK*5);
+//                me.move(180, ONE_BLOCK*5);
 //                me.turn(180, ZUZU::TURN_MACHINE);
-//                me.test_move(100, 200, ONE_BLOCK * 2);
+                me.test_move(100, 200, ONE_BLOCK * 2);
 
                 me.stop();
 

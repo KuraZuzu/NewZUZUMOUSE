@@ -32,14 +32,14 @@ public:
 
 
     inline void disp_odometry(){
-        for(int i = motor.delta_rad; i < 100; i++){
-            printf("Time:%d s^(-10)  l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d  delta_rad%d\n\r",
+        for(int i = 1; i < 100; i++){
+            printf("Time:%d s^(-10)  l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance:%d  delta_rad:%lf\n\r",
                     i,
                     motor.wathc_v[0][i],
                     motor.wathc_v[1][i],
                     motor.wathc_v[2][i],
                     motor.wathc_v[3][i],
-                    motor.wathc_v[4][i]
+                    motor.watch_rad[i]
             );
         }
     }

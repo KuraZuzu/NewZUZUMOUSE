@@ -142,7 +142,7 @@ void MotorManager::loop() {
         moved_l_distance += l_v / 10;    //ここの処理に入るのが0.1s毎なので
         moved_r_distance += r_v / 10;    //1(s)/10　で0.1s毎に進んだ距離を足している
 
-        delta_rad = atan2(l_v / 10 - r_v / 10, 77.7);   //WIDTH 77.7  //オドメトリのための角度計算で用いる
+        delta_rad = atan2((l_v / 10) - (r_v / 10), 77.7);   //WIDTH 77.7  //オドメトリのための角度計算で用いる
 
         //printf("l_v:%d  r_v:%d   距離l:%d  距離r:%d  \n\r", l_v, r_v, moved_l_distance, moved_r_distance);
         //printfは処理が重すぎてモーターが止まる.
@@ -156,7 +156,7 @@ void MotorManager::loop() {
         wathc_v[1][watch_count] = r_v;
         wathc_v[2][watch_count] = moved_l_distance;
         wathc_v[3][watch_count] = moved_r_distance;
-        wathc_v[4][watch_count] = delta_rad;
+        watch_rad[watch_count] = delta_rad;
 
         watch_count = (watch_count<99)?watch_count+1:watch_count;
 
@@ -165,7 +165,7 @@ void MotorManager::loop() {
 
 }
 
-int32_t MotorManager::disp_delta_rad() {
+float MotorManager::disp_delta_rad() {
     return delta_rad;
 }
 
