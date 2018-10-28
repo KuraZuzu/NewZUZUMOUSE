@@ -1,5 +1,5 @@
 new_zuzumouse.o: \
-  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-6f1946.pch \
+  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-2c90eb.pch \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h \

@@ -50,10 +50,11 @@ void StepMotor::reset_count() {
 }
 
 MotorManager::MotorManager(StepMotor left, StepMotor right, PinName refout) :
-        _left_motor(left), _right_motor(right), RefOut(refout), watch_count(0),l_v_log(){
+        _left_motor(left), _right_motor(right), RefOut(refout), l_v_log(){
 
-//    watch_count = 0;
-    RefOut.write(static_cast<float>(0.08 / 3.3));
+    v_count = 0;
+    watch_count = 0;
+    RefOut.write(static_cast<float>(0.06 / 3.3));
     l_flag = false;
     r_flag = false;
 }
@@ -103,6 +104,9 @@ int64_t MotorManager::right_distance() {
 
 void MotorManager::loop() {
 
+//    if (v_count == 0)
+//        watch_count = 0;
+
     if ((_l_speed <= l_t) && l_flag) {
         _left_motor.step();   //一回通過で1パルス(立ち上がりor立ち下がりのみなので動いてない)
         l_t = 0;
@@ -113,7 +117,7 @@ void MotorManager::loop() {
     }
 
 
-    if((_r_speed <= r_t) && r_flag) {
+    if ((_r_speed <= r_t) && r_flag) {
         _right_motor.step();
         r_t = 0;
         r_pulse++;

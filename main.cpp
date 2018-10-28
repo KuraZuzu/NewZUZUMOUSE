@@ -79,10 +79,9 @@ int main() {
                 myled1 = 1;
 //                motor.l_v_log.push_back(123);
                 motor.motor_on();
-                motor.watch_count = 0;
 //                me.move(180, ONE_BLOCK*5);
 //                me.turn(180, ZUZU::TURN_MACHINE);
-                me.test_move(100, 200, ONE_BLOCK);
+                me.test_move(100, 200, ONE_BLOCK / 3);
 
                 me.stop();
 
@@ -91,31 +90,11 @@ int main() {
                 me.disp_odometry();
 
 
-//                for(int i = 0; i < 100; i++) {
-//                    printf("l_v:%d  r_v:%d  moved_l_distance:%d   moved_r_distance:%d  count:%d \n\r",
-//                            motor.disp_l_v(),
-//                            motor.disp_r_v(),
-//                            motor.disp_moved_l_pulse(),
-//                            motor.disp_moved_r_pulse(),
-//                            i
-//                    );
-//                }
-
 //
 //                printf("log_size = %d \r\n",motor.l_v_log.size());
 //                for(int i = 0; i < motor.l_v_log.size(); i++) {
 //                    printf("l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d %d\n\r",
 //                           motor.l_v_log.at(i),
-//                           motor.wathc_v[1][i],
-//                           motor.wathc_v[2][i],
-//                           motor.wathc_v[3][i],
-//                           motor.watch_count
-//                    );
-//                }
-
-//                for (int i = 0; i < 100; i++) {
-//                    printf("l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d  %d\n\r",
-//                           motor.wathc_v[0][i],
 //                           motor.wathc_v[1][i],
 //                           motor.wathc_v[2][i],
 //                           motor.wathc_v[3][i],

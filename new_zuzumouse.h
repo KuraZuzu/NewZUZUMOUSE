@@ -32,8 +32,8 @@ public:
 
 
     inline void disp_odometry(){
-        for(int i = 1; i < 100; i++){
-            printf("Time:%d s^(-10)  左輪速度:%d  右輪速度:%d  左輪距離:%d  右輪距離:%d  変角:%lf, 総合変角:%lf  \n\r",
+        for(int i = 0; i < 20; i++){
+            printf("%d00[ms]  左速度:%d[m/s]  右輪速度:%d[m/s]  左距離:%d[mm]  右距離:%d[mm]  変角:%.2f[rad], 総変角:%.2f[rad]  \n\r",
                     i,
                     motor.wathc_v[0][i],
                     motor.wathc_v[1][i],
@@ -82,6 +82,7 @@ public:
     }
 
     void test_move(double l_speed, double r_speed, double _distance) {
+//        motor.watch_count = 0;
         while (_distance > motor.left_distance()) {
             motor.set_left_speed(l_speed);
             motor.set_right_speed(r_speed);
