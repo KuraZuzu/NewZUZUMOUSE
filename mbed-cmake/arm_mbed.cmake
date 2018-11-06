@@ -24,6 +24,7 @@ add_custom_target(sercon
         command screen ${SERCON} 9600
         )
 
+
 # ------------------------------------------------------------------------------
 # setup processor settings add aditional boards here
 #  LPC1768, LPC11U24, NRF51822, K64F

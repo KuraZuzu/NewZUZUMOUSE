@@ -146,9 +146,16 @@ void MotorManager::loop() {
         moved_l_distance += l_v / 10;    //ここの処理に入るのが0.1s毎なので
         moved_r_distance += r_v / 10;    //1(s)/10　で0.1s毎に進んだ距離を足している
 
-        delta_rad = atan2((l_v / 10) - (r_v / 10), 77.7);   //WIDTH 77.7  //オドメトリのための角度計算で用いる
 
+        delta_rad = atan2((l_v / 10) - (r_v / 10), 77.7); //WIDTH 77.7  //オドメトリのための角度計算で用いる
         total_delta_rad += delta_rad;
+
+
+        //l_v : r_v を利用して円運動全体の半径を導き出せる -> moved_machine_distance
+//        distance_R = 77.7 * r_v / (l_v - r_v) + (77.7 / 2);  //曲がる時の角度を調整する円の直径(マシンの中心から円の中心までの距離)
+//        moved_x_distance = 2;
+//        moved_y_distance = 2;
+
 
         //printf("l_v:%d  r_v:%d   距離l:%d  距離r:%d  \n\r", l_v, r_v, moved_l_distance, moved_r_distance);
         //printfは処理が重すぎてモーターが止まる.
@@ -162,6 +169,7 @@ void MotorManager::loop() {
         wathc_v[1][watch_count] = r_v;
         wathc_v[2][watch_count] = moved_l_distance;
         wathc_v[3][watch_count] = moved_r_distance;
+        wathc_v[4][watch_count] = (l_v + r_v) / 2;
         watch_rad[watch_count] = delta_rad;
         watch_total_rad[watch_count] = total_delta_rad;
 

@@ -65,9 +65,12 @@ public:
     int32_t r_v;
     int32_t moved_l_distance = 0;
     int32_t moved_r_distance = 0;
+    int32_t moved_x_distance = 0;
+    int32_t moved_y_distance = 0;
+    int32_t distance_R;
     float delta_rad;
     float total_delta_rad;
-    int wathc_v[4][100];
+    int wathc_v[5][100];
     float watch_rad[100];
     float watch_total_rad[100];
     unsigned int watch_count;
@@ -86,7 +89,6 @@ public:
     int32_t disp_r_v();
     int32_t disp_moved_l_pulse();
     int32_t disp_moved_r_pulse();
-
     float disp_delta_rad();
     unsigned int disp_watch_count();
 

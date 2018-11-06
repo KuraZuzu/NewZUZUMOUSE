@@ -19,6 +19,8 @@ public:
 
     void center_left_hand();
 
+    void test_center_left_hand();
+
     void metyakutya();
 
 };

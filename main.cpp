@@ -67,9 +67,15 @@ int main() {
 
                 break;
 
-            case ZUZU::CHUSYA:
+
+            case ZUZU::TEST_CENTER_LEFT_METHOD:
                 myled3 = 0;
+                myled4 = 0;
                 wait(1);
+                motor.motor_on();
+                test.test_center_left_hand();
+                motor.motor_off();
+                mode = ZUZU::COMMAND_MODE;
 
                 break;
 
