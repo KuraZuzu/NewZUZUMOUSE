@@ -170,6 +170,8 @@ void MotorManager::loop() {
 
 //        odometry_watch_count = (odometry_watch_count<99)?odometry_watch_count+1:odometry_watch_count;
 
+
+        //ここの条件分岐がおかしいよー
         if (pi * 1/4 >= moved_rad && moved_rad < pi * 3/4)
             current_machine_direction = 0;  //北
 

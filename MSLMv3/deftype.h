@@ -14,6 +14,11 @@
 #define SOUTH           0x02
 #define WEST			0x01
 
+#define NORTH_MASK 8 //0b 0000 1000
+#define EAST_MASK 4  //0b 0000 0100
+#define SOUTH_MASK 2 //0b 0000 0010
+#define WEST_MASK 1  //0b 0000 0001
+
 //Base Define
 #define HIGH            true
 #define LOW             false

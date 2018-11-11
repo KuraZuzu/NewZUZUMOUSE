@@ -96,11 +96,25 @@ MSLMv3/CMakeFiles/MSLM.dir/vector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MSLM.dir/vector.cpp.s"
 	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/MSLMv3 && /usr/local/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.cpp -o CMakeFiles/MSLM.dir/vector.cpp.s
 
+MSLMv3/CMakeFiles/MSLM.dir/block.cpp.obj: MSLMv3/CMakeFiles/MSLM.dir/flags.make
+MSLMv3/CMakeFiles/MSLM.dir/block.cpp.obj: ../MSLMv3/block.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object MSLMv3/CMakeFiles/MSLM.dir/block.cpp.obj"
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/MSLMv3 && /usr/local/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MSLM.dir/block.cpp.obj -c /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.cpp
+
+MSLMv3/CMakeFiles/MSLM.dir/block.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MSLM.dir/block.cpp.i"
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/MSLMv3 && /usr/local/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.cpp > CMakeFiles/MSLM.dir/block.cpp.i
+
+MSLMv3/CMakeFiles/MSLM.dir/block.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MSLM.dir/block.cpp.s"
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/MSLMv3 && /usr/local/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.cpp -o CMakeFiles/MSLM.dir/block.cpp.s
+
 # Object files for target MSLM
 MSLM_OBJECTS = \
 "CMakeFiles/MSLM.dir/Motor.cpp.obj" \
 "CMakeFiles/MSLM.dir/sensor.cpp.obj" \
-"CMakeFiles/MSLM.dir/vector.cpp.obj"
+"CMakeFiles/MSLM.dir/vector.cpp.obj" \
+"CMakeFiles/MSLM.dir/block.cpp.obj"
 
 # External object files for target MSLM
 MSLM_EXTERNAL_OBJECTS =
@@ -108,9 +122,10 @@ MSLM_EXTERNAL_OBJECTS =
 MSLMv3/libMSLM.a: MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.obj
 MSLMv3/libMSLM.a: MSLMv3/CMakeFiles/MSLM.dir/sensor.cpp.obj
 MSLMv3/libMSLM.a: MSLMv3/CMakeFiles/MSLM.dir/vector.cpp.obj
+MSLMv3/libMSLM.a: MSLMv3/CMakeFiles/MSLM.dir/block.cpp.obj
 MSLMv3/libMSLM.a: MSLMv3/CMakeFiles/MSLM.dir/build.make
 MSLMv3/libMSLM.a: MSLMv3/CMakeFiles/MSLM.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX static library libMSLM.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libMSLM.a"
 	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/MSLMv3 && $(CMAKE_COMMAND) -P CMakeFiles/MSLM.dir/cmake_clean_target.cmake
 	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/MSLMv3 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MSLM.dir/link.txt --verbose=$(VERBOSE)
 

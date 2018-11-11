@@ -76,6 +76,12 @@
 		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h">
 			<Option target="MSLM"/>
 		</Unit>
+		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.cpp">
+			<Option target="MSLM"/>
+		</Unit>
+		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.h">
+			<Option target="MSLM"/>
+		</Unit>
 		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h">
 			<Option target="MSLM"/>
 		</Unit>

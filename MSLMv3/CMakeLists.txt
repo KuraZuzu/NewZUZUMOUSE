@@ -8,6 +8,8 @@ set(MSLM_SOURCE
         sensor.cpp
         switch.h
         vector.cpp
+        block.h
+        block.cpp
         )
 
 add_library(MSLM ${MSLM_SOURCE})
