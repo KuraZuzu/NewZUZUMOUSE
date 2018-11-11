@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug
 include CMakeFiles/sercon.dir/progress.make
 
 CMakeFiles/sercon:
-	command screen /dev/tty.usbmodem1412 9600
+	command screen /dev/tty.usbmodem14202 9600
 
 sercon: CMakeFiles/sercon
 sercon: CMakeFiles/sercon.dir/build.make

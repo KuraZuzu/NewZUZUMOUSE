@@ -1,6 +1,4 @@
-sensor.o: \
-  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-6b1a4c.pch \
-  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
+sensor.o: /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/wait_api.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/gpio_irq_api.h \
@@ -93,5 +91,6 @@ sensor.o: \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/platform.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h \
-  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h \
-  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h
+  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h \
+  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.cpp \
+  /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.cpp

@@ -22,8 +22,6 @@ int main() {
     myled1.write(1);
     wait(1);
 
-//    me.move(1000, 1000);
-
 
     ZUZU::MODE mode = ZUZU::COMMAND_MODE;
     uint8_t mode_i = 0;
@@ -68,6 +66,22 @@ int main() {
                 break;
 
 
+            case ZUZU::SENSOR_MODE:
+                myled3 = 0;
+                myled4 = 0;
+                wait(1);
+                pc.printf("\r\b\r");
+                printf("%d %d %d diff=%d\n\r",
+                       me.get_left_wall_distance(),
+                       me.get_front_wall_distance(),
+                       me.get_right_wall_distance(),
+                       me.get_left_wall_distance()-me.get_right_wall_distance()
+                       );
+
+
+                break;
+
+
             case ZUZU::TEST_CENTER_LEFT_METHOD:
                 myled3 = 0;
                 myled4 = 0;
@@ -89,6 +103,13 @@ int main() {
 //                me.turn(180, ZUZU::TURN_MACHINE);
                 me.test_move(100, 200, ONE_BLOCK / 3);
 
+//                {
+//                    for(double i = 50; i < 1000; i += 10){
+//                        me.turn(i, ZUZU::TURN_MACHINE);
+//                    }
+//                }
+
+
                 me.stop();
 
 //                motor.motor_off();
@@ -99,12 +120,12 @@ int main() {
 //
 //                printf("log_size = %d \r\n",motor.l_v_log.size());
 //                for(int i = 0; i < motor.l_v_log.size(); i++) {
-//                    printf("l_v:%d  r_v:%d  moved_l_distance:%d  moved_r_distance%d %d\n\r",
+//                    printf("delta_l_distance:%d  delta_r_distance:%d  moved_distance:%d  moved_r_distance%d %d\n\r",
 //                           motor.l_v_log.at(i),
 //                           motor.wathc_v[1][i],
 //                           motor.wathc_v[2][i],
 //                           motor.wathc_v[3][i],
-//                           motor.watch_count
+//                           motor.odometry_watch_count
 //                    );
 //                }
 

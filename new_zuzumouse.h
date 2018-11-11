@@ -32,18 +32,16 @@ public:
 
 
     inline void disp_odometry(){
-        for(int i = 0; i < 30; i++){
-            printf("%d00[ms]  左速度:%d[m/s]  右輪速度:%d[m/s]  左距離:%d[mm]  右距離:%d[mm]  速度:%d  変角:%.2f[rad], 総変角:%.2f[rad]  \n\r",
-                    i,
-                    motor.wathc_v[0][i],
-                    motor.wathc_v[1][i],
-                    motor.wathc_v[2][i],
-                    motor.wathc_v[3][i],
-                    motor.wathc_v[4][i],
-                    motor.watch_rad[i],
-                    motor.watch_total_rad[i]
+
+
+            printf("%d[ms]  v:%.1f,  x:%.1f,  y:%.1f,  deg:%.1f°,  direction:%d  \n\r",
+                    motor.get_odometry_watch_count(),
+                    motor.get_v(),
+                    motor.get_moved_x(),
+                    motor.get_moved_y(),
+                    motor.get_moved_rad() * 180 / 3.14159265,
+                    motor.get_current_machine_direction()
             );
-        }
     }
 
 
@@ -71,6 +69,13 @@ public:
         return right_sensor;
     }
 
+    inline void set_init_odometry_watch_count() {
+        motor.set_odometry_watch_count(0);
+    }
+
+    inline void set_init_coordinates() {
+        motor.set_coordinates(90.0, 90.0);
+    }
 
 //    ここから走るよ
 
@@ -83,7 +88,7 @@ public:
     }
 
     void test_move(double l_speed, double r_speed, double _distance) {
-        motor.watch_count = 0;
+        motor.set_odometry_watch_count(0);
         while (_distance > motor.left_distance()) {
             motor.set_left_speed(l_speed);
             motor.set_right_speed(r_speed);
@@ -201,18 +206,19 @@ public:
         //mode 0 = 走り始め
         //mode 1 = 走り終わり
 
-        double _lowest_speed = 350;
+        double _lowest_speed = 80;
         double a = ((_speed - _lowest_speed) / _distance);  //傾き
 
 //        a = (_mode==0)?a:-a;
         motor.reset_counts();
 
-        while (_distance > motor.counts()) {
-            double d_speed = (_mode==0)?a * motor.counts() + _lowest_speed:
-                      a * (_distance - motor.counts())+ _lowest_speed;
+        while (_distance > motor.distance_counts()) {
+            double d_speed = (_mode==0)?a * motor.distance_counts() + _lowest_speed:
+                      a * (_distance - motor.distance_counts())+ _lowest_speed;
             p_control(d_speed);
         }
         motor.reset_counts();
+
 
     }
 };

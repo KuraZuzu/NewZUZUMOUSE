@@ -281,7 +281,7 @@ __attribute__((section(".revsh_text"))) __STATIC_INLINE __ASM int32_t __REVSH(in
 
 /** \brief  Count leading zeros
 
-    This function counts the number of leading zeros of a data value.
+    This function pulse_counts the number of leading zeros of a data value.
 
     \param [in]  value  Value to count the leading zeros
     \return             number of leading zeros in value

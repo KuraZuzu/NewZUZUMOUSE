@@ -2,6 +2,9 @@
 // Created by 倉澤　一詩 on 2018/09/22.
 //
 #include "Motor.h"
+
+#define pi 3.14159265
+
 //コンストラクタ
 StepMotor::StepMotor(PinName clock, PinName reset, PinName wise, bool default_wise, PinName m3):
 _clock(clock, false), _m3(m3, true), _wise(wise, default_wise), _reset(reset, false)
@@ -26,7 +29,7 @@ void StepMotor::pulse_counter(){
         _pulse_count--;
 }
 
-int64_t StepMotor::counts(){
+int64_t StepMotor::pulse_counts(){
     return _pulse_count;
 }
 
@@ -45,6 +48,7 @@ void StepMotor::set_wise(bool wise) {
 
 }
 
+
 void StepMotor::reset_count() {
     _pulse_count = 0;
 }
@@ -53,8 +57,8 @@ MotorManager::MotorManager(StepMotor left, StepMotor right, PinName refout) :
         _left_motor(left), _right_motor(right), RefOut(refout), l_v_log(){
 
     v_count = 0;
-    watch_count = 0;
-    RefOut.write(static_cast<float>(0.06 / 3.3));
+    odometry_watch_count = 0;
+    RefOut.write(static_cast<float>(0.05 / 3.3));
     l_flag = false;
     r_flag = false;
 }
@@ -94,21 +98,20 @@ void MotorManager::set_right_speed(double_t r_speed) {
 
 
 int64_t MotorManager::left_distance() {
-    return _left_motor.counts();
+    return _left_motor.pulse_counts();
 }
 
 int64_t MotorManager::right_distance() {
-
-    return _right_motor.counts();
+    return _right_motor.pulse_counts();
 }
 
 void MotorManager::loop() {
 
 //    if (v_count == 0)
-//        watch_count = 0;
+//        odometry_watch_count = 0;
 
     if ((_l_speed <= l_t) && l_flag) {
-        _left_motor.step();   //一回通過で1パルス(立ち上がりor立ち下がりのみなので動いてない)
+        _left_motor.step();   //一回通過で1パルス(立ち上がりor立ち下がりのみなので、1パルスのみでは動いてない)
         l_t = 0;
         l_pulse++;
 
@@ -129,76 +132,97 @@ void MotorManager::loop() {
 
     v_count++;  //サンプリングレートのためのカウント
 
-    if (v_count == 4000) {  // 25us * 4000 = 100000us のサンプリングレートとなる (0.1s となる)
+    if (v_count == 400) {  // 25us * 400 = 10000us のサンプリングレートとなる (0.01s となる)
 
-        moved_l_pulse = l_pulse - old_l_pulse;  //100000us1ごとに、どれくらいのパルスが入ったか
-        moved_r_pulse = r_pulse - old_r_pulse;
+        //10000usごとに、どれくらいのパルスが入ったか
+        delta_l_pulse = l_pulse - old_l_pulse;
+        delta_r_pulse = r_pulse - old_r_pulse;
+
+
+        if (_left_motor.pulse_counts() < 0)     //もし、モータが逆転していたら、pulse_counts の値は負の値となるので、
+            delta_l_pulse = -delta_l_pulse;     //パルスの変化量(delta_pulse)の値が負の値となる
+
+        if (_right_motor.pulse_counts() < 0)
+            delta_r_pulse = -delta_r_pulse;
+
 
         old_l_pulse = l_pulse;
         old_r_pulse = r_pulse;
 
-        //タイヤのスペックは、直径28.0mm、モーターが1セットのパルス(2pulse)で1.8度回転
+        //タイヤのスペックは、直径28.0mm、モーターが1セットのパルス(2pulse)で0.9度回転
 
-        l_v = (moved_l_pulse) * 28 * 3.14159265 / 400 / 2 * 10 * 180 / 169;   //　"/ 400"は,(360/0.9)であり、モーター2パルスの1回転に対する割合が "/ 2"  (0.9 or 1.8  ?)
-        r_v = (moved_r_pulse) * 28 * 3.14159265 / 400 / 2 * 10 * 180 / 169;   //　これだと 0.1 * mm/s なので最後に10をかける.これで、100000us = 0.1s毎に、その時の mm/s が分かる
-                                                                                // 誤算を埋めるための (180 / 169)　の乗算
+        delta_l_distance = (delta_l_pulse) * 28 * pi / 400 / 2;   //　"/ 400"は,(360/0.9)であり、モーター2パルスの1回転に対する割合が "/ 2"  (0.9 or 1.8  ?)
+        delta_r_distance = (delta_r_pulse) * 28 * pi / 400 / 2;   //　10ms = 0.01sごとの変化した距離(mm)がわかる.
 
-        moved_l_distance += l_v / 10;    //ここの処理に入るのが0.1s毎なので
-        moved_r_distance += r_v / 10;    //1(s)/10　で0.1s毎に進んだ距離を足している
+        v = ( delta_l_distance + delta_r_distance ) * 100 / 2;
 
+        moved_rad += atan2(delta_r_distance - delta_l_distance, 77.7); //WIDTH 77.7  //最初の引数は (角速度)ω * (サンプリングレート)Δt をかけた結果と同様であり、オドメトリのための角度計算で用いる
 
-        delta_rad = atan2((l_v / 10) - (r_v / 10), 77.7); //WIDTH 77.7  //オドメトリのための角度計算で用いる
-        total_delta_rad += delta_rad;
+        //オドメトリの角度は x軸に対しての rad であり、ロボットの初期角度は 90[deg] = 1/2 π　であるので、その差分で計算している.
+        //最後の "/ 100"は、走った時間 t が 0.01s なので、秒速である v に対しての係数.
+        moved_x_distance += v * cos(3.14159265 / 2 + moved_rad) / 100;  //x軸
+        moved_y_distance += v * sin(3.14159265 / 2 + moved_rad) / 100;  //y軸
 
-
-        //l_v : r_v を利用して円運動全体の半径を導き出せる -> moved_machine_distance
-//        distance_R = 77.7 * r_v / (l_v - r_v) + (77.7 / 2);  //曲がる時の角度を調整する円の直径(マシンの中心から円の中心までの距離)
-//        moved_x_distance = 2;
-//        moved_y_distance = 2;
-
-
-        //printf("l_v:%d  r_v:%d   距離l:%d  距離r:%d  \n\r", l_v, r_v, moved_l_distance, moved_r_distance);
-        //printfは処理が重すぎてモーターが止まる.
-
-//        if(watch_count < 50) {
+//        if(odometry_watch_count < 50) {
 //            printf("%d \r\n", l_v_log.size()/);
-//            l_v_log.push_back(l_v);
+//            l_v_log.push_back(delta_l_distance);
 //        }
 
-        wathc_v[0][watch_count] = l_v;
-        wathc_v[1][watch_count] = r_v;
-        wathc_v[2][watch_count] = moved_l_distance;
-        wathc_v[3][watch_count] = moved_r_distance;
-        wathc_v[4][watch_count] = (l_v + r_v) / 2;
-        watch_rad[watch_count] = delta_rad;
-        watch_total_rad[watch_count] = total_delta_rad;
+//        odometry_watch_count = (odometry_watch_count<99)?odometry_watch_count+1:odometry_watch_count;
 
-        watch_count = (watch_count<99)?watch_count+1:watch_count;
+        if (pi * 1/4 >= moved_rad && moved_rad < pi * 3/4)
+            current_machine_direction = 0;  //北
 
+        else if (pi * 3/4 >= moved_rad && moved_rad < pi * 5/4)
+            current_machine_direction = 1;  //東
+
+        else if (pi * 5/4 >= moved_rad && moved_rad < pi * 7/4)
+            current_machine_direction = 2;  //南
+
+        else
+            current_machine_direction = 3;  //西
+
+
+        odometry_watch_count++;
         v_count = 0;
     }
-
 }
 
-float MotorManager::disp_delta_rad() {
-    return delta_rad;
+char MotorManager::get_current_machine_direction() {
+    return current_machine_direction;
 }
 
-int32_t MotorManager::disp_l_v() {
-    return wathc_v[0][watch_count];
+void MotorManager::set_coordinates(float x_coordinates, float y_coordinates) {
+    moved_x_distance = x_coordinates;
+    moved_y_distance = y_coordinates;
 }
 
-int32_t MotorManager::disp_r_v() {
-    return wathc_v[1][watch_count];
+void MotorManager::set_odometry_watch_count(unsigned int odometry_count) {
+    odometry_watch_count = odometry_count;
 }
 
-int32_t MotorManager::disp_moved_l_pulse() {
-    return wathc_v[2][watch_count];
+unsigned int MotorManager::get_odometry_watch_count() {
+    return odometry_watch_count;
 }
 
-int32_t MotorManager::disp_moved_r_pulse() {
-    return wathc_v[3][watch_count];
+float MotorManager::get_v() {
+    return v;
 }
+
+float MotorManager::get_moved_x() {
+    return moved_x_distance;
+}
+
+float MotorManager::get_moved_y() {
+    return moved_y_distance;
+}
+
+float MotorManager::get_moved_rad() {
+    return 3.14159265 / 2 + moved_rad;
+}
+
+
+
 
 void MotorManager::init(timestamp_t tick_speed) {
     run.attach_us(this, &MotorManager::loop, tick_speed);
@@ -223,6 +247,6 @@ void MotorManager::motor_off() {
     _right_motor.set_m3(true);
 }
 
-int64_t MotorManager::counts() {
+int64_t MotorManager::distance_counts() {
     return (left_distance() + right_distance()) / 2;
 }
