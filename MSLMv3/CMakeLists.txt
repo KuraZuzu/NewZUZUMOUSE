@@ -10,6 +10,8 @@ set(MSLM_SOURCE
         vector.cpp
         block.h
         block.cpp
+        map3.h
+        map3.cpp
         )
 
 add_library(MSLM ${MSLM_SOURCE})

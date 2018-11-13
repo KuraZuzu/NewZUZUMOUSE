@@ -8,36 +8,36 @@
 // close = false 0
 
 
-void Block::is_nothing_north_wall() {
+void Block::is_barriered_north_wall() {
     _b += NORTH_MASK;
 }
 
-void Block::is_nothing_east_wall() {
+void Block::is_barriered_east_wall() {
     _b += EAST_MASK;
 }
 
-void Block::is_nothing_south_wall() {
+void Block::is_barriered_south_wall() {
     _b += SOUTH_MASK;
 }
 
-void Block::is_nothing_west_wall() {
+void Block::is_barriered_west_wall() {
     _b += WEST_MASK;
 }
 
 
 
 bool Block::is_opened_north_wall() {
-    return NORTH_MASK & _b;
+    return (NORTH_MASK & _b)==NORTH_MASK;
 }
 
 bool Block::is_opened_east_wall() {
-    return EAST_MASK & _b;
+    return (EAST_MASK & _b)==EAST_MASK;
 }
 
 bool Block::is_opened_south_wall() {
-    return SOUTH_MASK & _b;
+    return (SOUTH_MASK & _b)==SOUTH_MASK;
 }
 
 bool Block::is_opened_west_wall() {
-    return WEST_MASK & _b;
+    return (WEST_MASK & _b) == WEST_MASK;
 }

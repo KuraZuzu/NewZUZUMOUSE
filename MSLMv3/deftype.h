@@ -3,6 +3,9 @@
 
 #include "mbed.h"
 
+#define pi 3.14159265
+
+
 //Public Function Relation
 #define INT_MODE		0   /* Return mode select */
 #define BOOL_MODE		1

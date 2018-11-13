@@ -2,13 +2,13 @@
 // Created by 倉澤　一詩 on 2018/09/22.
 //
 #include "Motor.h"
+#include "deftype.h"
 
-#define pi 3.14159265
 
 //コンストラクタ
 StepMotor::StepMotor(PinName clock, PinName reset, PinName wise, bool default_wise, PinName m3):
-_clock(clock, false), _m3(m3, true), _wise(wise, default_wise), _reset(reset, false)
-{
+_clock(clock, false), _m3(m3, true), _wise(wise, default_wise), _reset(reset, false) {
+
     _forward_wise = default_wise;
     _pulse_count = 0;
 }

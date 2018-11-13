@@ -6,21 +6,20 @@
 #define NEWZUZUMOUSE_BLOCK_H
 
 
-#include <sys/types.h>
 #include "deftype.h"
 
 class Block {
 
 private:
                   //         NESW <- mask (North, East, South, West)//
-    u_int8_t _b;  // 0b 0000 0000                                   //
+    uint8_t _b;  // 0b 0000 0000                                   //
 
 public:
 
-    void is_nothing_north_wall();
-    void is_nothing_east_wall();
-    void is_nothing_south_wall();
-    void is_nothing_west_wall();
+    void is_barriered_north_wall();
+    void is_barriered_east_wall();
+    void is_barriered_south_wall();
+    void is_barriered_west_wall();
 
     bool is_opened_north_wall();
     bool is_opened_east_wall();
