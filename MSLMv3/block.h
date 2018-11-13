@@ -16,10 +16,10 @@ private:
 
 public:
 
-    void is_barriered_north_wall();
-    void is_barriered_east_wall();
-    void is_barriered_south_wall();
-    void is_barriered_west_wall();
+    void set_north_wall();
+    void set_east_wall();
+    void set_south_wall();
+    void set_west_wall();
 
     bool is_opened_north_wall();
     bool is_opened_east_wall();

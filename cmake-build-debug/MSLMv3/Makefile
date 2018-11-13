@@ -179,6 +179,33 @@ block.cpp.s:
 	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/block.cpp.s
 .PHONY : block.cpp.s
 
+map3.obj: map3.cpp.obj
+
+.PHONY : map3.obj
+
+# target to build an object file
+map3.cpp.obj:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/map3.cpp.obj
+.PHONY : map3.cpp.obj
+
+map3.i: map3.cpp.i
+
+.PHONY : map3.i
+
+# target to preprocess a source file
+map3.cpp.i:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/map3.cpp.i
+.PHONY : map3.cpp.i
+
+map3.s: map3.cpp.s
+
+.PHONY : map3.s
+
+# target to generate assembly for a file
+map3.cpp.s:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/map3.cpp.s
+.PHONY : map3.cpp.s
+
 sensor.obj: sensor.cpp.obj
 
 .PHONY : sensor.obj
@@ -248,6 +275,9 @@ help:
 	@echo "... block.obj"
 	@echo "... block.i"
 	@echo "... block.s"
+	@echo "... map3.obj"
+	@echo "... map3.i"
+	@echo "... map3.s"
 	@echo "... sensor.obj"
 	@echo "... sensor.i"
 	@echo "... sensor.s"

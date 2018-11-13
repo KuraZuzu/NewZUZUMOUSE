@@ -8,19 +8,19 @@
 // close = false 0
 
 
-void Block::is_barriered_north_wall() {
+void Block::set_north_wall() {
     _b += NORTH_MASK;
 }
 
-void Block::is_barriered_east_wall() {
+void Block::set_east_wall() {
     _b += EAST_MASK;
 }
 
-void Block::is_barriered_south_wall() {
+void Block::set_south_wall() {
     _b += SOUTH_MASK;
 }
 
-void Block::is_barriered_west_wall() {
+void Block::set_west_wall() {
     _b += WEST_MASK;
 }
 

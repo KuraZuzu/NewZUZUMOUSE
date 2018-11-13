@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/MSLM.dir/sensor.cpp.obj"
   "CMakeFiles/MSLM.dir/vector.cpp.obj"
   "CMakeFiles/MSLM.dir/block.cpp.obj"
+  "CMakeFiles/MSLM.dir/map3.cpp.obj"
   "libMSLM.pdb"
   "libMSLM.a"
 )

@@ -1,5 +1,5 @@
 block.o: \
-  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-41b895.pch \
+  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-8ad024.pch \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/wait_api.h \
@@ -29,7 +29,6 @@ block.o: \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/spi_api.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/SPI.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/dma_api.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/lib/gcc/arm-none-eabi/7.2.1/include/stddef.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/buffer.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/serial_api.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/FunctionPointer.h \
@@ -64,7 +63,6 @@ block.o: \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed_error.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/time.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/time.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/ieeefp.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cmath \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/math.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cstring \
@@ -81,7 +79,11 @@ block.o: \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/system_LPC17xx.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/core_cmFunc.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/core_cmInstr.h \
+  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/_stdint.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/_intsup.h \
+  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/_newlib_version.h \
+  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/features.h \
+  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/_default_types.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/stdint.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/lib/gcc/arm-none-eabi/7.2.1/include/stdint.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/core_cm3.h \
@@ -91,27 +93,5 @@ block.o: \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/platform.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/types.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/sched.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/_pthreadtypes.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/_timespec.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/timespec.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/_timeval.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/_sigset.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/select.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/_endian.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/endian.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/_stdint.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/lock.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/_types.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/_types.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/_default_types.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/cdefs.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/features.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/config.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/_newlib_version.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/newlib.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/_ansi.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/sys/types.h \
   /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.h
