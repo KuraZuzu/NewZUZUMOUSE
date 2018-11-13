@@ -5,10 +5,21 @@
 #ifndef NEWZUZUMOUSE_MAP_3_H
 #define NEWZUZUMOUSE_MAP_3_H
 
+#include "block.h"
 
-class map_3 {
+class Map_3 {
 
-    
+
+private:
+
+    Block _block[16][16];
+
+
+public:
+
+
+private:
+
 
 
 };
