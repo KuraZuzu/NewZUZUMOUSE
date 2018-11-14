@@ -14,34 +14,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/block.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/block.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/MSLMv3.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/MSLMv3.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/Motor.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/Motor.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/block.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/block.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/deftype.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/deftype.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/libMSLM.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/libMSLM.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/ticker_api.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/MSLMv3/ticker_api.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Motor.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Motor.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/block.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/block.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/newzuzumouse.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/newzuzumouse.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/ticker_api.d" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/ticker_api.d" afterDir="false" />
-    </list>
+    <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +61,7 @@
         <counts>
           <entry key="cmake" value="45" />
           <entry key="cpp" value="14806" />
-          <entry key="h" value="11082" />
+          <entry key="h" value="11104" />
           <entry key="txt" value="309" />
         </counts>
       </usages-collector>
@@ -96,7 +69,7 @@
         <counts>
           <entry key="CMakeLists.txt" value="349" />
           <entry key="Doxygen file" value="2" />
-          <entry key="ObjectiveC" value="25886" />
+          <entry key="ObjectiveC" value="25908" />
           <entry key="PLAIN_TEXT" value="5" />
         </counts>
       </usages-collector>
@@ -112,8 +85,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MSLMv3/block.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-58">
-              <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+            <state relative-caret-position="144">
+              <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -121,8 +94,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MSLMv3/block.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+            <state relative-caret-position="135">
+              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
             </state>
           </provider>
         </entry>
@@ -131,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/MSLMv3/map3.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="180">
-              <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+              <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
               <folding>
                 <element signature="e#101#119#0" expanded="true" />
               </folding>
@@ -242,8 +215,8 @@
         <option value="$PROJECT_DIR$/MSLMv3/map_3.cpp" />
         <option value="$PROJECT_DIR$/MSLMv3/deftype.h" />
         <option value="$PROJECT_DIR$/MSLMv3/map3.cpp" />
-        <option value="$PROJECT_DIR$/MSLMv3/block.h" />
         <option value="$PROJECT_DIR$/MSLMv3/map3.h" />
+        <option value="$PROJECT_DIR$/MSLMv3/block.h" />
       </list>
     </option>
   </component>
@@ -387,7 +360,7 @@
       <workItem from="1541665102032" duration="7252000" />
       <workItem from="1541753911965" duration="13056000" />
       <workItem from="1541823552767" duration="31536000" />
-      <workItem from="1542102984269" duration="6430000" />
+      <workItem from="1542102984269" duration="6746000" />
     </task>
     <task id="LOCAL-00001" summary="動的確保">
       <created>1542109937173</created>
@@ -400,7 +373,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="379437000" />
+    <option name="totallyTimeSpent" value="379753000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -415,12 +388,12 @@
     <frame x="0" y="23" width="1280" height="727" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.8245192" visible="true" weight="0.17609046" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8245192" visible="true" weight="0.17609046" />
       <window_info id="Structure" order="1" sideWeight="0.17548077" side_tool="true" weight="0.24878837" />
       <window_info id="Favorites" order="2" sideWeight="0.068292685" side_tool="true" weight="0.25767368" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32952693" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.31535947" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.31535947" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39770868" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -782,7 +755,7 @@
     <entry file="file://$PROJECT_DIR$/MSLMv3/map3.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
-          <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
+          <caret line="12" column="8" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
           <folding>
             <element signature="e#101#119#0" expanded="true" />
           </folding>
@@ -791,15 +764,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MSLMv3/block.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-58">
-          <caret line="11" column="8" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
+        <state relative-caret-position="144">
+          <caret line="11" column="8" selection-start-line="11" selection-start-column="8" selection-end-line="11" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/MSLMv3/block.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="16" lean-forward="true" selection-start-line="18" selection-start-column="16" selection-end-line="18" selection-end-column="16" />
+        <state relative-caret-position="135">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
         </state>
       </provider>
     </entry>
