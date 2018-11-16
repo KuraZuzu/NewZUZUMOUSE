@@ -17,7 +17,7 @@ private:
     Block **_block;
     uint8_t _x_size = 0;
     uint8_t _y_size = 0;
-    Point point;
+    Point _point;
 
 public:
 

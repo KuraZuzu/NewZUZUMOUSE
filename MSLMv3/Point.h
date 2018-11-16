@@ -18,4 +18,12 @@ public:
 };
 
 
+struct Position : public Point{
+
+public:
+    float_t rad;
+
+};
+
+
 #endif //NEWZUZUMOUSE_POINT_H

@@ -13,6 +13,7 @@ class Block {
 private:
                   //         NESW <- mask (North, East, South, West)//
     uint8_t _b;  // 0b 0000 0000                                   //
+
 public:
 
     void set_north_wall();
