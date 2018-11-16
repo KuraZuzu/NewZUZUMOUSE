@@ -544,22 +544,6 @@ ticker_api.h
 
 ../mbed/wait_api.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.cpp
-Motor.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h
-deftype.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h
-mbed.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/mbed.h
-vector.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.cpp
-block.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.h
-
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.h
 deftype.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
@@ -577,16 +561,4 @@ block.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/block.h
 deftype.h
 /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.cpp
-sensor.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h
-mbed.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/mbed.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h
-deftype.h
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h
 

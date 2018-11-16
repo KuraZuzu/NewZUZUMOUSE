@@ -12,6 +12,8 @@ set(MSLM_SOURCE
         block.cpp
         map3.h
         map3.cpp
+        Point.cpp
+        Point.h
         )
 
 add_library(MSLM ${MSLM_SOURCE})

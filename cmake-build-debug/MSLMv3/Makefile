@@ -152,6 +152,33 @@ Motor.cpp.s:
 	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Motor.cpp.s
 .PHONY : Motor.cpp.s
 
+Point.obj: Point.cpp.obj
+
+.PHONY : Point.obj
+
+# target to build an object file
+Point.cpp.obj:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Point.cpp.obj
+.PHONY : Point.cpp.obj
+
+Point.i: Point.cpp.i
+
+.PHONY : Point.i
+
+# target to preprocess a source file
+Point.cpp.i:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Point.cpp.i
+.PHONY : Point.cpp.i
+
+Point.s: Point.cpp.s
+
+.PHONY : Point.s
+
+# target to generate assembly for a file
+Point.cpp.s:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/Point.cpp.s
+.PHONY : Point.cpp.s
+
 block.obj: block.cpp.obj
 
 .PHONY : block.obj
@@ -272,6 +299,9 @@ help:
 	@echo "... Motor.obj"
 	@echo "... Motor.i"
 	@echo "... Motor.s"
+	@echo "... Point.obj"
+	@echo "... Point.i"
+	@echo "... Point.s"
 	@echo "... block.obj"
 	@echo "... block.i"
 	@echo "... block.s"

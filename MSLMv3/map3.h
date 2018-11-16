@@ -7,6 +7,8 @@
 
 #include "block.h"
 #include "deftype.h"
+#include "Point.h"
+
 
 class Map3 {
 
@@ -15,32 +17,21 @@ private:
     Block **_block;
     uint8_t _x_size = 0;
     uint8_t _y_size = 0;
-
-
+    Point point;
 
 public:
 
-    Map3(uint8_t x_size, uint8_t y_size) {
-        _x_size = x_size;
-        _y_size = y_size;
-        _block = new Block* [x_size];
-        for (int i = 0; i < y_size; ++i) {
-            _block[i] = new Block;
-        }
-    }
-    ~Map3(){
-        for (int i = 0; i < _y_size; ++i) {
-            delete _block[i];
-        }
-        delete [] _block;
-    }
+    Map3(uint8_t x_size, uint8_t y_size);
 
+    ~Map3();
 
 private:
 
     void map_init();
 
-
+    void set_wall(Block _wall_info){
+        _block[(int)point.x][(int)point.y] = _wall_info;
+    }
 
 };
 
