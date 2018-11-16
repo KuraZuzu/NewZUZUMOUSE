@@ -159,7 +159,7 @@ MSLM: cmake_check_build_system
 
 # fast build rule for target.
 MSLM/fast:
-	$(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/build
+	$(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/build
 .PHONY : MSLM/fast
 
 explore.obj: explore.cpp.obj

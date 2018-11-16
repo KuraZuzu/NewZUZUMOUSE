@@ -544,47 +544,27 @@ ticker_api.h
 
 ../mbed/wait_api.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/defines.h
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
+cmath
+-
 
-/Users/zuzukun/CLionProjects/newzuzumouse/explore.h
-new_zuzumouse.h
-/Users/zuzukun/CLionProjects/newzuzumouse/new_zuzumouse.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/main.cpp
-new_zuzumouse.h
-/Users/zuzukun/CLionProjects/newzuzumouse/new_zuzumouse.h
-mslm_v3/switch.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/switch.h
-explore.h
-/Users/zuzukun/CLionProjects/newzuzumouse/explore.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h
-mbed.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/mbed.h
-vector.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/block.h
+deftype.h
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h
 
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h
 mbed.h
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/mbed.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/sensor.h
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.cpp
+map3.h
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.h
+
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.h
+block.h
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/block.h
 deftype.h
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/switch.h
-deftype.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/new_zuzumouse.h
-defines.h
-/Users/zuzukun/CLionProjects/newzuzumouse/defines.h
-mbed.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mbed.h
-mslm_v3/Motor.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h
-mslm_v3/sensor.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/sensor.h
+Point.h
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
 

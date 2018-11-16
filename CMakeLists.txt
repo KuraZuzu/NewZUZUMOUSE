@@ -45,7 +45,7 @@ set(BIN
 include(mbed-cmake/arm_mbed.cmake)
 
 
-add_subdirectory(MSLMv3)
+add_subdirectory(mslm_v3)
 
 # ------------------------------------------------------------------------------
 # build the executable

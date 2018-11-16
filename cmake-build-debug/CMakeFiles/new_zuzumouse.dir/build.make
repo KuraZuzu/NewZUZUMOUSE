@@ -104,7 +104,7 @@ new_zuzumouse: ../mbed/TARGET_LPC1768/TOOLCHAIN_GCC_ARM/cmsis_nvic.o
 new_zuzumouse: ../mbed/TARGET_LPC1768/TOOLCHAIN_GCC_ARM/retarget.o
 new_zuzumouse: ../mbed/TARGET_LPC1768/TOOLCHAIN_GCC_ARM/board.o
 new_zuzumouse: CMakeFiles/new_zuzumouse.dir/build.make
-new_zuzumouse: MSLMv3/libMSLM.a
+new_zuzumouse: mslm_v3/libMSLM.a
 new_zuzumouse: CMakeFiles/new_zuzumouse.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable new_zuzumouse"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/new_zuzumouse.dir/link.txt --verbose=$(VERBOSE)

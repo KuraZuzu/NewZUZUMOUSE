@@ -6,8 +6,8 @@
 
 #include "defines.h"
 #include "mbed.h"
-#include "MSLMv3/Motor.h"
-#include "MSLMv3/sensor.h"
+#include "mslm_v3/Motor.h"
+#include "mslm_v3/sensor.h"
 
 
 

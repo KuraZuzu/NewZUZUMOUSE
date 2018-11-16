@@ -221,10 +221,10 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 MSLM_LIB_DEPENDS:STATIC=general;mbed;general;stdc++;general;supc++;general;m;general;gcc;general;g;general;c;general;nosys;general;rdimon;
 
 //Value Computed by CMake
-MSLMv3_BINARY_DIR:STATIC=/Users/zuzukun/CLionProjects/mouse/build/MSLMv3
+MSLMv3_BINARY_DIR:STATIC=/Users/zuzukun/CLionProjects/mouse/build/mslm_v3
 
 //Value Computed by CMake
-MSLMv3_SOURCE_DIR:STATIC=/Users/zuzukun/CLionProjects/mouse/MSLMv3
+MSLMv3_SOURCE_DIR:STATIC=/Users/zuzukun/CLionProjects/mouse/mslm_v3
 
 //Value Computed by CMake
 newzuzumouse_BINARY_DIR:STATIC=/Users/zuzukun/CLionProjects/mouse/build

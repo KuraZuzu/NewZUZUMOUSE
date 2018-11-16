@@ -20,7 +20,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/MSLMv3/CMakeFiles/MSLM.dir/DependInfo.cmake"
+  "/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3/CMakeFiles/MSLM.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

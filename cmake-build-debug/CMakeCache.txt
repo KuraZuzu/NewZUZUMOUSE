@@ -238,13 +238,13 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 MSLM_LIB_DEPENDS:STATIC=general;mbed;general;stdc++;general;supc++;general;m;general;gcc;general;g;general;c;general;nosys;general;rdimon;
 
 //Value Computed by CMake
-MSLMv3_BINARY_DIR:STATIC=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/MSLMv3
+MSLMv3_BINARY_DIR:STATIC=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3
 
 //Dependencies for the target
 MSLMv3_LIB_DEPENDS:STATIC=general;mbed;general;stdc++;general;supc++;general;m;general;gcc;general;g;general;c;general;nosys;general;rdimon;
 
 //Value Computed by CMake
-MSLMv3_SOURCE_DIR:STATIC=/Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3
+MSLMv3_SOURCE_DIR:STATIC=/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3
 
 //Path to a program.
 ProcessorCount_cmd_sysctl:FILEPATH=/usr/sbin/sysctl

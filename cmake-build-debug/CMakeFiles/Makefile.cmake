@@ -27,13 +27,13 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/Platform/Generic.cmake"
   "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.12/Modules/ProcessorCount.cmake"
   "../CMakeLists.txt"
-  "../MSLMv3/CMakeLists.txt"
   "CMakeFiles/3.12.1/CMakeASMCompiler.cmake"
   "CMakeFiles/3.12.1/CMakeCCompiler.cmake"
   "CMakeFiles/3.12.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.12.1/CMakeSystem.cmake"
   "../mbed-cmake/arm_mbed.cmake"
   "../mbed-cmake/arm_toolchain.cmake"
+  "../mslm_v3/CMakeLists.txt"
   )
 
 # The corresponding makefile is:
@@ -45,7 +45,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
-  "MSLMv3/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "mslm_v3/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -53,5 +53,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/new_zuzumouse.dir/DependInfo.cmake"
   "CMakeFiles/sercon.dir/DependInfo.cmake"
   "CMakeFiles/upload.dir/DependInfo.cmake"
-  "MSLMv3/CMakeFiles/MSLM.dir/DependInfo.cmake"
+  "mslm_v3/CMakeFiles/MSLM.dir/DependInfo.cmake"
   )

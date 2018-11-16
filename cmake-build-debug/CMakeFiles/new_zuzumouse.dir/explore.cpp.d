@@ -78,7 +78,7 @@ CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/wait_api.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/Motor.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/vector.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/sensor.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/MSLMv3/deftype.h
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h \
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h \
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/sensor.h \
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h

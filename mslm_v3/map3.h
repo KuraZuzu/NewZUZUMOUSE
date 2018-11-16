@@ -30,7 +30,7 @@ private:
     void map_init();
 
     void set_wall(Block _wall_info){
-        _block[(int)point.x][(int)point.y] = _wall_info;
+        _block[(int)_point.x][(int)_point.y] = _wall_info;
     }
 
 };

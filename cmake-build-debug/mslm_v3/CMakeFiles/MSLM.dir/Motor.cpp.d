@@ -1,7 +1,6 @@
-CMakeFiles/new_zuzumouse.dir/main.cpp.obj: \
- /Users/zuzukun/CLionProjects/newzuzumouse/main.cpp \
- /Users/zuzukun/CLionProjects/newzuzumouse/new_zuzumouse.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/defines.h \
+CMakeFiles/MSLM.dir/Motor.cpp.obj: \
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.cpp \
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/platform.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768/device.h \
@@ -77,9 +76,5 @@ CMakeFiles/new_zuzumouse.dir/main.cpp.obj: \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/wait_api.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/sensor.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/switch.h \
- /Users/zuzukun/CLionProjects/newzuzumouse/explore.h
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h

@@ -1,5 +1,5 @@
 #include "new_zuzumouse.h"
-#include "MSLMv3/switch.h"
+#include "mslm_v3/switch.h"
 #include "explore.h"
 
 DigitalOut myled1(LED1);

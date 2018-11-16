@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug
 # Target rules for target CMakeFiles/new_zuzumouse.dir
 
 # All Build rule for target.
-CMakeFiles/new_zuzumouse.dir/all: MSLMv3/CMakeFiles/MSLM.dir/all
+CMakeFiles/new_zuzumouse.dir/all: mslm_v3/CMakeFiles/MSLM.dir/all
 	$(MAKE) -f CMakeFiles/new_zuzumouse.dir/build.make CMakeFiles/new_zuzumouse.dir/depend
 	$(MAKE) -f CMakeFiles/new_zuzumouse.dir/build.make CMakeFiles/new_zuzumouse.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=8,9,10 "Built target new_zuzumouse"
@@ -166,57 +166,57 @@ clean: CMakeFiles/upload.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Directory level rules for directory MSLMv3
+# Directory level rules for directory mslm_v3
 
 # Convenience name for "all" pass in the directory.
-MSLMv3/all: MSLMv3/CMakeFiles/MSLM.dir/all
+mslm_v3/all: mslm_v3/CMakeFiles/MSLM.dir/all
 
-.PHONY : MSLMv3/all
+.PHONY : mslm_v3/all
 
 # Convenience name for "clean" pass in the directory.
-MSLMv3/clean: MSLMv3/CMakeFiles/MSLM.dir/clean
+mslm_v3/clean: mslm_v3/CMakeFiles/MSLM.dir/clean
 
-.PHONY : MSLMv3/clean
+.PHONY : mslm_v3/clean
 
 # Convenience name for "preinstall" pass in the directory.
-MSLMv3/preinstall:
+mslm_v3/preinstall:
 
-.PHONY : MSLMv3/preinstall
+.PHONY : mslm_v3/preinstall
 
 #=============================================================================
-# Target rules for target MSLMv3/CMakeFiles/MSLM.dir
+# Target rules for target mslm_v3/CMakeFiles/MSLM.dir
 
 # All Build rule for target.
-MSLMv3/CMakeFiles/MSLM.dir/all:
-	$(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/depend
-	$(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/build
+mslm_v3/CMakeFiles/MSLM.dir/all:
+	$(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/depend
+	$(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target MSLM"
-.PHONY : MSLMv3/CMakeFiles/MSLM.dir/all
+.PHONY : mslm_v3/CMakeFiles/MSLM.dir/all
 
 # Include target in all.
-all: MSLMv3/CMakeFiles/MSLM.dir/all
+all: mslm_v3/CMakeFiles/MSLM.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-MSLMv3/CMakeFiles/MSLM.dir/rule: cmake_check_build_system
+mslm_v3/CMakeFiles/MSLM.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles 7
-	$(MAKE) -f CMakeFiles/Makefile2 MSLMv3/CMakeFiles/MSLM.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 mslm_v3/CMakeFiles/MSLM.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles 0
-.PHONY : MSLMv3/CMakeFiles/MSLM.dir/rule
+.PHONY : mslm_v3/CMakeFiles/MSLM.dir/rule
 
 # Convenience name for target.
-MSLM: MSLMv3/CMakeFiles/MSLM.dir/rule
+MSLM: mslm_v3/CMakeFiles/MSLM.dir/rule
 
 .PHONY : MSLM
 
 # clean rule for target.
-MSLMv3/CMakeFiles/MSLM.dir/clean:
-	$(MAKE) -f MSLMv3/CMakeFiles/MSLM.dir/build.make MSLMv3/CMakeFiles/MSLM.dir/clean
-.PHONY : MSLMv3/CMakeFiles/MSLM.dir/clean
+mslm_v3/CMakeFiles/MSLM.dir/clean:
+	$(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/clean
+.PHONY : mslm_v3/CMakeFiles/MSLM.dir/clean
 
 # clean rule for target.
-clean: MSLMv3/CMakeFiles/MSLM.dir/clean
+clean: mslm_v3/CMakeFiles/MSLM.dir/clean
 
 .PHONY : clean
 
