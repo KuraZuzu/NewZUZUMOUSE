@@ -14,39 +14,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/Motor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/Motor.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/Point.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Point.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Point.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/block.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/block.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/block.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/block.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/deftype.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/deftype.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/map3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/map3.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/map3.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/map3.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/sensor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/sensor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/sensor.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/sensor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/switch.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/switch.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/vector.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/vector.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MSLMv3/vector.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/vector.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/MSLMv3/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/build/MSLMv3/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/new_zuzumouse.dir/main.cpp.obj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/newzuzumouse.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/newzuzumouse.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_zuzumouse.h" beforeDir="false" afterPath="$PROJECT_DIR$/new_zuzumouse.h" afterDir="false" />
-    </list>
+    <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -284,7 +252,7 @@
     <option name="width" value="1280" />
     <option name="height" value="727" />
   </component>
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
@@ -413,7 +381,7 @@
       <workItem from="1541753911965" duration="13056000" />
       <workItem from="1541823552767" duration="31536000" />
       <workItem from="1542102984269" duration="10595000" />
-      <workItem from="1542355191848" duration="6760000" />
+      <workItem from="1542355191848" duration="7122000" />
     </task>
     <task id="LOCAL-00001" summary="動的確保">
       <created>1542109937173</created>
@@ -426,7 +394,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="390362000" />
+    <option name="totallyTimeSpent" value="390724000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
