@@ -1,0 +1,4 @@
+# Add any directories, files, or patterns you don'front_sensor want to be tracked by version control
+
+#binを無視
+*.bin
