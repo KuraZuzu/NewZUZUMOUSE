@@ -1,5 +1,4 @@
 map3.o: \
-  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-16cc91.pch \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cmath \
   /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
@@ -95,5 +94,6 @@ map3.o: \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/block.h \
-  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.h \
-  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.h
+  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.h \
+  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.cpp \
+  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.cpp
