@@ -135,18 +135,18 @@ mslm_v3/CMakeFiles/MSLM.dir/Point.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MSLM.dir/Point.cpp.s"
 	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3 && /usr/local/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.cpp -o CMakeFiles/MSLM.dir/Point.cpp.s
 
-mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj: mslm_v3/CMakeFiles/MSLM.dir/flags.make
-mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj: ../mslm_v3/PositionEstimater.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj"
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3 && /usr/local/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj -c /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.cpp
+mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj: mslm_v3/CMakeFiles/MSLM.dir/flags.make
+mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj: ../mslm_v3/PositionEstimator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj"
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3 && /usr/local/bin/arm-none-eabi-g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj -c /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.cpp
 
-mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MSLM.dir/PositionEstimater.cpp.i"
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3 && /usr/local/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.cpp > CMakeFiles/MSLM.dir/PositionEstimater.cpp.i
+mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/MSLM.dir/PositionEstimator.cpp.i"
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3 && /usr/local/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.cpp > CMakeFiles/MSLM.dir/PositionEstimator.cpp.i
 
-mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MSLM.dir/PositionEstimater.cpp.s"
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3 && /usr/local/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.cpp -o CMakeFiles/MSLM.dir/PositionEstimater.cpp.s
+mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/MSLM.dir/PositionEstimator.cpp.s"
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/mslm_v3 && /usr/local/bin/arm-none-eabi-g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.cpp -o CMakeFiles/MSLM.dir/PositionEstimator.cpp.s
 
 # Object files for target MSLM
 MSLM_OBJECTS = \
@@ -156,7 +156,7 @@ MSLM_OBJECTS = \
 "CMakeFiles/MSLM.dir/block.cpp.obj" \
 "CMakeFiles/MSLM.dir/map3.cpp.obj" \
 "CMakeFiles/MSLM.dir/Point.cpp.obj" \
-"CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj"
+"CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj"
 
 # External object files for target MSLM
 MSLM_EXTERNAL_OBJECTS =
@@ -167,7 +167,7 @@ mslm_v3/libMSLM.a: mslm_v3/CMakeFiles/MSLM.dir/vector.cpp.obj
 mslm_v3/libMSLM.a: mslm_v3/CMakeFiles/MSLM.dir/block.cpp.obj
 mslm_v3/libMSLM.a: mslm_v3/CMakeFiles/MSLM.dir/map3.cpp.obj
 mslm_v3/libMSLM.a: mslm_v3/CMakeFiles/MSLM.dir/Point.cpp.obj
-mslm_v3/libMSLM.a: mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj
+mslm_v3/libMSLM.a: mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj
 mslm_v3/libMSLM.a: mslm_v3/CMakeFiles/MSLM.dir/build.make
 mslm_v3/libMSLM.a: mslm_v3/CMakeFiles/MSLM.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libMSLM.a"

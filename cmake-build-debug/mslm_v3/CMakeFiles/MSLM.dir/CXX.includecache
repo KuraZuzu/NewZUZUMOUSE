@@ -544,29 +544,9 @@ ticker_api.h
 
 ../mbed/wait_api.h
 
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h
-mbed.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/mbed.h
-vector.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.cpp
-Point.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
-
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
 cmath
 -
-
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.cpp
-PositionEstimater.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.h
-Motor.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h
-map3.h
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.h
 
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/block.h
 deftype.h
@@ -587,6 +567,4 @@ deftype.h
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h
 Point.h
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
-
-/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h
 

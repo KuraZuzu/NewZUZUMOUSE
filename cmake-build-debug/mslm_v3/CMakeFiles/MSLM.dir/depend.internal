@@ -81,12 +81,13 @@ mslm_v3/CMakeFiles/MSLM.dir/Motor.cpp.obj
  ../mbed/wait_api.h
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.cpp
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h
 mslm_v3/CMakeFiles/MSLM.dir/Point.cpp.obj
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.cpp
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
-mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj
+mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj
  ../mbed/AnalogIn.h
  ../mbed/AnalogOut.h
  ../mbed/BusIn.h
@@ -166,11 +167,8 @@ mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj
  ../mbed/wait_api.h
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.cpp
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.h
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/block.h
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h
- /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.h
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.cpp
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.h
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h
 mslm_v3/CMakeFiles/MSLM.dir/block.cpp.obj
  ../mbed/AnalogIn.h

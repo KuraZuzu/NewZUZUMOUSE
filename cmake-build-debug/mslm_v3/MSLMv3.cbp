@@ -82,10 +82,10 @@
 		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h">
 			<Option target="MSLM"/>
 		</Unit>
-		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.cpp">
+		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.cpp">
 			<Option target="MSLM"/>
 		</Unit>
-		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.h">
+		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.h">
 			<Option target="MSLM"/>
 		</Unit>
 		<Unit filename="/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/block.cpp">

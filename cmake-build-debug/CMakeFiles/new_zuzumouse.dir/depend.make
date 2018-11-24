@@ -82,6 +82,7 @@ CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: ../defines.h
 CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: ../explore.cpp
 CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: ../explore.h
 CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: ../mslm_v3/Motor.h
+CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: ../mslm_v3/Point.h
 CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: ../mslm_v3/deftype.h
 CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: ../mslm_v3/sensor.h
 CMakeFiles/new_zuzumouse.dir/explore.cpp.obj: ../mslm_v3/vector.h
@@ -168,6 +169,7 @@ CMakeFiles/new_zuzumouse.dir/main.cpp.obj: ../defines.h
 CMakeFiles/new_zuzumouse.dir/main.cpp.obj: ../explore.h
 CMakeFiles/new_zuzumouse.dir/main.cpp.obj: ../main.cpp
 CMakeFiles/new_zuzumouse.dir/main.cpp.obj: ../mslm_v3/Motor.h
+CMakeFiles/new_zuzumouse.dir/main.cpp.obj: ../mslm_v3/Point.h
 CMakeFiles/new_zuzumouse.dir/main.cpp.obj: ../mslm_v3/deftype.h
 CMakeFiles/new_zuzumouse.dir/main.cpp.obj: ../mslm_v3/sensor.h
 CMakeFiles/new_zuzumouse.dir/main.cpp.obj: ../mslm_v3/switch.h

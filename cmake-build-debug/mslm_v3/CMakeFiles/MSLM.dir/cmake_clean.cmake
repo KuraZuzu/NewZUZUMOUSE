@@ -5,7 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/MSLM.dir/block.cpp.obj"
   "CMakeFiles/MSLM.dir/map3.cpp.obj"
   "CMakeFiles/MSLM.dir/Point.cpp.obj"
-  "CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj"
+  "CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj"
   "libMSLM.pdb"
   "libMSLM.a"
 )

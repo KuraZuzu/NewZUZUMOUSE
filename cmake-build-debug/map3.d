@@ -1,5 +1,8 @@
 map3.o: \
-  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-e3fe9e.pch \
+  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-726c19.pch \
+  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h \
+  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h \
+  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cmath \
   /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \

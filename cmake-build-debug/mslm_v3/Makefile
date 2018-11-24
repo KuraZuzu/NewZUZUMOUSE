@@ -179,32 +179,32 @@ Point.cpp.s:
 	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/Point.cpp.s
 .PHONY : Point.cpp.s
 
-PositionEstimater.obj: PositionEstimater.cpp.obj
+PositionEstimator.obj: PositionEstimator.cpp.obj
 
-.PHONY : PositionEstimater.obj
+.PHONY : PositionEstimator.obj
 
 # target to build an object file
-PositionEstimater.cpp.obj:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.obj
-.PHONY : PositionEstimater.cpp.obj
+PositionEstimator.cpp.obj:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.obj
+.PHONY : PositionEstimator.cpp.obj
 
-PositionEstimater.i: PositionEstimater.cpp.i
+PositionEstimator.i: PositionEstimator.cpp.i
 
-.PHONY : PositionEstimater.i
+.PHONY : PositionEstimator.i
 
 # target to preprocess a source file
-PositionEstimater.cpp.i:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.i
-.PHONY : PositionEstimater.cpp.i
+PositionEstimator.cpp.i:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.i
+.PHONY : PositionEstimator.cpp.i
 
-PositionEstimater.s: PositionEstimater.cpp.s
+PositionEstimator.s: PositionEstimator.cpp.s
 
-.PHONY : PositionEstimater.s
+.PHONY : PositionEstimator.s
 
 # target to generate assembly for a file
-PositionEstimater.cpp.s:
-	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/PositionEstimater.cpp.s
-.PHONY : PositionEstimater.cpp.s
+PositionEstimator.cpp.s:
+	cd /Users/zuzukun/CLionProjects/newzuzumouse/cmake-build-debug && $(MAKE) -f mslm_v3/CMakeFiles/MSLM.dir/build.make mslm_v3/CMakeFiles/MSLM.dir/PositionEstimator.cpp.s
+.PHONY : PositionEstimator.cpp.s
 
 block.obj: block.cpp.obj
 
@@ -329,9 +329,9 @@ help:
 	@echo "... Point.obj"
 	@echo "... Point.i"
 	@echo "... Point.s"
-	@echo "... PositionEstimater.obj"
-	@echo "... PositionEstimater.i"
-	@echo "... PositionEstimater.s"
+	@echo "... PositionEstimator.obj"
+	@echo "... PositionEstimator.i"
+	@echo "... PositionEstimator.s"
 	@echo "... block.obj"
 	@echo "... block.i"
 	@echo "... block.s"

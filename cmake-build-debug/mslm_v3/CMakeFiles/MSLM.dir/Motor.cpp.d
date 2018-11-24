@@ -77,4 +77,5 @@ CMakeFiles/MSLM.dir/Motor.cpp.obj: \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h \
+ /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h \
  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h

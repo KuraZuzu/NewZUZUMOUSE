@@ -1,4 +1,6 @@
 Motor.o: /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h \
+  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cmath \
+  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/rtc_time.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/sleep_api.h \
@@ -63,7 +65,6 @@ Motor.o: /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed_error.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/machine/time.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/time.h \
-  /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cmath \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/math.h \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cstring \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cstdio \

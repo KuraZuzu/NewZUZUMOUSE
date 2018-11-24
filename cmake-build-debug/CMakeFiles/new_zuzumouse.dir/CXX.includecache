@@ -567,6 +567,12 @@ mbed.h
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/mbed.h
 vector.h
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h
+Point.h
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
+
+/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h
+cmath
+-
 
 /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h
 mbed.h

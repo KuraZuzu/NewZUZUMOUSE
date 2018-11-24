@@ -1,8 +1,5 @@
-PositionEstimater.o: \
-  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-2dc2d4.pch \
-  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/deftype.h \
-  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/block.h \
-  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/map3.h \
+PositionEstimator.o: \
+  /var/folders/8m/m33lf_5j5tq3q9d1jpqyjz_h0000gn/T/preamble-2a1f0e.pch \
   /usr/local/Cellar/gcc-arm-none-eabi/20171218/arm-none-eabi/include/c++/7.2.1/cmath \
   /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Point.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/vector.h \
@@ -98,5 +95,5 @@ PositionEstimater.o: \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/platform.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mbed/mbed.h \
   /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/Motor.h \
-  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.h \
-  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimater.h
+  /clion_clangd_inmemory_directory/macros/Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.h \
+  /Users/zuzukun/CLionProjects/newzuzumouse/mslm_v3/PositionEstimator.h
