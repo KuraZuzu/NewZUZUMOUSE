@@ -1,6 +1,8 @@
 #include "new_zuzumouse.h"
 #include "mslm_v3/switch.h"
 #include "explore.h"
+#include "mslm_v3/PositionEstimator.h"
+#include "mslm_v3/map3.h"
 
 DigitalOut myled1(LED1);
 DigitalOut myled2(LED2);
@@ -8,13 +10,17 @@ DigitalOut myled3(LED3);
 DigitalOut myled4(LED4);
 BusOut led(LED4,LED3,LED2,LED1);
 Serial pc(USBTX, USBRX);
-NewZuzumouse me;
-MotorManager motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18);
-Explore test(me);
 Switch sw2(p8,PullUp);
 Switch select_sw3(p7,PullNone);
 Switch plus_sw4(p6,PullUp);
 Switch minus_sw5(p5,PullNone);
+
+NewZuzumouse me;
+MotorManager motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18);
+Explore test(me);
+PositionEstimator pe(motor._position);
+Map3 map(16, 16);
+Block block;
 
 
 int main() {
@@ -101,7 +107,7 @@ int main() {
                 motor.motor_on();
 //                me.move(180, ONE_BLOCK*5);
 //                me.turn(180, ZUZU::TURN_MACHINE);
-                me.test_move(100, 200, ONE_BLOCK / 3);
+                me.test_move(200, 200, ONE_BLOCK);
 
 //                {
 //                    for(double i = 50; i < 1000; i += 10){
@@ -112,6 +118,12 @@ int main() {
 
                 me.stop();
 
+//                if(!me.is_opened_left_wall()) block.set_west_wall();
+//                if(!me.is_opened_center_wall()) block.set_north_wall();
+//                if(!me.is_opened_right_wall()) block.set_east_wall();
+//                map.set_wall(block);
+//                block.reset_wall();
+//
 //                motor.motor_off();
 
                 me.disp_odometry();

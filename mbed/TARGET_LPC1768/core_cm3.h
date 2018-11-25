@@ -555,7 +555,7 @@ typedef struct
        uint32_t RESERVED0[1];
   __I  uint32_t ICTR;                    /*!< Offset: 0x004 (R/ )  Interrupt Controller Type Register      */
 #if ((defined __CM3_REV) && (__CM3_REV >= 0x200))
-  __IO uint32_t ACTLR;                   /*!< Offset: 0x008 (R/W)  Auxiliary Control Register      */
+  __IO uint32_t ACTLR;                   /*!< Offset: 0x008 (CIRCLE_R/W)  Auxiliary Control Register      */
 #else
        uint32_t RESERVED1[1];
 #endif

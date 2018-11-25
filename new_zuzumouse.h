@@ -39,10 +39,12 @@ public:
                     motor.get_v(),
                     motor.get_moved_x(),
                     motor.get_moved_y(),
-                    motor.get_moved_rad() * 180 / 3.14159265,
+                    motor.get_moved_rad() * 180 / pi,
                     motor.get_current_machine_direction()
             );
     }
+
+
 
 
     inline bool is_opened_left_wall() {
