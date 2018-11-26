@@ -15,12 +15,14 @@ Switch select_sw3(p7,PullNone);
 Switch plus_sw4(p6,PullUp);
 Switch minus_sw5(p5,PullNone);
 
-NewZuzumouse me;
+
 MotorManager motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18);
-Explore test(me);
 PositionEstimator pe(motor._position);
+NewZuzumouse me(motor);
 Map3 map(16, 16);
 Block block;
+Explore test(me, pe, map);
+
 
 
 int main() {
@@ -104,51 +106,16 @@ int main() {
                 wait(1);
                 myled1 = 1;
 //                motor.l_v_log.push_back(123);
+
+//                pe.set_position(90,90,0.0);
                 motor.motor_on();
-//                me.move(180, ONE_BLOCK*5);
-//                me.turn(180, ZUZU::TURN_MACHINE);
-                me.test_move(200, 200, ONE_BLOCK);
-
-//                {
-//                    for(double i = 50; i < 1000; i += 10){
-//                        me.turn(i, ZUZU::TURN_MACHINE);
-//                    }
-//                }
-
+                me.move_p(150, 180.0);
+                me.turn(150,ZUZU::RIGHT_MACHINE);
+                me.move_p(150, 180);
+                printf("X=%d Y=%d \r\n",pe.get_map_position().x, pe.get_map_position().y);
+//                printf("X=%.3f Y=%.3f Theta=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad*(180.0/PI));
 
                 me.stop();
-
-//                if(!me.is_opened_left_wall()) block.set_west_wall();
-//                if(!me.is_opened_center_wall()) block.set_north_wall();
-//                if(!me.is_opened_right_wall()) block.set_east_wall();
-//                map.set_wall(block);
-//                block.reset_wall();
-//
-//                motor.motor_off();
-
-                me.disp_odometry();
-
-
-//
-//                printf("log_size = %d \r\n",motor.l_v_log.size());
-//                for(int i = 0; i < motor.l_v_log.size(); i++) {
-//                    printf("delta_l_distance:%d  delta_r_distance:%d  moved_distance:%d  moved_r_distance%d %d\n\r",
-//                           motor.l_v_log.at(i),
-//                           motor.wathc_v[1][i],
-//                           motor.wathc_v[2][i],
-//                           motor.wathc_v[3][i],
-//                           motor.odometry_watch_count
-//                    );
-//                }
-
-
-//                pc.printf("\r\b\r");
-//                printf("%d %d %d diff=%d\n\r",
-//                       me.get_left_wall_distance(),
-//                       me.get_front_wall_distance(),
-//                       me.get_right_wall_distance(),
-//                       me.get_left_wall_distance()-me.get_right_wall_distance()
-//                       );
 
                 mode = ZUZU::COMMAND_MODE;
                 break;

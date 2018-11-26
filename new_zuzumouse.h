@@ -16,33 +16,32 @@ class NewZuzumouse {
 //public:   //センサ見たい時
 private:
 
-    MotorManager motor;
+    MotorManager& motor;
     DistanceSensor left_sensor, front_sensor, right_sensor;  //この値のまま使いたかったらpublicで書けよ！
 
 
 public:
 
-    NewZuzumouse() :
-            motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18),
+    NewZuzumouse(MotorManager& _motor) :
+            motor(_motor),
             left_sensor(p17), front_sensor(p20), right_sensor(p16) {
-
         motor.init(); //走る準備するよ！(初期値のフラグが0で割り込み開始)
 
     }
 
 
-    inline void disp_odometry(){
-
-
-            printf("%d[ms]  v:%.1f,  x:%.1f,  y:%.1f,  deg:%.1f°,  direction:%d  \n\r",
-                    motor.get_odometry_watch_count(),
-                    motor.get_v(),
-                    motor.get_moved_x(),
-                    motor.get_moved_y(),
-                    motor.get_moved_rad() * 180 / pi,
-                    motor.get_current_machine_direction()
-            );
-    }
+//    inline void disp_odometry(){
+//
+//
+//            printf("%d[ms]  v:%.1f,  x:%.1f,  y:%.1f,  deg:%.1f°,  direction:%d  \n\r",
+//                    motor.get_odometry_watch_count(),
+//                    motor.get_v(),
+//                    motor.get_moved_x(),
+//                    motor.get_moved_y(),
+//                    motor.get_moved_rad() * 180 / PI,
+//                    motor.get_current_machine_direction()
+//            );
+//    }
 
 
 
@@ -71,13 +70,6 @@ public:
         return right_sensor;
     }
 
-    inline void set_init_odometry_watch_count() {
-        motor.set_odometry_watch_count(0);
-    }
-
-    inline void set_init_coordinates() {
-        motor.set_coordinates(90.0, 90.0);
-    }
 
 //    ここから走るよ
 
@@ -121,29 +113,6 @@ public:
         }
         stop();
     }
-
-
-//    void slalom_turn(double _speed, ZUZU::DIRECTION _direction){
-//        if(_direction == ZUZU::LEFT_MACHINE) {
-//            while (LEFT_TURN > motor.right_distance()) {
-//                motor.set_left_speed(-_speed);
-//                motor.set_right_speed(_speed);
-//            }
-//
-//        }else if(_direction == ZUZU::TURN_MACHINE) {
-//            while (HALF_TURN > motor.left_distance()) {
-//                motor.set_left_speed(_speed);
-//                motor.set_right_speed(-_speed);
-//            }
-//
-//        }else if(_direction == ZUZU::RIGHT_MACHINE) {
-//            while (RIGHT_TURN > motor.left_distance()) {
-//                motor.set_left_speed(_speed);
-//                motor.set_right_speed(-_speed);
-//            }
-//        }
-//        stop();
-//    }
 
 
     void stop() {

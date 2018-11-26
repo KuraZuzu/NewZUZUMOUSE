@@ -1,15 +1,25 @@
 #include "explore.h"
 
+
+void debug(const Explore &_t) {
+    printf("X=%d Y=%d \r\n",_t.pe.get_map_position().x, _t.pe.get_map_position().y);
+    if (_t.pe.get_map_position().direction == NORTH_MASK) printf("Direction:NORTH");
+    else if (_t.pe.get_map_position().direction == EAST_MASK) printf("DirectionEAST");
+    else if (_t.pe.get_map_position().direction == NORTH_MASK) printf("DirectionSOUTH");
+    else printf("Direction:WEST");
+//    printf("X=%.3f Y=%.3f Theta=%.3f \r\n",_t.pe.get_position().x, _t.pe.get_position().y, _t.pe.get_position().rad*(180.0/PI));
+}
+
 void Explore::left_hand() {
 
     double _speed = 300;
     double _turn_speed = 150;
     int wait_time = 1000;
+    debug(*this);
     mouse.move(80 , START_BLOCK);
-    mouse.set_init_coordinates();
-    mouse.set_init_odometry_watch_count();
     wait_ms(wait_time);
-    mouse.disp_odometry();
+    pe.set_position(90.0, 90.0, 0.0);
+    debug(*this);
     wait_ms(wait_time);
     mouse.move_d(_speed, HALF_BLOCK, 0);
 
@@ -23,7 +33,7 @@ void Explore::left_hand() {
             mouse.move_d(_speed, HALF_BLOCK, 1);
             mouse.stop();
             wait_ms(wait_time);
-            mouse.disp_odometry();
+            debug(*this);
             wait_ms(wait_time);
             mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
             wait_ms(wait_time);
@@ -41,7 +51,7 @@ void Explore::left_hand() {
             wait_ms(wait_time);
             mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
             wait_ms(wait_time);
-            mouse.disp_odometry();
+            debug(*this);
             wait_ms(wait_time);
             mouse.move_d(_speed, HALF_BLOCK, 0);
 
@@ -53,7 +63,7 @@ void Explore::left_hand() {
             wait_ms(wait_time);
             mouse.turn(_turn_speed, ZUZU::TURN_MACHINE);
             wait_ms(wait_time);
-            mouse.disp_odometry();
+            debug(*this);
             wait_ms(wait_time);
             mouse.stop();
             wait_ms(wait_time);
@@ -65,7 +75,7 @@ void Explore::left_hand() {
     }
 
     printf("終了");
-    mouse.disp_odometry();
+    debug(*this);
 }
 
 

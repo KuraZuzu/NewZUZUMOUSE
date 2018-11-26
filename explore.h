@@ -2,16 +2,18 @@
 #define NEWZUZUMOUSE_EXPLORE_H
 
 #include "new_zuzumouse.h"
+#include "mslm_v3/PositionEstimator.h"
+#include "mslm_v3/map3.h"
 //class NewZuzumouse;
 
 
 class Explore {
-
-private:
-    NewZuzumouse& mouse;
-
 public:
-    Explore(NewZuzumouse& _mouse):mouse(_mouse){  //コンストラクタ
+    NewZuzumouse& mouse;
+    PositionEstimator& pe;
+    Map3& map;
+
+    Explore(NewZuzumouse& _mouse, PositionEstimator& _pe, Map3& _map):mouse(_mouse), pe(_pe), map(_map){  //コンストラクタ
 
     }
 

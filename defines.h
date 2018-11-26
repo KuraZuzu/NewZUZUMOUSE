@@ -30,13 +30,13 @@ namespace ZUZU{
 #define CENTER_TH 120
 #define WALL_TH 170
 //      元は1000パルスで 109mm 前身
-#define MM_TO_PULSE (2000/218)
-#define ONE_BLOCK (180 * MM_TO_PULSE)
+//#define MM_TO_PULSE (2000/218)
+#define ONE_BLOCK 180 //(180 * MM_TO_PULSE)
 #define HALF_BLOCK (ONE_BLOCK / 2)
-#define START_BLOCK 44.2 * MM_TO_PULSE
+#define START_BLOCK 44.2 //* MM_TO_PULSE
 #define WIDTH 77.7   //変えて76.7　大元は77.7 そして 78.0
-#define HALF_TURN (WIDTH * 3.141592 / 2 * MM_TO_PULSE)
-#define LEFT_TURN (WIDTH * 3.141592 / 4 * MM_TO_PULSE)
-#define RIGHT_TURN (WIDTH * 3.141592 / 4 * MM_TO_PULSE)
+#define HALF_TURN (WIDTH * 3.141592 / 2 )
+#define LEFT_TURN (WIDTH * 3.141592 / 4 )
+#define RIGHT_TURN (WIDTH * 3.141592 / 4 )
 #define KP 1.0  //0.5
 #endif //NEWZUZUMOUSE_DEFINES_H
