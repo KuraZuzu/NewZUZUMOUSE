@@ -1,8 +1,10 @@
 #include "new_zuzumouse.h"
+#include "Machine.h"
 #include "mslm_v3/switch.h"
 #include "explore.h"
 #include "mslm_v3/PositionEstimator.h"
 #include "mslm_v3/map3.h"
+#include "mslm_v3/SensorManager.h"
 
 DigitalOut myled1(LED1);
 DigitalOut myled2(LED2);
@@ -17,11 +19,14 @@ Switch minus_sw5(p5,PullNone);
 
 
 MotorManager motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18);
-PositionEstimator pe(motor._position);
-NewZuzumouse me(motor);
+SensorManager sensor(p17, p20, p16);
+PositionEstimator pe(motor._position,sensor);
+//NewZuzumouse me(motor,sensor);
+Machine me(motor, sensor, pe);
 Map3 map(16, 16);
 Block block;
-Explore test(me, pe, map);
+Explore test(me, map);
+
 
 
 
@@ -51,12 +56,13 @@ int main() {
                 led = mode_i;
                 break;
 
+//                突貫でマップ見たい
             case ZUZU::LEFT_HAND_METHOD:
                 myled3 = 0;
                 myled4 = 0;
                 wait(1);
                 motor.motor_on();
-                test.left_hand();
+                test.marking_exprole();
                 motor.motor_off();
                 mode = ZUZU::COMMAND_MODE;
 
@@ -80,10 +86,10 @@ int main() {
                 wait(1);
                 pc.printf("\r\b\r");
                 printf("%d %d %d diff=%d\n\r",
-                       me.get_left_wall_distance(),
-                       me.get_front_wall_distance(),
-                       me.get_right_wall_distance(),
-                       me.get_left_wall_distance()-me.get_right_wall_distance()
+                       sensor.get_left_wall_distance(),
+                       sensor.get_front_wall_distance(),
+                       sensor.get_right_wall_distance(),
+                       sensor.get_left_wall_distance()-sensor.get_right_wall_distance()
                        );
 
 
@@ -109,13 +115,45 @@ int main() {
 
 //                pe.set_position(90,90,0.0);
                 motor.motor_on();
-                me.move_p(150, 180.0);
-                me.turn(150,ZUZU::RIGHT_MACHINE);
-                me.move_p(150, 180);
-                printf("X=%d Y=%d \r\n",pe.get_map_position().x, pe.get_map_position().y);
-//                printf("X=%.3f Y=%.3f Theta=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad*(180.0/PI));
+                motor.set_right_speed(0);
+                motor.set_left_speed(0);
+                pe.set_position(90, 90, 0);
+                printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
+
+                me.turn(150, ZUZU::LEFT_MACHINE);
+//                me.move(50.0, 180.0);
+
+//                for (int i = 0; i < 8; ++i) {
+//                    me.turn(150, ZUZU::RIGHT_MACHINE);
+//                    printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
+//                }
+//
+//                for (int j = 0; j < 12; ++j) {
+//                    me.turn(150, ZUZU::LEFT_MACHINE);
+//                    printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
+//                }
+//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
+//
+//                me.move_p(150, 180.0);
+//                me.turn(150,ZUZU::RIGHT_MACHINE);
+//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
+//
+//                me.move_p(150, 180);
+//                me.turn(150,ZUZU::LEFT_MACHINE);
+//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
+////                printf("X=%.3f Y=%.3f Theta=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad*(180.0/PI));
+//
+//                me.move_p(150, 180.0);
+//                me.turn(150,ZUZU::RIGHT_MACHINE);
+//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
+//
+//                me.move_p(150, 180.0);
+//                me.turn(150,ZUZU::LEFT_MACHINE);
+//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
 
                 me.stop();
+                printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
+//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
 
                 mode = ZUZU::COMMAND_MODE;
                 break;

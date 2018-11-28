@@ -7,69 +7,18 @@
 #include "defines.h"
 #include "mbed.h"
 #include "mslm_v3/Motor.h"
-#include "mslm_v3/sensor.h"
-
-
+#include "mslm_v3/SensorManager.h"
 
 class NewZuzumouse {
-
-//public:   //センサ見たい時
-private:
-
-    MotorManager& motor;
-    DistanceSensor left_sensor, front_sensor, right_sensor;  //この値のまま使いたかったらpublicで書けよ！
-
-
 public:
+    MotorManager& motor;
+    SensorManager& sensor;
 
-    NewZuzumouse(MotorManager& _motor) :
-            motor(_motor),
-            left_sensor(p17), front_sensor(p20), right_sensor(p16) {
+
+    NewZuzumouse(MotorManager& _motor, SensorManager& _sensor) : motor(_motor), sensor(_sensor) {
         motor.init(); //走る準備するよ！(初期値のフラグが0で割り込み開始)
 
     }
-
-
-//    inline void disp_odometry(){
-//
-//
-//            printf("%d[ms]  v:%.1f,  x:%.1f,  y:%.1f,  deg:%.1f°,  direction:%d  \n\r",
-//                    motor.get_odometry_watch_count(),
-//                    motor.get_v(),
-//                    motor.get_moved_x(),
-//                    motor.get_moved_y(),
-//                    motor.get_moved_rad() * 180 / PI,
-//                    motor.get_current_machine_direction()
-//            );
-//    }
-
-
-
-
-    inline bool is_opened_left_wall() {
-        return left_sensor >= WALL_TH;
-    }
-
-    inline bool is_opened_center_wall() {
-        return front_sensor >= WALL_TH;
-    }
-
-    inline bool is_opened_right_wall() {
-        return right_sensor >= WALL_TH;
-    }
-
-    inline int get_front_wall_distance() {
-        return front_sensor;
-    }
-
-    inline int get_left_wall_distance() {
-        return left_sensor;
-    }
-
-    inline int get_right_wall_distance() {
-        return right_sensor;
-    }
-
 
 //    ここから走るよ
 
@@ -124,27 +73,27 @@ public:
 
     void p_control(double _speed) {
 
-        if (front_sensor < CENTER_TH) {
+        if (sensor.get_front_wall_distance() < CENTER_TH) {
             motor.set_left_speed(_speed);
             motor.set_right_speed(_speed);
 
-        } else if (left_sensor < WALL_TH && right_sensor < WALL_TH) {
-            const int y_t = left_sensor - right_sensor;
+        } else if (sensor.get_left_wall_distance() < WALL_TH && sensor.get_right_wall_distance() < WALL_TH) {
+            const int y_t = sensor.get_left_wall_distance() - sensor.get_right_wall_distance();
             const int e_t = 0 - y_t;
 
             motor.set_left_speed(_speed + e_t * KP);
             motor.set_right_speed(_speed - e_t * KP);
 
 
-        } else if (left_sensor < WALL_TH) {
-            const int y_t = (left_sensor - 122);
+        } else if (sensor.get_left_wall_distance() < WALL_TH) {
+            const int y_t = (sensor.get_left_wall_distance() - 122);
 
             motor.set_left_speed(_speed - y_t * KP);
             motor.set_right_speed(_speed + y_t * KP);
 
 
-        } else if (right_sensor < WALL_TH) {
-            const int y_t = (104 - right_sensor);
+        } else if (sensor.get_right_wall_distance() < WALL_TH) {
+            const int y_t = (104 - sensor.get_right_wall_distance());
 
             motor.set_left_speed(_speed - y_t * KP);
             motor.set_right_speed(_speed + y_t * KP);

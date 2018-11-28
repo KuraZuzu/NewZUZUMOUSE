@@ -1,7 +1,7 @@
 #ifndef NEWZUZUMOUSE_EXPLORE_H
 #define NEWZUZUMOUSE_EXPLORE_H
 
-#include "new_zuzumouse.h"
+#include "Machine.h"
 #include "mslm_v3/PositionEstimator.h"
 #include "mslm_v3/map3.h"
 //class NewZuzumouse;
@@ -9,11 +9,10 @@
 
 class Explore {
 public:
-    NewZuzumouse& mouse;
-    PositionEstimator& pe;
+    Machine& mouse;
     Map3& map;
 
-    Explore(NewZuzumouse& _mouse, PositionEstimator& _pe, Map3& _map):mouse(_mouse), pe(_pe), map(_map){  //コンストラクタ
+    Explore(Machine& _mouse, Map3& _map):mouse(_mouse), map(_map){  //コンストラクタ
 
     }
 
@@ -24,6 +23,10 @@ public:
     void test_center_left_hand();
 
     void metyakutya();
+
+    void marking_exprole();
+
+
 
 };
 
