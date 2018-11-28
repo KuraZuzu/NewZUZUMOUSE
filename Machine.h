@@ -8,10 +8,11 @@
 #include "defines.h"
 #include "mslm_v3/deftype.h"
 #include "mbed.h"
-//#include "mslm_v3/motor.h"
+#include "mslm_v3/motor.h"
 #include "mslm_v3/SensorManager.h"
 #include "mslm_v3/PositionEstimator.h"
 #include "new_zuzumouse.h"
+#include "serial_utility.h"
 
 class Machine{
 public:
@@ -20,9 +21,15 @@ public:
     PositionEstimator& _pe;
 
     Machine(MotorManager& motor, SensorManager& sensor, PositionEstimator& pe) : _motor(motor), _sensor(sensor), _pe(pe) {
-        _motor.init(); 
+        _motor.init();
 
     }
+
+//    void fit(double_t v){
+//
+//        const Position temp = _pe.get_map_position();
+//        const Block b = _pe.
+//    }
 
     void move(double_t v, double_t dist){
 
@@ -42,19 +49,33 @@ public:
         MapPosition temp = _pe.get_map_position();
         while (temp == _pe.get_map_position()){
             p_control(v);
+//            _motor.set_left_speed(v);
+//            _motor.set_right_speed(v);
+
         }
         _motor.reset_counts();
     }
 
 
+//move_d のコンパイルを通す為に 仕方なく move_dを改造
+//    void move_p(double_t v, double_t dist, int i=0){
+//
+//        const Position temp = _pe.get_position();
+//        while(true){
+//            const Position diff = _pe.get_position() - temp;
+//            const double_t diff_dist = (diff.x * diff.x) + (diff.y * diff.y);
+//            if (diff_dist > (dist*dist))break;
+//            p_control(v);
+//        }
+//        _motor.reset_counts();
+//    }
 
-    void move_p(double_t v, double_t dist, int i=0){
+    void move_p(double_t v, double_t dist){
 
         const Position temp = _pe.get_position();
         while(true){
-            const Position diff = _pe.get_position() - temp;
-            const double_t diff_dist = (diff.x * diff.x) + (diff.y * diff.y);
-            if (diff_dist > (dist*dist))break;
+            Position diff = _pe.get_position() - temp;
+            if (abs(diff.x) > dist || abs(diff.y) > dist)break;
             p_control(v);
         }
         _motor.reset_counts();
@@ -65,13 +86,10 @@ public:
         double_t lowest_v = 80;
         double a = ((v - lowest_v) / dist);
 
-
-
-
     }
 
 
-    
+
     void turn(double_t v, ZUZU::DIRECTION _direction){
 
         const uint8_t  temp_dir = _pe.get_map_position().direction;
@@ -96,7 +114,7 @@ public:
         double_t target_rad = (_direction==ZUZU::TURN_MACHINE)?PI/4.0 + PI/2.0:PI/4.0;
         while (true) {
             now_rad = _pe.get_position().rad;
-            if (abs(now_rad - temp_rad) > target_rad)break;
+            if (abs(now_rad - temp_rad) >= target_rad)break;
 
             if(_direction == ZUZU::DIRECTION::LEFT_MACHINE || _direction == ZUZU::TURN_MACHINE) {
                 _motor.set_left_speed(-v);
@@ -108,7 +126,7 @@ public:
         }
     }
 
-    
+
 
     void stop() {
         _motor.set_left_speed(0);
@@ -153,7 +171,7 @@ public:
 
 
     }
-    
+
 
 };
 

@@ -4,18 +4,28 @@
 #ifndef NEWZUZUMOUSE_NEW_ZUZUMOUSE_H
 #define NEWZUZUMOUSE_NEW_ZUZUMOUSE_H
 
+//#include "defines.h"
+//#include "mbed.h"
+//#include "mslm_v3/Motor.h"
+//#include "mslm_v3/SensorManager.h"
+
 #include "defines.h"
+#include "mslm_v3/deftype.h"
 #include "mbed.h"
-#include "mslm_v3/Motor.h"
+#include "mslm_v3/motor.h"
 #include "mslm_v3/SensorManager.h"
+#include "mslm_v3/PositionEstimator.h"
+#include "new_zuzumouse.h"
+#include "serial_utility.h"
 
 class NewZuzumouse {
 public:
     MotorManager& motor;
     SensorManager& sensor;
+    PositionEstimator pe;
 
 
-    NewZuzumouse(MotorManager& _motor, SensorManager& _sensor) : motor(_motor), sensor(_sensor) {
+    NewZuzumouse(MotorManager& _motor, SensorManager& _sensor, PositionEstimator _pe) : motor(_motor), sensor(_sensor), pe(_pe) {
         motor.init(); //走る準備するよ！(初期値のフラグが0で割り込み開始)
 
     }

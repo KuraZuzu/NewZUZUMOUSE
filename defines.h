@@ -11,6 +11,7 @@ namespace ZUZU{
         TEST_CENTER_LEFT_METHOD,
         LEFT_HAND_METHOD,
         TEST_MODE,
+        SERIAL_MODE,
         SENSOR_MODE,
         CENTER_LEFT_METHOD,
         D_MODE,
@@ -45,5 +46,5 @@ namespace ZUZU{
 #define HALF_TURN (WIDTH * 3.141592 / 2 )
 #define LEFT_TURN (WIDTH * 3.141592 / 4 )
 #define RIGHT_TURN (WIDTH * 3.141592 / 4 )
-#define KP 0.5  //1.0
+#define KP 0.08 //0.5
 #endif //NEWZUZUMOUSE_DEFINES_H

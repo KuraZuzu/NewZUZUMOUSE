@@ -27,7 +27,19 @@ Map3 map(16, 16);
 Block block;
 Explore test(me, map);
 
+void disp_map(Map3& map){
 
+    Point <uint8_t > a;
+    for (int i = map.size().y-1; 0 <= i; --i) {
+        a.y = i;
+        for (int j = 0; j < map.size().x; ++j) {
+            a.x = j;
+            printf("%d, ",map.at(a).get_wall());
+
+        }
+        printf("\r\n");
+    }
+}
 
 
 int main() {
@@ -39,10 +51,6 @@ int main() {
     ZUZU::MODE mode = ZUZU::COMMAND_MODE;
     uint8_t mode_i = 0;
     while (true) {
-
-//        test.metyakutya();
-//        printf("\n\r\n");
-//        printf("LEFT:%d, CENTER:%d, RIGHT:%d",me.get_left_wall_distance(),me.get_front_wall_distance(),me.get_right_wall_distance());
 
         switch (mode) {
             case ZUZU::COMMAND_MODE:
@@ -120,7 +128,19 @@ int main() {
                 pe.set_position(90, 90, 0);
                 printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
 
-                me.turn(150, ZUZU::LEFT_MACHINE);
+//              me.turn(150, ZUZU::RIGHT_MACHINE);
+                me.move_p(150);
+                me.move_p(150);
+                me.move_p(150);
+                me.move_p(150);
+                me.move(150, HALF_BLOCK);
+                me.turn(150, ZUZU::RIGHT_MACHINE);
+//                me.turn(150, ZUZU::RIGHT_MACHINE);
+                me.move(150, HALF_BLOCK);
+                me.move_p(150);
+                me.move_p(150);
+                me.move_p(150);
+
 //                me.move(50.0, 180.0);
 
 //                for (int i = 0; i < 8; ++i) {
@@ -155,6 +175,14 @@ int main() {
                 printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
 //                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
 
+                mode = ZUZU::COMMAND_MODE;
+                break;
+
+            case ZUZU::SERIAL_MODE:
+                disp_map(map);
+                for (int i = 0; i < test.log.size(); ++i) {
+                    printf("X:%.3f Y:%.3f R:%.3f \r\n", test.log.at(i).x/180.0, test.log.at(i).y/180.0, test.log.at(i).rad);
+                }
                 mode = ZUZU::COMMAND_MODE;
                 break;
 
