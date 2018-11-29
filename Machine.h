@@ -99,7 +99,7 @@ public:
 
         if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
-            MapPosition now_position = _pe.get_map_position();
+            const MapPosition first_block = _pe.get_map_position();
             double a_dist;
             double next_border;
             double first_position;
@@ -109,37 +109,34 @@ public:
 
             if (_direction == NORTH_MASK) {
                 first_position = _pe.get_position().y;
-                next_border = (first_position * ONE_BLOCK + HALF_BLOCK);
+                next_border = ((_pe.get_map_position().y * ONE_BLOCK) + HALF_BLOCK);
             } else if (_direction == EAST_MASK) {
                 first_position = _pe.get_position().x;
-                next_border = (first_position * ONE_BLOCK + HALF_BLOCK);
+                next_border = ((_pe.get_map_position().x * ONE_BLOCK) + HALF_BLOCK);
             } else if (_direction == SOUTH_MASK) {
                 first_position = _pe.get_position().y;
-                next_border = (first_position * ONE_BLOCK - HALF_BLOCK);
+                next_border = ((_pe.get_map_position().y * ONE_BLOCK) - HALF_BLOCK);
             } else {
                 first_position = _pe.get_position().x;
-                next_border = (first_position * ONE_BLOCK - HALF_BLOCK);
+                next_border = ((_pe.get_map_position().x * ONE_BLOCK) - HALF_BLOCK);
             }
 
-            a_dist = next_border - first_position;
+            a_dist = abs(next_border - first_position);
             a = (_speed - _lowest_speed) / a_dist;
 
-            while (now_position == _pe.get_map_position()) {
+            while (first_block == _pe.get_map_position()) {
 
-                if (_direction == NORTH_MASK) {
-                    current_position = _pe.get_position().y;
-                } else if (_direction == EAST_MASK) {
-                    current_position = _pe.get_position().x;
-                } else if (_direction == SOUTH_MASK) {
-                    current_position = _pe.get_position().y;
-                } else {
-                    current_position = _pe.get_position().x;
-                }
+                if (_direction == NORTH_MASK) current_position = _pe.get_position().y;
+                else if (_direction == EAST_MASK) current_position = _pe.get_position().x;
+                else if (_direction == SOUTH_MASK) current_position = _pe.get_position().y;
+                else current_position = _pe.get_position().x;
 
-                double d_speed = a * abs(next_border - current_position) + _lowest_speed;
+                double d_speed = a * abs(current_position - first_position) + _lowest_speed;
                 p_control(d_speed);
             }
         }
+
+
 
         if (_mode == ZUZU::ACCEL::DECELERATION) {
             double a = ((_speed - _lowest_speed) / _distance);  //傾き

@@ -19,7 +19,7 @@ void Explore::marking_exprole() {
     stop_point.x = 3;
     stop_point.y = 8;
 
-    double _speed = 210;
+    double _speed = 170;
     double _turn_speed = 80;
     int wait_time = 300;
 
