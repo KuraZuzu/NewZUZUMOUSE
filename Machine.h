@@ -13,14 +13,18 @@
 #include "mslm_v3/PositionEstimator.h"
 #include "new_zuzumouse.h"
 #include "serial_utility.h"
+#include "mslm_v3/Point.h"
 
-class Machine{
+class Machine {
 public:
-    MotorManager& _motor;
-    SensorManager& _sensor;
-    PositionEstimator& _pe;
+    MotorManager &_motor;
+    SensorManager &_sensor;
+    PositionEstimator &_pe;
+    MapPosition _mp;
 
-    Machine(MotorManager& motor, SensorManager& sensor, PositionEstimator& pe) : _motor(motor), _sensor(sensor), _pe(pe) {
+    Machine(MotorManager &motor, SensorManager &sensor, PositionEstimator &pe, MapPosition mp) : _motor(motor),
+                                                                                                 _sensor(sensor),
+                                                                                                 _pe(pe), _mp(mp) {
         _motor.init();
 
     }
@@ -31,13 +35,13 @@ public:
 //        const Block b = _pe.
 //    }
 
-    void move(double_t v, double_t dist){
+    void move(double_t v, double_t dist) {
 
         const Position temp = _pe.get_position();
-        while(true){
+        while (true) {
             const Position diff = _pe.get_position() - temp;
             const double_t diff_dist = (diff.x * diff.x) + (diff.y * diff.y);
-            if (diff_dist > (dist*dist))break;
+            if (diff_dist > (dist * dist))break;
             _motor.set_left_speed(v);
             _motor.set_right_speed(v);
 
@@ -45,9 +49,9 @@ public:
 
     }
 
-    void move_p(double_t v){
+    void move_p(double_t v) {
         MapPosition temp = _pe.get_map_position();
-        while (temp == _pe.get_map_position()){
+        while (temp == _pe.get_map_position()) {
             p_control(v);
 //            _motor.set_left_speed(v);
 //            _motor.set_right_speed(v);
@@ -70,10 +74,10 @@ public:
 //        _motor.reset_counts();
 //    }
 
-    void move_p(double_t v, double_t dist){
+    void move_p(double_t v, double_t dist) {
 
         const Position temp = _pe.get_position();
-        while(true){
+        while (true) {
             Position diff = _pe.get_position() - temp;
             if (abs(diff.x) > dist || abs(diff.y) > dist)break;
             p_control(v);
@@ -90,39 +94,63 @@ public:
 
     void move_d(double _speed, double _distance, ZUZU::ACCEL _mode) {
 
-        double _lowest_speed = 80;
         _motor.reset_counts();
+        double _lowest_speed = 80;
 
-//        while (_distance > _motor.distance_counts()) {
-//            double d_speed = (_mode==ZUZU::ACCEL::ACCELERATION)?a * _motor.distance_counts() + _lowest_speed:
-//                             a * (_distance - _motor.distance_counts())+ _lowest_speed;
-//            p_control(d_speed);
-//        }
+        if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
-        if (_mode == ZUZU::ACCEL::ACCELERATION){
+            MapPosition now_position = _pe.get_map_position();
+            double a_dist;
+            double next_border;
+            double first_position;
+            double a;
+            const uint8_t _direction = _pe.get_map_position().direction;
+            double current_position;
 
-            Point direciton = _pe.get_position();
+            if (_direction == NORTH_MASK) {
+                first_position = _pe.get_position().y;
+                next_border = (first_position * ONE_BLOCK + HALF_BLOCK);
+            } else if (_direction == EAST_MASK) {
+                first_position = _pe.get_position().x;
+                next_border = (first_position * ONE_BLOCK + HALF_BLOCK);
+            } else if (_direction == SOUTH_MASK) {
+                first_position = _pe.get_position().y;
+                next_border = (first_position * ONE_BLOCK - HALF_BLOCK);
+            } else {
+                first_position = _pe.get_position().x;
+                next_border = (first_position * ONE_BLOCK - HALF_BLOCK);
+            }
 
-            double a = (_speed - _lowest_speed) / 1;
+            a_dist = next_border - first_position;
+            a = (_speed - _lowest_speed) / a_dist;
 
+            while (now_position == _pe.get_map_position()) {
 
+                if (_direction == NORTH_MASK) {
+                    current_position = _pe.get_position().y;
+                } else if (_direction == EAST_MASK) {
+                    current_position = _pe.get_position().x;
+                } else if (_direction == SOUTH_MASK) {
+                    current_position = _pe.get_position().y;
+                } else {
+                    current_position = _pe.get_position().x;
+                }
 
+                double d_speed = a * abs(next_border - current_position) + _lowest_speed;
+                p_control(d_speed);
+            }
         }
 
-
-
-        if (_mode == ZUZU::ACCEL::DECELERATION){
+        if (_mode == ZUZU::ACCEL::DECELERATION) {
             double a = ((_speed - _lowest_speed) / _distance);  //傾き
             while (_distance > _motor.distance_counts()) {
 
-                double d_speed = a * (_distance - _motor.distance_counts())+ _lowest_speed;
+                double d_speed = a * (_distance - _motor.distance_counts()) + _lowest_speed;
                 p_control(d_speed);
             }
         }
 
         _motor.reset_counts();
-
-
     }
 
 

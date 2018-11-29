@@ -19,7 +19,7 @@ void Explore::marking_exprole() {
     stop_point.x = 3;
     stop_point.y = 8;
 
-    double _speed = 150;
+    double _speed = 210;
     double _turn_speed = 80;
     int wait_time = 300;
 
@@ -46,7 +46,8 @@ void Explore::marking_exprole() {
             mouse.old_turn(_turn_speed, ZUZU::LEFT_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
-            mouse.move_p(_speed);
+//            mouse.move_p(_speed);
+            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 //            mouse.stop();
 //            wait_ms(wait_time);
 
@@ -69,7 +70,9 @@ void Explore::marking_exprole() {
             mouse.stop();
             wait_ms(wait_time);
 //            mouse.move(_speed,HALF_BLOCK);
-            mouse.move_p(_speed);
+//            mouse.move_p(_speed);
+            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+
 //            mouse.stop();
 //            wait_ms(wait_time);
 
@@ -85,8 +88,9 @@ void Explore::marking_exprole() {
             mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
-            mouse.move_p(_speed);
+//            mouse.move_p(_speed);
 //            mouse.stop();
+            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 //            wait_ms(wait_time);
 
 
