@@ -19,14 +19,16 @@ void Explore::marking_exprole() {
     stop_point.x = 8;
     stop_point.y = 3;
 
-    double _speed = 300;
-    double _turn_speed = 80;
-    int wait_time = 300;
+    const double _speed = 300;
+    const double _turn_speed = 80;
+    const int wait_time = 300;
 
-    mouse.move(_speed , START_BLOCK);
+    mouse.move(_speed/10 , START_BLOCK);
 //    mouse._pe.update_map(map);
+    mouse.stop();
+    wait_ms(wait_time);
     mouse._pe.set_position(90.0, 90.0, 0.0);
-    mouse.move_p(_speed);
+    mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 
 
     while (true){

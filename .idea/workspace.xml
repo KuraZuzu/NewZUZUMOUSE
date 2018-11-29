@@ -16,10 +16,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Machine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/defines.h" beforeDir="false" afterPath="$PROJECT_DIR$/defines.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/explore.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/explore.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/explore.h" beforeDir="false" afterPath="$PROJECT_DIR$/explore.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/algorithm.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/algorithm.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,7 +53,7 @@
           <entry key="cmath" value="2" />
           <entry key="cpp" value="115" />
           <entry key="gitignore" value="8" />
-          <entry key="h" value="181" />
+          <entry key="h" value="183" />
           <entry key="txt" value="43" />
         </counts>
       </usages-collector>
@@ -61,15 +61,15 @@
         <counts>
           <entry key="CMakeCache.txt" value="2" />
           <entry key="CMakeLists.txt" value="72" />
-          <entry key="ObjectiveC" value="298" />
+          <entry key="ObjectiveC" value="300" />
           <entry key="PLAIN_TEXT" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cmake" value="45" />
-          <entry key="cpp" value="22347" />
-          <entry key="h" value="20504" />
+          <entry key="cpp" value="22415" />
+          <entry key="h" value="20553" />
           <entry key="mm" value="6" />
           <entry key="txt" value="346" />
         </counts>
@@ -78,7 +78,7 @@
         <counts>
           <entry key="CMakeLists.txt" value="374" />
           <entry key="Doxygen file" value="3" />
-          <entry key="ObjectiveC" value="42854" />
+          <entry key="ObjectiveC" value="42971" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -103,11 +103,23 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/explore.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="70">
+              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+              <folding>
+                <element signature="e#63#83#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mslm_v3/PositionEstimator.h">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
               <folding>
                 <element signature="e#146#164#0" expanded="true" />
               </folding>
@@ -116,22 +128,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mslm_v3/Point.h">
+        <entry file="file://$PROJECT_DIR$/explore.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="e#101#117#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="13">
+              <caret line="1" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/explore.cpp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mslm_v3/algorithm.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-83">
-              <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+            <state relative-caret-position="91">
+              <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -149,7 +158,7 @@
         <entry file="file://$PROJECT_DIR$/new_zuzumouse.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="410">
-              <caret line="153" column="2" lean-forward="true" selection-start-line="153" selection-start-column="2" selection-end-line="153" selection-end-column="2" />
+              <caret line="153" column="2" selection-start-line="153" selection-start-column="2" selection-end-line="153" selection-end-column="2" />
               <folding>
                 <element signature="e#226#246#0" expanded="true" />
               </folding>
@@ -170,15 +179,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/defines.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="260">
@@ -193,8 +193,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Machine.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
+            <state relative-caret-position="798">
+              <caret line="133" column="45" lean-forward="true" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
               <folding>
                 <element signature="e#105#125#0" expanded="true" />
               </folding>
@@ -283,7 +283,6 @@
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/serial_utility.cpp" />
         <option value="$PROJECT_DIR$/mslm_v3/map3.cpp" />
-        <option value="$PROJECT_DIR$/explore.h" />
         <option value="$PROJECT_DIR$/new_zuzumouse.h" />
         <option value="$PROJECT_DIR$/mslm_v3/map_mbed.cpp" />
         <option value="$PROJECT_DIR$/mslm_v3/map_mbed.h" />
@@ -293,7 +292,9 @@
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/defines.h" />
         <option value="$PROJECT_DIR$/Machine.h" />
+        <option value="$PROJECT_DIR$/mslm_v3/algorithm.h" />
         <option value="$PROJECT_DIR$/explore.cpp" />
+        <option value="$PROJECT_DIR$/explore.h" />
       </list>
     </option>
   </component>
@@ -445,7 +446,7 @@
       <workItem from="1543038620959" duration="58151000" />
       <workItem from="1543225779699" duration="10668000" />
       <workItem from="1543282014639" duration="77300000" />
-      <workItem from="1543453191543" duration="36354000" />
+      <workItem from="1543453191543" duration="37520000" />
     </task>
     <task id="LOCAL-00001" summary="動的確保">
       <created>1542109937173</created>
@@ -465,7 +466,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583891000" />
+    <option name="totallyTimeSpent" value="585057000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -480,18 +481,18 @@
     <frame x="0" y="23" width="1280" height="728" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9017094" visible="true" weight="0.23424879" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9017094" visible="true" weight="0.23424879" />
       <window_info id="Structure" order="1" sideWeight="0.17548077" side_tool="true" weight="0.24878837" />
       <window_info id="Favorites" order="2" sideWeight="0.0982906" side_tool="true" weight="0.23056443" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48869145" visible="true" weight="0.10766721" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48869145" weight="0.10766721" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3970588" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3249428" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4878837" weight="0.32300162" />
+      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.4878837" visible="true" weight="0.32300162" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4927302" weight="0.32608697" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5072698" side_tool="true" weight="0.32626426" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32837528" />
@@ -622,13 +623,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="map map map" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/calc.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="18" column="3" lean-forward="true" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/calc.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -805,13 +799,6 @@
     <entry file="file://$PROJECT_DIR$/mslm_v3/Simulator.h">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/explore.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mslm_v3/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
@@ -907,7 +894,7 @@
     <entry file="file://$PROJECT_DIR$/new_zuzumouse.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="410">
-          <caret line="153" column="2" lean-forward="true" selection-start-line="153" selection-start-column="2" selection-end-line="153" selection-end-column="2" />
+          <caret line="153" column="2" selection-start-line="153" selection-start-column="2" selection-end-line="153" selection-end-column="2" />
           <folding>
             <element signature="e#226#246#0" expanded="true" />
           </folding>
@@ -931,16 +918,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Machine.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="100" lean-forward="true" selection-start-line="100" selection-end-line="100" />
-          <folding>
-            <element signature="e#105#125#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mslm_v3/switch.h">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -954,7 +931,7 @@
     <entry file="file://$PROJECT_DIR$/mslm_v3/PositionEstimator.h">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="2" lean-forward="true" selection-start-column="2" selection-end-column="2" />
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
           <folding>
             <element signature="e#146#164#0" expanded="true" />
           </folding>
@@ -971,10 +948,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Machine.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="133" column="45" lean-forward="true" selection-start-line="133" selection-start-column="45" selection-end-line="133" selection-end-column="45" />
+          <folding>
+            <element signature="e#105#125#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/explore.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-83">
-          <caret line="21" column="22" selection-start-line="21" selection-start-column="22" selection-end-line="21" selection-end-column="22" />
+        <state relative-caret-position="13">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mslm_v3/algorithm.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="7" column="16" lean-forward="true" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/explore.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+          <folding>
+            <element signature="e#63#83#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
