@@ -15,30 +15,32 @@ void debug(const Explore &_t) {
 
 void Explore::marking_exprole() {
 
+    MapPosition stop_point;
+    stop_point.x = 2;
+    stop_point.y = 3;
 
-    double _speed = 300;
-    double _turn_speed = 150;
-    int wait_time = 500;
+    double _speed = 100;
+    double _turn_speed = 80;
+    int wait_time = 300;
 
     mouse.move(_speed , START_BLOCK);
 //    mouse._pe.update_map(map);
     mouse._pe.set_position(90.0, 90.0, 0.0);
-    mouse.move_p(_speed, HALF_BLOCK);
+    mouse.move_p(_speed);
 
-    MapPosition stop_point;
-    stop_point.x = 3;
-    stop_point.y = 3;
 
     while (true){
 
         mouse._pe.update_map(map);
-        log.push_back(mouse._pe.get_position());
+//        log.push_back(mouse._pe.get_position());
         if(mouse._pe.get_map_position()==stop_point)break;
 
         if(mouse._sensor.is_opened_left_wall()){
 
-            mouse.move_p(_speed, HALF_BLOCK);
+//            mouse.move_p(_speed, HALF_BLOCK);
+            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
+            printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
             wait_ms(wait_time);
 //            mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
             mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
@@ -46,17 +48,21 @@ void Explore::marking_exprole() {
             wait_ms(wait_time);
             mouse.move_p(_speed);
 //            mouse.stop();
+//            wait_ms(wait_time);
 
 
         }else if(mouse._sensor.is_opened_center_wall()){
+
             mouse.move_p(_speed);
 //            mouse.stop();
 //            wait_ms(wait_time);
 
         }else if(mouse._sensor.is_opened_right_wall()){
 
-            mouse.move_p(_speed, HALF_BLOCK);
+//            mouse.move_p(_speed, HALF_BLOCK);
+            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
+            printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
             wait_ms(wait_time);
 //            mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
             mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
@@ -65,26 +71,31 @@ void Explore::marking_exprole() {
 //            mouse.move(_speed,HALF_BLOCK);
             mouse.move_p(_speed);
 //            mouse.stop();
+//            wait_ms(wait_time);
 
 
         }else {
 
-            mouse.move_p(_speed, HALF_BLOCK);
+//            mouse.move_p(_speed, HALF_BLOCK);
+            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
+            printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
             wait_ms(wait_time);
 //            mouse.turn(_turn_speed, ZUZU::TURN_MACHINE);
             mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
             mouse.move_p(_speed);
-            mouse.stop();
+//            mouse.stop();
+//            wait_ms(wait_time);
 
 
         }
     }
     mouse.stop();
     wait_ms(wait_time);
-    debug(*this);
+    mouse.move(_speed, HALF_BLOCK);
+//    debug(*this);
 
 
 }

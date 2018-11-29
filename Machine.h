@@ -81,10 +81,31 @@ public:
         _motor.reset_counts();
     }
 
-    void move_d(double_t v, double_t dist, bool mode){
+//    void move_d(double_t v, double_t dist, ZUZU::ACCEL _mode){
+//
+//        double_t lowest_v = 100;
+//        double a = ((v - lowest_v) / dist);
+//
+//    }
 
-        double_t lowest_v = 80;
-        double a = ((v - lowest_v) / dist);
+    void move_d(double _speed, double _distance, ZUZU::ACCEL _mode) {
+
+        //mode 0 = 走り始め
+        //mode 1 = 走り終わり
+
+        double _lowest_speed = 100;
+        double a = ((_speed - _lowest_speed) / _distance);  //傾き
+
+//        a = (_mode==0)?a:-a;
+        _motor.reset_counts();
+
+        while (_distance > _motor.distance_counts()) {
+            double d_speed = (_mode==ZUZU::ACCEL::ACCELERATION)?a * _motor.distance_counts() + _lowest_speed:
+                             a * (_distance - _motor.distance_counts())+ _lowest_speed;
+            p_control(d_speed);
+        }
+        _motor.reset_counts();
+
 
     }
 

@@ -127,19 +127,22 @@ int main() {
                 motor.set_left_speed(0);
                 pe.set_position(90, 90, 0);
                 printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
+//                me.old_turn(150, ZUZU::RIGHT_MACHINE);
+                me.move(100, ONE_BLOCK*3);
+                me.stop();
+                printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
 
-//              me.turn(150, ZUZU::RIGHT_MACHINE);
-                me.move_p(150);
-                me.move_p(150);
-                me.move_p(150);
-                me.move_p(150);
-                me.move(150, HALF_BLOCK);
-                me.turn(150, ZUZU::RIGHT_MACHINE);
+//                me.move_p(150);
+//                me.move_p(150);
+//                me.move_p(150);
+//                me.move_p(150);
+//                me.move(150, HALF_BLOCK);
 //                me.turn(150, ZUZU::RIGHT_MACHINE);
-                me.move(150, HALF_BLOCK);
-                me.move_p(150);
-                me.move_p(150);
-                me.move_p(150);
+////                me.turn(150, ZUZU::RIGHT_MACHINE);
+//                me.move(150, HALF_BLOCK);
+//                me.move_p(150);
+//                me.move_p(150);
+//                me.move_p(150);
 
 //                me.move(50.0, 180.0);
 
@@ -172,7 +175,7 @@ int main() {
 //                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
 
                 me.stop();
-                printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
+//                printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
 //                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
 
                 mode = ZUZU::COMMAND_MODE;
@@ -194,7 +197,7 @@ int main() {
 //                me.move(3000, ONE_BLOCK);
                 me.stop();
                 wait(10);
-                me.move_d(1000, HALF_BLOCK, 1);
+//                me.move_d(1000, HALF_BLOCK, 1);
                 me.stop();
                 wait(1);
                 motor.motor_off();

@@ -18,8 +18,8 @@
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Machine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/defines.h" beforeDir="false" afterPath="$PROJECT_DIR$/defines.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/explore.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/explore.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3/Motor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.cpp" afterDir="false" />
     </list>
@@ -70,8 +70,8 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cmake" value="45" />
-          <entry key="cpp" value="21859" />
-          <entry key="h" value="18573" />
+          <entry key="cpp" value="22074" />
+          <entry key="h" value="18645" />
           <entry key="mm" value="6" />
           <entry key="txt" value="342" />
         </counts>
@@ -80,7 +80,7 @@
         <counts>
           <entry key="CMakeLists.txt" value="370" />
           <entry key="Doxygen file" value="3" />
-          <entry key="ObjectiveC" value="40435" />
+          <entry key="ObjectiveC" value="40722" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -96,8 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mslm_v3/Motor.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-118">
-              <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+            <state relative-caret-position="-346">
+              <caret line="112" column="16" lean-forward="true" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
               <folding>
                 <element signature="e#41#59#0" expanded="true" />
               </folding>
@@ -108,7 +108,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/explore.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4">
+            <state relative-caret-position="40">
               <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
             </state>
           </provider>
@@ -122,8 +122,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/explore.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+            <state relative-caret-position="1440">
+              <caret line="96" column="35" lean-forward="true" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -131,8 +131,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/defines.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+            <state relative-caret-position="547">
+              <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
             </state>
           </provider>
         </entry>
@@ -140,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_zuzumouse.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="53" column="4" lean-forward="true" selection-start-line="53" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
+            <state relative-caret-position="1270">
+              <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
               <folding>
                 <element signature="e#226#246#0" expanded="true" />
               </folding>
@@ -152,8 +152,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mslm_v3/vector.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10">
-              <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
+            <state relative-caret-position="550">
+              <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -161,8 +161,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Machine.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="133" column="47" lean-forward="true" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
+              <folding>
+                <element signature="e#105#125#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -170,8 +173,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-66">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
+            <state relative-caret-position="1005">
+              <caret line="67" column="40" lean-forward="true" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -182,7 +185,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mslm_v3/Motor.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="580">
+            <state relative-caret-position="658">
               <caret line="79" column="66" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="66" />
               <folding>
                 <element signature="e#155#175#0" expanded="true" />
@@ -276,11 +279,11 @@
         <option value="$PROJECT_DIR$/serial_utility.cpp" />
         <option value="$PROJECT_DIR$/mslm_v3/map3.cpp" />
         <option value="$PROJECT_DIR$/explore.h" />
-        <option value="$PROJECT_DIR$/mslm_v3/Motor.cpp" />
         <option value="$PROJECT_DIR$/new_zuzumouse.h" />
+        <option value="$PROJECT_DIR$/Machine.h" />
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/defines.h" />
-        <option value="$PROJECT_DIR$/Machine.h" />
+        <option value="$PROJECT_DIR$/mslm_v3/Motor.cpp" />
         <option value="$PROJECT_DIR$/explore.cpp" />
       </list>
     </option>
@@ -433,7 +436,7 @@
       <workItem from="1543038620959" duration="58151000" />
       <workItem from="1543225779699" duration="10668000" />
       <workItem from="1543282014639" duration="77300000" />
-      <workItem from="1543453191543" duration="1454000" />
+      <workItem from="1543453191543" duration="11542000" />
     </task>
     <task id="LOCAL-00001" summary="動的確保">
       <created>1542109937173</created>
@@ -453,7 +456,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="548991000" />
+    <option name="totallyTimeSpent" value="559079000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -465,9 +468,31 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="729" extended-state="6" />
+    <frame x="0" y="23" width="1920" height="989" extended-state="6" />
     <editor active="true" />
     <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8245192" visible="true" weight="0.23056443" />
+      <window_info id="Structure" order="1" sideWeight="0.17548077" side_tool="true" weight="0.24878837" />
+      <window_info id="Favorites" order="2" sideWeight="0.068292685" side_tool="true" weight="0.25767368" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48869145" visible="true" weight="0.19679634" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3970588" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32569557" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4878837" weight="0.32608697" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4927302" weight="0.32626426" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5072698" side_tool="true" weight="0.32626426" />
+      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32843137" />
+      <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.4983845" weight="0.3251634" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8245192" visible="true" weight="0.23101777" />
       <window_info id="Structure" order="1" sideWeight="0.17548077" side_tool="true" weight="0.24878837" />
       <window_info id="Favorites" order="2" sideWeight="0.068292685" side_tool="true" weight="0.25767368" />
@@ -480,28 +505,6 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32569557" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4878837" weight="0.32736155" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4927302" weight="0.32626426" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5072698" side_tool="true" weight="0.32626426" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32843137" />
-      <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.4983845" weight="0.3251634" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" />
-    </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.8245192" visible="true" weight="0.22778675" />
-      <window_info id="Structure" order="1" sideWeight="0.17548077" side_tool="true" weight="0.24878837" />
-      <window_info id="Favorites" order="2" sideWeight="0.068292685" side_tool="true" weight="0.25767368" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48869145" weight="0.28780487" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3970588" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32569557" />
-      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.4878837" visible="true" weight="0.3284553" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4927302" weight="0.32626426" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5072698" side_tool="true" weight="0.32626426" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.32843137" />
@@ -871,29 +874,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mslm_v3/Simulator.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mslm_v3/vector.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-66">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mslm_v3/Motor.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
+        <state relative-caret-position="658">
           <caret line="79" column="66" lean-forward="true" selection-start-line="79" selection-start-column="16" selection-end-line="79" selection-end-column="66" />
           <folding>
             <element signature="e#155#175#0" expanded="true" />
@@ -901,51 +884,74 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/explore.h">
+    <entry file="file://$PROJECT_DIR$/mslm_v3/Simulator.h">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mslm_v3/vector.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4">
-          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        <state relative-caret-position="550">
+          <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/defines.h">
+    <entry file="file://$PROJECT_DIR$/Machine.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="48" column="14" selection-start-line="48" selection-start-column="14" selection-end-line="48" selection-end-column="14" />
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+          <folding>
+            <element signature="e#105#125#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_zuzumouse.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="53" column="4" lean-forward="true" selection-start-line="53" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
+        <state relative-caret-position="1270">
+          <caret line="127" column="9" selection-start-line="127" selection-start-column="9" selection-end-line="127" selection-end-column="9" />
           <folding>
             <element signature="e#226#246#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Machine.h">
+    <entry file="file://$PROJECT_DIR$/defines.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="133" column="47" lean-forward="true" selection-start-line="133" selection-start-column="47" selection-end-line="133" selection-end-column="47" />
+        <state relative-caret-position="547">
+          <caret line="50" lean-forward="true" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="67" column="40" lean-forward="true" selection-start-line="67" selection-start-column="40" selection-end-line="67" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mslm_v3/Motor.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-118">
-          <caret line="152" lean-forward="true" selection-start-line="152" selection-end-line="152" />
+        <state relative-caret-position="-346">
+          <caret line="112" column="16" lean-forward="true" selection-start-line="112" selection-start-column="16" selection-end-line="112" selection-end-column="16" />
           <folding>
             <element signature="e#41#59#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/explore.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="4" column="38" selection-start-line="4" selection-start-column="38" selection-end-line="4" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/explore.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="42" column="58" selection-start-line="42" selection-start-column="58" selection-end-line="42" selection-end-column="58" />
+        <state relative-caret-position="1440">
+          <caret line="96" column="35" lean-forward="true" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
         </state>
       </provider>
     </entry>
