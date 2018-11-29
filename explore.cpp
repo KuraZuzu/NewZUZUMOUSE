@@ -16,10 +16,10 @@ void debug(const Explore &_t) {
 void Explore::marking_exprole() {
 
     MapPosition stop_point;
-    stop_point.x = 3;
-    stop_point.y = 8;
+    stop_point.x = 8;
+    stop_point.y = 3;
 
-    double _speed = 170;
+    double _speed = 300;
     double _turn_speed = 80;
     int wait_time = 300;
 

@@ -100,7 +100,6 @@ public:
         if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
             const MapPosition first_block = _pe.get_map_position();
-            double a_dist;
             double next_border;
             double first_position;
             double a;
@@ -109,19 +108,19 @@ public:
 
             if (_direction == NORTH_MASK) {
                 first_position = _pe.get_position().y;
-                next_border = ((_pe.get_map_position().y * ONE_BLOCK) + HALF_BLOCK);
+                next_border = (_pe.get_map_position().y * ONE_BLOCK);
             } else if (_direction == EAST_MASK) {
                 first_position = _pe.get_position().x;
-                next_border = ((_pe.get_map_position().x * ONE_BLOCK) + HALF_BLOCK);
+                next_border = (_pe.get_map_position().x * ONE_BLOCK);
             } else if (_direction == SOUTH_MASK) {
                 first_position = _pe.get_position().y;
-                next_border = ((_pe.get_map_position().y * ONE_BLOCK) - HALF_BLOCK);
+                next_border = ((_pe.get_map_position().y - 1) * ONE_BLOCK);
             } else {
                 first_position = _pe.get_position().x;
-                next_border = ((_pe.get_map_position().x * ONE_BLOCK) - HALF_BLOCK);
+                next_border = ((_pe.get_map_position().x - 1) * ONE_BLOCK);
             }
 
-            a_dist = abs(next_border - first_position);
+            const double a_dist = fabs(next_border - first_position);
             a = (_speed - _lowest_speed) / a_dist;
 
             while (first_block == _pe.get_map_position()) {
@@ -131,7 +130,9 @@ public:
                 else if (_direction == SOUTH_MASK) current_position = _pe.get_position().y;
                 else current_position = _pe.get_position().x;
 
-                double d_speed = a * abs(current_position - first_position) + _lowest_speed;
+//                _speed
+//a * motor.distance_counts() + _lowest_speed
+                double d_speed = a * fabs(current_position - first_position) + _lowest_speed;
                 p_control(d_speed);
             }
         }
@@ -140,8 +141,8 @@ public:
 
         if (_mode == ZUZU::ACCEL::DECELERATION) {
             double a = ((_speed - _lowest_speed) / _distance);  //傾き
-            while (_distance > _motor.distance_counts()) {
 
+            while (_distance > _motor.distance_counts()) {
                 double d_speed = a * (_distance - _motor.distance_counts()) + _lowest_speed;
                 p_control(d_speed);
             }
