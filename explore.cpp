@@ -16,10 +16,10 @@ void debug(const Explore &_t) {
 void Explore::marking_exprole() {
 
     MapPosition stop_point;
-    stop_point.x = 2;
-    stop_point.y = 3;
+    stop_point.x = 3;
+    stop_point.y = 8;
 
-    double _speed = 100;
+    double _speed = 150;
     double _turn_speed = 80;
     int wait_time = 300;
 
@@ -43,7 +43,7 @@ void Explore::marking_exprole() {
             printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
             wait_ms(wait_time);
 //            mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
-            mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+            mouse.old_turn(_turn_speed, ZUZU::LEFT_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
             mouse.move_p(_speed);

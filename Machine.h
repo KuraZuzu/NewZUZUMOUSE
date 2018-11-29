@@ -90,20 +90,36 @@ public:
 
     void move_d(double _speed, double _distance, ZUZU::ACCEL _mode) {
 
-        //mode 0 = 走り始め
-        //mode 1 = 走り終わり
-
-        double _lowest_speed = 100;
-        double a = ((_speed - _lowest_speed) / _distance);  //傾き
-
-//        a = (_mode==0)?a:-a;
+        double _lowest_speed = 80;
         _motor.reset_counts();
 
-        while (_distance > _motor.distance_counts()) {
-            double d_speed = (_mode==ZUZU::ACCEL::ACCELERATION)?a * _motor.distance_counts() + _lowest_speed:
-                             a * (_distance - _motor.distance_counts())+ _lowest_speed;
-            p_control(d_speed);
+//        while (_distance > _motor.distance_counts()) {
+//            double d_speed = (_mode==ZUZU::ACCEL::ACCELERATION)?a * _motor.distance_counts() + _lowest_speed:
+//                             a * (_distance - _motor.distance_counts())+ _lowest_speed;
+//            p_control(d_speed);
+//        }
+
+        if (_mode == ZUZU::ACCEL::ACCELERATION){
+
+            Point direciton = _pe.get_position();
+
+            double a = (_speed - _lowest_speed) / 1;
+
+
+
         }
+
+
+
+        if (_mode == ZUZU::ACCEL::DECELERATION){
+            double a = ((_speed - _lowest_speed) / _distance);  //傾き
+            while (_distance > _motor.distance_counts()) {
+
+                double d_speed = a * (_distance - _motor.distance_counts())+ _lowest_speed;
+                p_control(d_speed);
+            }
+        }
+
         _motor.reset_counts();
 
 

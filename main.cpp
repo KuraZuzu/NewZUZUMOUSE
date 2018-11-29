@@ -3,7 +3,7 @@
 #include "mslm_v3/switch.h"
 #include "explore.h"
 #include "mslm_v3/PositionEstimator.h"
-#include "mslm_v3/map3.h"
+#include "mslm_v3/map_mbed.h"
 #include "mslm_v3/SensorManager.h"
 
 DigitalOut myled1(LED1);
@@ -23,7 +23,7 @@ SensorManager sensor(p17, p20, p16);
 PositionEstimator pe(motor._position,sensor);
 //NewZuzumouse me(motor,sensor);
 Machine me(motor, sensor, pe);
-Map3 map(16, 16);
+Map_Mbed map(16, 16);
 Block block;
 Explore test(me, map);
 
@@ -71,6 +71,7 @@ int main() {
                 wait(1);
                 motor.motor_on();
                 test.marking_exprole();
+//                map.write_map();
                 motor.motor_off();
                 mode = ZUZU::COMMAND_MODE;
 
