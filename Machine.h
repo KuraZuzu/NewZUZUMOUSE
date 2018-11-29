@@ -127,6 +127,29 @@ public:
     }
 
 
+    void old_turn(double _speed, ZUZU::DIRECTION _direction) {
+        if (_direction == ZUZU::LEFT_MACHINE) {
+            while (LEFT_TURN > _motor.right_distance()) {
+                _motor.set_left_speed(-_speed);
+                _motor.set_right_speed(_speed);
+            }
+
+        } else if (_direction == ZUZU::TURN_MACHINE) {
+            while (HALF_TURN > _motor.left_distance()) {
+                _motor.set_left_speed(_speed);
+                _motor.set_right_speed(-_speed);
+            }
+
+        } else if (_direction == ZUZU::RIGHT_MACHINE) {
+            while (RIGHT_TURN > _motor.left_distance()) {
+                _motor.set_left_speed(_speed);
+                _motor.set_right_speed(-_speed);
+            }
+        }
+        stop();
+    }
+
+
 
     void stop() {
         _motor.set_left_speed(0);
