@@ -25,6 +25,13 @@ public:
         c_point.x=x;
         c_point.y=y;
         map.set_walk_cnt(c_point, 0);
+        for(uint8_t i=0; i<map.size().x; i++) {
+            for (uint8_t j = 0; j < map.size().y; j++) {
+                v_point.x=i;
+                v_point.y=j;
+                if(!(i==x&&j==y))map.set_walk_cnt(v_point, 255);
+            }
+        }
         do {
             change_flg = false;
             for(uint8_t i=0; i<map.size().x; i++){

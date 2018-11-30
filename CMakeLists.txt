@@ -35,6 +35,7 @@ set(SOURCE_FILE
         explore.cpp
         explore.h
         Machine.h
+        serial_utility.cpp
         )
 
 

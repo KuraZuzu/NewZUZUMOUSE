@@ -5,6 +5,7 @@
 #include "mslm_v3/PositionEstimator.h"
 #include "mslm_v3/map3.h"
 #include "mslm_v3/SensorManager.h"
+#include "serial_utility.h"
 
 DigitalOut myled1(LED1);
 DigitalOut myled2(LED2);
@@ -27,20 +28,6 @@ Machine me(motor, sensor, pe, mp);
 Map3 map(16, 16);
 Block block;
 Explore test(me, map);
-
-void disp_map(Map3& map){
-
-    Point <uint8_t > a;
-    for (int i = map.size().y-1; 0 <= i; --i) {
-        a.y = i;
-        for (int j = 0; j < map.size().x; ++j) {
-            a.x = j;
-            printf("%d, ",map.at(a).get_wall());
-
-        }
-        printf("\r\n");
-    }
-}
 
 
 int main() {
@@ -185,7 +172,7 @@ int main() {
                 break;
 
             case ZUZU::SERIAL_MODE:
-                disp_map(map);
+                serial_map(map);
                 for (int i = 0; i < test.log.size(); ++i) {
                     printf("X:%.3f Y:%.3f R:%.3f \r\n", test.log.at(i).x/180.0, test.log.at(i).y/180.0, test.log.at(i).rad);
                 }

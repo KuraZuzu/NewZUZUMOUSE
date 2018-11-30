@@ -16,6 +16,18 @@ void serial_map(Map3 &map) {
         }
         printf("\r\n");
     }
+
+    for (int i = map.size().y-1; 0 <= i; --i) {
+        a.y = i;
+        for (int j = 0; j < map.size().x; ++j) {
+            a.x = j;
+            printf("%d, ",map.at(a).walk_cnt);
+
+        }
+        printf("\r\n");
+    }
+
+
 }
 
 void serial_odometry(PositionEstimator &_pe) {

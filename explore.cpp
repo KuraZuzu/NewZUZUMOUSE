@@ -19,7 +19,7 @@ void debug(const Explore &_t) {
 void Explore::marking_exprole() {
 
     MapPosition stop_point;
-    stop_point.x = 2;
+    stop_point.x = 0;
     stop_point.y = 2;
 
     const double _speed = 300;
@@ -115,13 +115,14 @@ void Explore::marking_exprole() {
 
 void Explore::kyusin() {
 
+    int i;
     MapPosition stop_point;
-    stop_point.x = 2;
-    stop_point.y = 2;
+    stop_point.x = 8;
+    stop_point.y = 3;
 
-    const double _speed = 300;
-    const double _turn_speed = 50;
-    int wait_time = 300;
+    const double _speed = 400;
+    const double _turn_speed = 200;
+    int wait_time = 500;
 
 
     mouse.move(50 , START_BLOCK);
@@ -153,9 +154,9 @@ void Explore::kyusin() {
         }
 
         mouse._pe.update_map(map);
-        make_walkmap(map,2,2);
+        make_walkmap(map,1,2);
+//        log.push_back(mouse._pe.get_position());
 
-        log.push_back(mouse._pe.get_position());
         if(mouse._pe.get_map_position() == stop_point)break;
 
 
@@ -168,8 +169,8 @@ void Explore::kyusin() {
             mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
             wait_ms(wait_time);
-//            mouse.old_turn(_turn_speed, ZUZU::LEFT_MACHINE);
-            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+            mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+//            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
             mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
@@ -193,12 +194,12 @@ void Explore::kyusin() {
             mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
             wait_ms(wait_time);
-//            mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
-            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+            mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
             mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
         }
+        i++;
     }
     mouse.stop();
     wait_ms(wait_time);
