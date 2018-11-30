@@ -117,8 +117,8 @@ void Explore::kyusin() {
 
     int i;
     MapPosition stop_point;
-    stop_point.x = 8;
-    stop_point.y = 3;
+    stop_point.x = 2;
+    stop_point.y = 2;
 
     const double _speed = 400;
     const double _turn_speed = 200;
@@ -134,23 +134,57 @@ void Explore::kyusin() {
 
     while (true){
         Point<uint8_t> point;
-        Point<uint8_t> next_point;
+        Point<uint8_t> next_center_point;
+        Point<uint8_t> next_left_point;
+        Point<uint8_t> next_right_point;
 
         point.x = mouse._pe.get_map_position().x;
         point.y = mouse._pe.get_map_position().y;
 
         if(mouse._pe.get_map_position().direction == NORTH_MASK){
-            next_point.x = point.x;
-            next_point.y = point.y + (uint8_t)1;
+
+            next_center_point.x = point.x;
+            next_center_point.y = point.y + (uint8_t)1;
+
+            next_left_point.x = point.x - (uint8_t)1;
+            next_left_point.y = point.y;
+
+            next_right_point.x = point.x + (uint8_t)1;
+            next_right_point.x = point.y;
+
         }else if(mouse._pe.get_map_position().direction == EAST_MASK){
-            next_point.x = point.x + (uint8_t)1;
-            next_point.y = point.y;
+
+            next_center_point.x = point.x + (uint8_t)1;
+            next_center_point.y = point.y;
+
+            next_left_point.x = point.x;
+            next_left_point.y = point.y + (uint8_t)1;
+
+            next_right_point.x = point.x;
+            next_right_point.y = point.y - (uint8_t)1;
+
         }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
-            next_point.x = point.x;
-            next_point.y = point.y - (uint8_t)1;
+
+            next_center_point.x = point.x;
+            next_center_point.y = point.y - (uint8_t)1;
+
+            next_left_point.x = point.x + (uint8_t)1;
+            next_left_point.y = point.y;
+
+            next_right_point.x = point.x - (uint8_t)1;
+            next_right_point.y = point.y;
+
         }else{
-            next_point.x = point.x - (uint8_t)1;
-            next_point.y = point.y;
+
+            next_center_point.x = point.x - (uint8_t)1;
+            next_center_point.y = point.y;
+
+            next_left_point.x = point.x;
+            next_left_point.y = point.y - (uint8_t)1;
+
+            next_right_point.x = point.x;
+            next_right_point.y = point.y + (uint8_t)1;
+
         }
 
         mouse._pe.update_map(map);
@@ -160,46 +194,139 @@ void Explore::kyusin() {
         if(mouse._pe.get_map_position() == stop_point)break;
 
 
-        if(mouse._sensor.is_opened_center_wall()/* && ((map.at(point).walk_cnt - map.at(next_point).walk_cnt) == 1)*/){
+        if(mouse._sensor.is_opened_center_wall() && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
 
-            mouse.move_p(_speed);
-
-        }else if((mouse._sensor.is_opened_left_wall())/* && ((map.at(point).walk_cnt - map.at(next_point).walk_cnt) == 1)*/){
-
-            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
-            mouse.stop();
-            wait_ms(wait_time);
-            mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+                mouse.move_p(_speed);
+            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
 //            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
-            mouse.stop();
-            wait_ms(wait_time);
-            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-
-
-
-        }else if((mouse._sensor.is_opened_right_wall())/* && ((map.at(point).walk_cnt - map.at(next_point).walk_cnt) == 1)*/){
-
-            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
-            mouse.stop();
-            wait_ms(wait_time);
-            mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
 //            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
-            mouse.stop();
-            wait_ms(wait_time);
-            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            } else {
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            }
 
+
+
+        }else if((mouse._sensor.is_opened_left_wall()) && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
+
+            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+                mouse.move_p(_speed);
+            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+//            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            } else {
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            }
+
+
+        }else if((mouse._sensor.is_opened_right_wall()) && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
+
+            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+                mouse.move_p(_speed);
+            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+//            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            } else {
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            }
 
         }else{
 
-            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
-            mouse.stop();
-            wait_ms(wait_time);
-            mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
-            mouse.stop();
-            wait_ms(wait_time);
-            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-        }
+            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+                mouse.move_p(_speed);
+            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+//            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            } else {
+                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+                mouse.stop();
+                wait_ms(wait_time);
+                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            }
+
         i++;
+        }
     }
     mouse.stop();
     wait_ms(wait_time);

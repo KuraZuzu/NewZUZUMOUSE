@@ -16,14 +16,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/explore.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/explore.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/explore.h" beforeDir="false" afterPath="$PROJECT_DIR$/explore.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3/map3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/map3.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serial_utility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/serial_utility.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,7 +67,7 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="cmake" value="45" />
-          <entry key="cpp" value="22837" />
+          <entry key="cpp" value="23375" />
           <entry key="h" value="21492" />
           <entry key="mm" value="6" />
           <entry key="txt" value="362" />
@@ -82,7 +77,7 @@
         <counts>
           <entry key="CMakeLists.txt" value="390" />
           <entry key="Doxygen file" value="3" />
-          <entry key="ObjectiveC" value="44332" />
+          <entry key="ObjectiveC" value="44870" />
           <entry key="PLAIN_TEXT" value="17" />
         </counts>
       </usages-collector>
@@ -141,8 +136,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/explore.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-142">
-              <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+            <state relative-caret-position="478">
+              <caret line="230" column="126" selection-start-line="230" selection-start-column="126" selection-end-line="230" selection-end-column="126" />
             </state>
           </provider>
         </entry>
@@ -451,7 +446,7 @@
       <workItem from="1543038620959" duration="58151000" />
       <workItem from="1543225779699" duration="10668000" />
       <workItem from="1543282014639" duration="77300000" />
-      <workItem from="1543453191543" duration="54678000" />
+      <workItem from="1543453191543" duration="57261000" />
     </task>
     <task id="LOCAL-00001" summary="動的確保">
       <created>1542109937173</created>
@@ -471,7 +466,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="602215000" />
+    <option name="totallyTimeSpent" value="604798000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -486,12 +481,12 @@
     <frame x="-1" y="24" width="1280" height="729" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.9017094" visible="true" weight="0.23424879" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9017094" visible="true" weight="0.23424879" />
       <window_info id="Structure" order="1" sideWeight="0.17548077" side_tool="true" weight="0.24878837" />
       <window_info id="Favorites" order="2" sideWeight="0.0982906" side_tool="true" weight="0.23056443" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.48869145" visible="true" weight="0.22638437" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.48869145" visible="true" weight="0.22638437" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3970588" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -979,8 +974,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/explore.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-142">
-          <caret line="43" column="35" lean-forward="true" selection-start-line="43" selection-start-column="35" selection-end-line="43" selection-end-column="35" />
+        <state relative-caret-position="478">
+          <caret line="230" column="126" selection-start-line="230" selection-start-column="126" selection-end-line="230" selection-end-column="126" />
         </state>
       </provider>
     </entry>
