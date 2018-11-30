@@ -89,8 +89,8 @@ public:
     void kyusin(){
 
         MapPosition stop_point;
-        stop_point.x = 8;
-        stop_point.y = 3;
+        stop_point.x = 2;
+        stop_point.y = 2;
 
         const double _speed = 300;
         const double _turn_speed = 80;
@@ -110,15 +110,28 @@ public:
             point.x = mouse._pe.get_map_position().x;
             point.y = mouse._pe.get_map_position().y;
 
+            if(mouse._pe.get_map_position().direction == NORTH_MASK){
+                next_point.x = point.x;
+                next_point.y = point.y + (uint8_t)1;
+            }else if(mouse._pe.get_map_position().direction == EAST_MASK){
+                next_point.x = point.x + (uint8_t)1;
+                next_point.y = point.y;
+            }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
+                next_point.x = point.x;
+                next_point.y = point.y - (uint8_t)1;
+            }else{
+                next_point.x = point.x - (uint8_t)1;
+                next_point.y = point.y;
+            }
+
             mouse._pe.update_map(map);
             make_walkmap(map,2,2);
 //        log.push_back(mouse._pe.get_position());
             if(mouse._pe.get_map_position() == stop_point)break;
 
 
-
             if(mouse._sensor.is_opened_center_wall() && ((map.at(point).walk_cnt - map.at(next_point).walk_cnt) == 1)){
-                next_point.x = point.x ;
+                next_point.x = point.x;
                 next_point.y = point.y + (uint8_t)1;
 
                 mouse.move_p(_speed);
