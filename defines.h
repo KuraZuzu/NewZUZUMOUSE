@@ -8,14 +8,15 @@
 namespace ZUZU{
     enum MODE{
         COMMAND_MODE,
-        TEST_CENTER_LEFT_METHOD,
-        LEFT_HAND_METHOD,
-        TEST_MODE,
+        KYUSIN,
+        LEFT_HAND_WITHOUT_MAP,
         SERIAL_MODE,
+        TEST_MODE,
         SENSOR_MODE,
-        CENTER_LEFT_METHOD,
-        D_MODE,
     };
+
+
+
 
     enum DIRECTION{
         LEFT_MACHINE,

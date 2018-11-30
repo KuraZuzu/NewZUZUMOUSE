@@ -31,53 +31,91 @@ Explore test(me, map);
 
 
 int main() {
-
-    myled1.write(1);
-    wait(1);
-
+    uint8_t wait_tima = 1;
+    myled1 = 1;
+    wait(wait_tima);
 
     ZUZU::MODE mode = ZUZU::COMMAND_MODE;
-    uint8_t mode_i = 0;
+    uint8_t mode_i = 0b0000;
     while (true) {
 
         switch (mode) {
+
+///////////( 0 )//////////////////////////////////////////////////// コマンドモード
             case ZUZU::COMMAND_MODE:
-                if (select_sw3.update())
+                if (select_sw3.update()){
                     mode = (ZUZU::MODE) mode_i;
-                else if (plus_sw4.update())
-                    ++mode_i;
-                else if (minus_sw5.update())
-                    --mode_i;
+
+                } else if (plus_sw4.update()){
+
+                    if(mode_i < 0b1111) ++mode_i;
+                    else mode_i = 0b0000;
+
+                } else if (minus_sw5.update()){
+
+                    if(0 < mode_i) --mode_i;
+                    else mode_i = 0b1111;
+
+                }
 
                 led = mode_i;
                 break;
 
-//                突貫でマップ見たい
-            case ZUZU::LEFT_HAND_METHOD:
-                myled3 = 0;
-                myled4 = 0;
-                wait(1);
+///////////( 1 )//////////////////////////////////////////////////// 求心法モード
+            case ZUZU::KYUSIN:
+                myled1 = 1;
+                myled2 = 1;
+                myled3 = 1;
+                myled4 = 1;
+                wait(wait_tima);
                 motor.motor_on();
+                wait(wait_tima);
                 test.kyusin();
-//                test.marking_exprole();
-//                map.write_map();
+                wait(wait_tima);
                 motor.motor_off();
-                mode = ZUZU::COMMAND_MODE;
 
+                mode = ZUZU::COMMAND_MODE;
                 break;
 
-            case ZUZU::CENTER_LEFT_METHOD:
-                myled3 = 0;
-                myled4 = 0;
-                wait(1);
+///////////( 2 )//////////////////////////////////////////////////// マップ無し左手(単純左手)法
+            case ZUZU::LEFT_HAND_WITHOUT_MAP: //2
+                myled1 = 1;
+                myled2 = 1;
+                myled3 = 1;
+                myled4 = 1;
+                wait(wait_tima);
                 motor.motor_on();
-                test.center_left_hand();
+                wait(wait_tima);
+                test.marking_exprole();
+                wait(wait_tima);
                 motor.motor_off();
-                mode = ZUZU::COMMAND_MODE;
 
+                mode = ZUZU::COMMAND_MODE;
                 break;
 
+///////////( 3 )//////////////////////////////////////////////////// (シリアルモード)
+            case ZUZU::SERIAL_MODE: //3
+                myled1 = 1;
+                myled2 = 1;
+                myled3 = 1;
+                myled4 = 1;
+                serial_map(map);
+                for (int i = 0; i < test.log.size(); ++i) printf("X:%.3f Y:%.3f R:%.3f \r\n", test.log.at(i).x/180.0, test.log.at(i).y/180.0, test.log.at(i).rad);
 
+                mode = ZUZU::COMMAND_MODE;
+                break;
+
+///////////( 4 )//////////////////////////////////////////////////// (テストモード)
+            case ZUZU::TEST_MODE:
+                myled1 = 1;
+                myled2 = 1;
+                myled3 = 1;
+                myled4 = 1;
+
+                mode = ZUZU::COMMAND_MODE;
+                break;
+
+///////////( 5 )//////////////////////////////////////////////////// (センサーチェックモード)
             case ZUZU::SENSOR_MODE:
                 myled3 = 0;
                 myled4 = 0;
@@ -88,118 +126,12 @@ int main() {
                        sensor.get_front_wall_distance(),
                        sensor.get_right_wall_distance(),
                        sensor.get_left_wall_distance()-sensor.get_right_wall_distance()
-                       );
+                );
 
-
-                break;
-
-
-            case ZUZU::TEST_CENTER_LEFT_METHOD:
-                myled3 = 0;
-                myled4 = 0;
-                wait(1);
-                motor.motor_on();
-                test.test_center_left_hand();
-                motor.motor_off();
-                mode = ZUZU::COMMAND_MODE;
-
-                break;
-
-
-            case ZUZU::TEST_MODE:
-                wait(1);
-                myled1 = 1;
-//                motor.l_v_log.push_back(123);
-
-//                pe.set_position(90,90,0.0);
-                motor.motor_on();
-                motor.set_right_speed(0);
-                motor.set_left_speed(0);
-                pe.set_position(90, 90, 0);
-                printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
-//                me.old_turn(150, ZUZU::RIGHT_MACHINE);
-                me.move(100, ONE_BLOCK*3);
-                me.stop();
-                printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
-
-//                me.move_p(150);
-//                me.move_p(150);
-//                me.move_p(150);
-//                me.move_p(150);
-//                me.move(150, HALF_BLOCK);
-//                me.turn(150, ZUZU::RIGHT_MACHINE);
-////                me.turn(150, ZUZU::RIGHT_MACHINE);
-//                me.move(150, HALF_BLOCK);
-//                me.move_p(150);
-//                me.move_p(150);
-//                me.move_p(150);
-
-//                me.move(50.0, 180.0);
-
-//                for (int i = 0; i < 8; ++i) {
-//                    me.turn(150, ZUZU::RIGHT_MACHINE);
-//                    printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
-//                }
-//
-//                for (int j = 0; j < 12; ++j) {
-//                    me.turn(150, ZUZU::LEFT_MACHINE);
-//                    printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
-//                }
-//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
-//
-//                me.move_p(150, 180.0);
-//                me.turn(150,ZUZU::RIGHT_MACHINE);
-//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
-//
-//                me.move_p(150, 180);
-//                me.turn(150,ZUZU::LEFT_MACHINE);
-//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
-////                printf("X=%.3f Y=%.3f Theta=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad*(180.0/PI));
-//
-//                me.move_p(150, 180.0);
-//                me.turn(150,ZUZU::RIGHT_MACHINE);
-//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
-//
-//                me.move_p(150, 180.0);
-//                me.turn(150,ZUZU::LEFT_MACHINE);
-//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
-
-                me.stop();
-//                printf("X=%.3f Y=%.3f Direction=%.3f \r\n",pe.get_position().x, pe.get_position().y, pe.get_position().rad);
-//                printf("X=%d Y=%d Direction=%d \r\n",pe.get_map_position().x, pe.get_map_position().y, pe.get_map_position().direction);
-
-                mode = ZUZU::COMMAND_MODE;
-                break;
-
-            case ZUZU::SERIAL_MODE:
-                serial_map(map);
-                for (int i = 0; i < test.log.size(); ++i) {
-                    printf("X:%.3f Y:%.3f R:%.3f \r\n", test.log.at(i).x/180.0, test.log.at(i).y/180.0, test.log.at(i).rad);
-                }
-                mode = ZUZU::COMMAND_MODE;
-                break;
-
-            case ZUZU::D_MODE:
-
-                wait(1);
-                motor.motor_on();
-                me.move(1000, HALF_BLOCK);
-//                me.move(3000, ONE_BLOCK);
-                me.stop();
-                wait(10);
-//                me.move_d(1000, HALF_BLOCK, 1);
-                me.stop();
-                wait(1);
-                motor.motor_off();
-
-                mode = ZUZU::COMMAND_MODE;
-                break;
-
-            default:
                 break;
         }
     }
-
 }
+
 
 
