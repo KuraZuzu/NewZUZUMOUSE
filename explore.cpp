@@ -16,8 +16,8 @@ void debug(const Explore &_t) {
 void Explore::marking_exprole() {
 
     MapPosition stop_point;
-    stop_point.x = 8;
-    stop_point.y = 3;
+    stop_point.x = 2;
+    stop_point.y = 2;
 
     const double _speed = 300;
     const double _turn_speed = 80;
@@ -34,6 +34,7 @@ void Explore::marking_exprole() {
     while (true){
 
         mouse._pe.update_map(map);
+        make_walkmap(map,2,2);
 //        log.push_back(mouse._pe.get_position());
         if(mouse._pe.get_map_position()==stop_point)break;
 
