@@ -117,7 +117,7 @@ void Explore::kyusin() {
 
     int i;
     MapPosition stop_point;
-    stop_point.x = 2;
+    stop_point.x = 1;
     stop_point.y = 2;
 
     const double _speed = 400;
@@ -131,74 +131,45 @@ void Explore::kyusin() {
     mouse._pe.set_position(90.0, 90.0, 0.0);
     mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 
-
     while (true){
         Point<uint8_t> point;
         Point<uint8_t> next_center_point;
         Point<uint8_t> next_left_point;
         Point<uint8_t> next_right_point;
 
+        next_center_point.x = 255;
+        next_center_point.y = 255;
+        next_left_point.x = 255;
+        next_left_point.y = 255;
+        next_right_point.x = 255;
+        next_right_point.y = 255;
+
+
+        next_center_point.x = 255;
         point.x = mouse._pe.get_map_position().x;
         point.y = mouse._pe.get_map_position().y;
-
-        if(mouse._pe.get_map_position().direction == NORTH_MASK){
-
-            next_center_point.x = point.x;
-            next_center_point.y = point.y + (uint8_t)1;
-
-            next_left_point.x = point.x - (uint8_t)1;
-            next_left_point.y = point.y;
-
-            next_right_point.x = point.x + (uint8_t)1;
-            next_right_point.x = point.y;
-
-        }else if(mouse._pe.get_map_position().direction == EAST_MASK){
-
-            next_center_point.x = point.x + (uint8_t)1;
-            next_center_point.y = point.y;
-
-            next_left_point.x = point.x;
-            next_left_point.y = point.y + (uint8_t)1;
-
-            next_right_point.x = point.x;
-            next_right_point.y = point.y - (uint8_t)1;
-
-        }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
-
-            next_center_point.x = point.x;
-            next_center_point.y = point.y - (uint8_t)1;
-
-            next_left_point.x = point.x + (uint8_t)1;
-            next_left_point.y = point.y;
-
-            next_right_point.x = point.x - (uint8_t)1;
-            next_right_point.y = point.y;
-
-        }else{
-
-            next_center_point.x = point.x - (uint8_t)1;
-            next_center_point.y = point.y;
-
-            next_left_point.x = point.x;
-            next_left_point.y = point.y - (uint8_t)1;
-
-            next_right_point.x = point.x;
-            next_right_point.y = point.y + (uint8_t)1;
-
-        }
 
         mouse._pe.update_map(map);
         make_walkmap(map,1,2);
 //        log.push_back(mouse._pe.get_position());
 
-        if(mouse._pe.get_map_position() == stop_point)break;
+        if(mouse._pe.get_map_position() == stop_point) break;
 
 
-        if(mouse._sensor.is_opened_center_wall() && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
+        if(mouse._pe.get_map_position().direction == NORTH_MASK){
 
-            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+            next_center_point.x = point.x;
+            if(point.y < (map.size().y - 1)) next_center_point.y = point.y + (uint8_t)1;
+
+            if(0 < point.x) next_left_point.x = point.x - (uint8_t)1;
+            next_left_point.y = point.y;
+
+            if(point.x < (map.size().x - 1)) next_right_point.x = point.x + (uint8_t)1;
+            next_right_point.y = point.y;
+
+            if((mouse._sensor.is_opened_center_wall()) && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
                 mouse.move_p(_speed);
-            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+            }else if((mouse._sensor.is_opened_left_wall()) && (map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -206,8 +177,7 @@ void Explore::kyusin() {
 //            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
                 mouse.stop();
                 wait_ms(wait_time);
-                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+            }else if((mouse._sensor.is_opened_right_wall()) && ((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1)){
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -216,7 +186,7 @@ void Explore::kyusin() {
                 mouse.stop();
                 wait_ms(wait_time);
                 mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            } else {
+            }else{
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -228,11 +198,20 @@ void Explore::kyusin() {
 
 
 
-        }else if((mouse._sensor.is_opened_left_wall()) && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
+        }else if(mouse._pe.get_map_position().direction == EAST_MASK){
 
-            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+            if(point.x < (map.size().x - 1)) next_center_point.x = point.x + (uint8_t)1;
+            next_center_point.y = point.y;
+
+            next_left_point.x = point.x;
+            if(point.x < (map.size().y - 1)) next_left_point.y = point.y + (uint8_t)1;
+
+            next_right_point.x = point.x;
+            if(0 < point.y) next_right_point.y = point.y - (uint8_t)1;
+
+            if((mouse._sensor.is_opened_center_wall()) && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
                 mouse.move_p(_speed);
-            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+            }else if((mouse._sensor.is_opened_left_wall()) && ((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1)){
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -240,8 +219,7 @@ void Explore::kyusin() {
 //            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
                 mouse.stop();
                 wait_ms(wait_time);
-                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+            }else if((mouse._sensor.is_opened_right_wall()) && ((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1)){
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -250,7 +228,7 @@ void Explore::kyusin() {
                 mouse.stop();
                 wait_ms(wait_time);
                 mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            } else {
+            }else{
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -260,12 +238,20 @@ void Explore::kyusin() {
                 mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
             }
 
+        }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
 
-        }else if((mouse._sensor.is_opened_right_wall()) && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
+            next_center_point.x = point.x;
+            if(0 < point.y) next_center_point.y = point.y - (uint8_t)1;
+
+            if( point.x < (map.size().x - 1)) next_left_point.x = point.x + (uint8_t)1;
+            next_left_point.y = point.y;
+
+            if(0 < point.y) next_right_point.x = point.x - (uint8_t)1;
+            next_right_point.y = point.y;
 
             if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
                 mouse.move_p(_speed);
-            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+            }else if((mouse._sensor.is_opened_center_wall()) && ((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1)){
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -273,8 +259,7 @@ void Explore::kyusin() {
 //            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
                 mouse.stop();
                 wait_ms(wait_time);
-                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+            }else if((mouse._sensor.is_opened_left_wall()) && (map.at(point).walk_cnt - map.at(next_right_point).walk_cnt == 1)){
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -283,7 +268,7 @@ void Explore::kyusin() {
                 mouse.stop();
                 wait_ms(wait_time);
                 mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            } else {
+            }else{
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -295,9 +280,18 @@ void Explore::kyusin() {
 
         }else{
 
+            if(0 < point.x) next_center_point.x = point.x - (uint8_t)1;
+            next_center_point.y = point.y;
+
+            next_left_point.x = point.x;
+            if(0 < point.y) next_left_point.y = point.y - (uint8_t)1;
+
+            next_right_point.x = point.x;
+            if(point.x < (map.size().x - 1)) next_right_point.y = point.y + (uint8_t)1;
+
             if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
                 mouse.move_p(_speed);
-            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+            }else if((mouse._sensor.is_opened_center_wall()) && ((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1)){
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -305,8 +299,7 @@ void Explore::kyusin() {
 //            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
                 mouse.stop();
                 wait_ms(wait_time);
-                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+            }else if((mouse._sensor.is_opened_left_wall()) && ((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1)){
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -315,7 +308,7 @@ void Explore::kyusin() {
                 mouse.stop();
                 wait_ms(wait_time);
                 mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            } else {
+            }else{
                 mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
                 mouse.stop();
                 wait_ms(wait_time);
@@ -325,10 +318,148 @@ void Explore::kyusin() {
                 mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
             }
 
-        i++;
         }
+
+
+
     }
     mouse.stop();
     wait_ms(wait_time);
     mouse.move(_speed, HALF_BLOCK);
 }
+
+
+
+//        if(mouse._sensor.is_opened_center_wall() && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
+//
+//            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+//                mouse.move_p(_speed);
+//            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+////            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+////            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            } else {
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            }
+//
+//
+//
+//        }else if((mouse._sensor.is_opened_left_wall()) && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
+//
+//            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+//                mouse.move_p(_speed);
+//            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+////            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+////            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            } else {
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            }
+//
+//
+//        }else if((mouse._sensor.is_opened_right_wall()) && ((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1)){
+//
+//            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+//                mouse.move_p(_speed);
+//            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+////            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+////            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            } else {
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            }
+//
+//        }else{
+//
+//            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
+//                mouse.move_p(_speed);
+//            } else if((map.at(point).walk_cnt - map.at(next_left_point).walk_cnt) ==  1){
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
+////            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            } else if((map.at(point).walk_cnt - map.at(next_right_point).walk_cnt) == 1){
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+////            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            } else {
+//                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+//                mouse.stop();
+//                wait_ms(wait_time);
+//                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+//            }
+//
+//        i++;
+//        }
