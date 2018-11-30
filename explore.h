@@ -6,7 +6,6 @@
 #include "mslm_v3/map3.h"
 #include "mslm_v3/vector.h"
 #include "mslm_v3/Point.h"
-//class NewZuzumouse;
 
 
 class Explore {
@@ -14,7 +13,6 @@ public:
     Machine& mouse;
     Map3& map;
     Vector<Position> log;
-
 
     Explore(Machine& _mouse, Map3& _map):mouse(_mouse), map(_map){  //コンストラクタ
     }
@@ -86,98 +84,7 @@ public:
 
     void marking_exprole();
 
-    void kyusin(){
-
-        MapPosition stop_point;
-        stop_point.x = 2;
-        stop_point.y = 2;
-
-        const double _speed = 300;
-        const double _turn_speed = 80;
-        const int wait_time = 300;
-
-        mouse.move(_speed/10 , START_BLOCK);
-        mouse.stop();
-        wait_ms(wait_time);
-        mouse._pe.set_position(90.0, 90.0, 0.0);
-        mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-
-
-        while (true){
-            Point<uint8_t> point;
-            Point<uint8_t> next_point;
-
-            point.x = mouse._pe.get_map_position().x;
-            point.y = mouse._pe.get_map_position().y;
-
-            if(mouse._pe.get_map_position().direction == NORTH_MASK){
-                next_point.x = point.x;
-                next_point.y = point.y + (uint8_t)1;
-            }else if(mouse._pe.get_map_position().direction == EAST_MASK){
-                next_point.x = point.x + (uint8_t)1;
-                next_point.y = point.y;
-            }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
-                next_point.x = point.x;
-                next_point.y = point.y - (uint8_t)1;
-            }else{
-                next_point.x = point.x - (uint8_t)1;
-                next_point.y = point.y;
-            }
-
-            mouse._pe.update_map(map);
-            make_walkmap(map,2,2);
-//        log.push_back(mouse._pe.get_position());
-            if(mouse._pe.get_map_position() == stop_point)break;
-
-
-            if(mouse._sensor.is_opened_center_wall() && ((map.at(point).walk_cnt - map.at(next_point).walk_cnt) == 1)){
-                next_point.x = point.x;
-                next_point.y = point.y + (uint8_t)1;
-
-                mouse.move_p(_speed);
-
-            }else if((mouse._sensor.is_opened_left_wall()) && ((map.at(point).walk_cnt - map.at(next_point).walk_cnt) == 1)){
-
-                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
-                mouse.stop();
-                printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
-                wait_ms(wait_time);
-//            mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
-                mouse.old_turn(_turn_speed, ZUZU::LEFT_MACHINE);
-                mouse.stop();
-                wait_ms(wait_time);
-                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-
-
-            }else if((mouse._sensor.is_opened_right_wall()) && ((map.at(point).walk_cnt - map.at(next_point).walk_cnt) == 1)){
-
-                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
-                mouse.stop();
-                printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
-                wait_ms(wait_time);
-//            mouse.turn(_turn_speed, ZUZU::RIGHT_MACHINE);
-                mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
-                mouse.stop();
-                wait_ms(wait_time);
-                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-
-            }else{
-
-                mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
-                mouse.stop();
-                printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
-                wait_ms(wait_time);
-//            mouse.turn(_turn_speed, ZUZU::TURN_MACHINE);
-                mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
-                mouse.stop();
-                wait_ms(wait_time);
-                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-            }
-        }
-        mouse.stop();
-        wait_ms(wait_time);
-        mouse.move(_speed, HALF_BLOCK);
-    }
+    void kyusin();
 
 
 
