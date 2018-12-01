@@ -48,7 +48,7 @@ void Explore::marking_exprole() {
 //            mouse.move_p(_speed, HALF_BLOCK);
             mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
-            printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
+//            printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
             wait_ms(wait_time);
 //            mouse.turn(_turn_speed, ZUZU::LEFT_MACHINE);
             mouse.old_turn(_turn_speed, ZUZU::LEFT_MACHINE);
@@ -116,10 +116,10 @@ void Explore::marking_exprole() {
 void Explore::kyusin() {
 
     MapPosition stop_point;
-    stop_point.x = 15;
-    stop_point.y = 15;
+    stop_point.x = 3;
+    stop_point.y = 8;
 
-    const double _speed = 250;
+    const double _speed = 300;
     const double _turn_speed = 80;
     int wait_time = 200;
 
@@ -127,7 +127,7 @@ void Explore::kyusin() {
     mouse.move(50 , START_BLOCK);
     mouse.stop();
     wait_ms(wait_time);
-    mouse._pe.set_position(45.0, 90.0, 0.0);
+    mouse._pe.set_position(90.0, 90.0, 0.0);
     mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 
     while (true){

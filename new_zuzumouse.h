@@ -83,6 +83,10 @@ public:
 
     void p_control(double _speed) {
 
+
+//        motor.set_left_speed(_speed);
+//        motor.set_right_speed(_speed);
+
         if (sensor.get_front_wall_distance() < CENTER_TH) {
             motor.set_left_speed(_speed);
             motor.set_right_speed(_speed);
