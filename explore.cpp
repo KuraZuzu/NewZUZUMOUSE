@@ -22,7 +22,7 @@ void Explore::marking_exprole() {
     stop_point.x = 0;
     stop_point.y = 2;
 
-    const double _speed = 300;
+    const double _speed = 400;
     const double _turn_speed = 60;
     const int wait_time = 300;
 
@@ -120,7 +120,7 @@ void Explore::kyusin() {
     stop_point.y = 8;
 
     const double _speed = 300;
-    const double _turn_speed = 80;
+    const double _turn_speed = 100;
     int wait_time = 200;
 
 
@@ -148,7 +148,7 @@ void Explore::kyusin() {
         point.y = mouse._pe.get_map_position().y;
 
         mouse._pe.update_map(map);
-        make_walkmap(map,15,15);
+        make_walkmap(map,3,8);
 //        log.push_back(mouse._pe.get_position());
 
         if(mouse._pe.get_map_position() == stop_point) break;

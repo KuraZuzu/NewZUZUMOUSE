@@ -107,7 +107,7 @@ public:
 
 
         _motor.reset_counts();
-        double _lowest_speed = 150;
+        double _lowest_speed = 120;
 
         if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
@@ -133,8 +133,8 @@ public:
             }
 
             const double a_dist = fabs(next_border - first_position);
-//            a = (_speed - _lowest_speed) / a_dist;
-            a = (_speed - _lowest_speed) / HALF_BLOCK;
+            a = (_speed - _lowest_speed) / a_dist;
+//            a = (_speed - _lowest_speed) / HALF_BLOCK;
 
             while (first_block == _pe.get_map_position()) {
 
@@ -161,6 +161,15 @@ public:
 
             while (_distance > _motor.distance_counts()) {
                 double d_speed = a * (_distance - _motor.distance_counts()) + _lowest_speed;
+                if(_sensor.get_front_wall_distance() < EMR_TH){
+                    stop();
+                    if(_pe.get_map_position().direction == NORTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) - 90, _pe.get_position().rad);
+                    else if(_pe.get_map_position().direction == EAST_MASK) _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
+                    else if(_pe.get_map_position().direction == SOUTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) + 90, _pe.get_position().rad);
+                    else _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
+
+                    break;
+                }
                 p_control(d_speed);
 //                odometry_p_control(d_speed, ZUZU::D_MODE::IN);
 
@@ -427,35 +436,41 @@ public:
 
 
     void p_control(double _speed) {
-        
-        _motor.set_left_speed(_speed);
-        _motor.set_right_speed(_speed);
 
-        if(_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
+//        _motor.set_left_speed(_speed);
+//        _motor.set_right_speed(_speed);
+
+        if(_sensor.get_front_wall_distance() < CENTER_TH) {
+
+            _motor.set_left_speed(_speed);
+            _motor.set_right_speed(_speed);
+
+
+        } else if (_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
             const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
             const int e_t = 0 - y_t;
 
             _motor.set_left_speed(_speed + e_t * KP);
             _motor.set_right_speed(_speed - e_t * KP);
 
-//        } else if (_sensor.get_left_wall_distance() < WALL_TH) {
-//            const int y_t = (_sensor.get_left_wall_distance() - 122);
-//
-//            _motor.set_left_speed(_speed - y_t * KP);
-//            _motor.set_right_speed(_speed + y_t * KP);
-//
-//
-//        } else if (_sensor.get_right_wall_distance() < WALL_TH) {
-//            const int y_t = (104 - _sensor.get_right_wall_distance());
-//
-//            _motor.set_left_speed(_speed - y_t * KP);
-//            _motor.set_right_speed(_speed + y_t * KP);
-//
-//
-//        } else {
-//            _motor.set_left_speed(_speed);
-//            _motor.set_right_speed(_speed);
-//
+        } else if (_sensor.get_left_wall_distance() < P_TH) {
+            const int y_t = (_sensor.get_left_wall_distance() - 122);
+
+            _motor.set_left_speed(_speed - y_t * SINGLE_KP);
+            _motor.set_right_speed(_speed + y_t * SINGLE_KP);
+
+
+        } else if (_sensor.get_right_wall_distance() < P_TH) {
+            const int y_t = (104 - _sensor.get_right_wall_distance());
+
+            _motor.set_left_speed(_speed - y_t * SINGLE_KP);
+            _motor.set_right_speed(_speed + y_t * SINGLE_KP);
+
+
+        } else {
+            _motor.set_left_speed(_speed);
+            _motor.set_right_speed(_speed);
+
         }
 
     }
