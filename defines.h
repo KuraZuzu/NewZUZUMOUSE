@@ -53,7 +53,7 @@ namespace ZUZU{
 #define RIGHT_TURN (WIDTH * 3.141592 / 4 )
 #define KP 2 //0.5
 #define SINGLE_KP 2
-#define EMR_TH 10
+#define EMR_TH 0
 #define ODOMETRY_KP 1.0
 
 #endif //NEWZUZUMOUSE_DEFINES_H

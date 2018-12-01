@@ -107,7 +107,7 @@ public:
 
 
         _motor.reset_counts();
-        double _lowest_speed = 120;
+        double _lowest_speed = 100;
 
         if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
@@ -133,8 +133,8 @@ public:
             }
 
             const double a_dist = fabs(next_border - first_position);
-            a = (_speed - _lowest_speed) / a_dist;
-//            a = (_speed - _lowest_speed) / HALF_BLOCK;
+//            a = (_speed - _lowest_speed) / a_dist;
+            a = (_speed - _lowest_speed) / HALF_BLOCK;
 
             while (first_block == _pe.get_map_position()) {
 
@@ -161,7 +161,7 @@ public:
 
             while (_distance > _motor.distance_counts()) {
                 double d_speed = a * (_distance - _motor.distance_counts()) + _lowest_speed;
-                if(_sensor.get_front_wall_distance() < EMR_TH){
+                if(_sensor.get_v_front_wall_distance() < EMR_TH){
                     stop();
                     if(_pe.get_map_position().direction == NORTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) - 90, _pe.get_position().rad);
                     else if(_pe.get_map_position().direction == EAST_MASK) _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
@@ -181,6 +181,8 @@ public:
 
 
     void fit(){
+        double_t dir;
+
         double_t fit_x = (_pe.get_map_position().x * 180) + 90;
         double_t fit_y = (_pe.get_map_position().y * 180) + 90;
         old_turn(100, ZUZU::LEFT_MACHINE);
@@ -200,8 +202,12 @@ public:
         wait_ms(100);
         move(100, START_BLOCK);
         stop();
+        if(_pe.get_map_position().direction == NORTH_MASK) dir = 0;
+        else if(_pe.get_map_position().direction == EAST_MASK) dir = -PI/2;
+        else if(_pe.get_map_position().direction == SOUTH_MASK) dir = PI;
+        else dir = PI/2;
         wait_ms(100);
-        _pe.set_position(fit_x, fit_y, _pe.get_map_position().direction);
+        _pe.set_position(fit_x, fit_y, dir);
     }
 
 
@@ -489,14 +495,71 @@ public:
 //
 //    }
 //
-    void kyusin_running(double speed, double turn_speed, double wait_time, Point<uint8_t> point, Point<uint8_t> next_center_point, Point<uint8_t> next_left_point, Point<uint8_t> next_right_point){
-        if((_sensor.is_opened_front_wall()) && ((_map.at(point).walk_cnt - _map.at(next_center_point).walk_cnt) == 1)){
+    void kyusin_running(double speed, double turn_speed, double wait_time, Point<uint8_t> point, Point<uint8_t> next_center_point, Point<uint8_t> next_left_point, Point<uint8_t> next_right_point) {
+
+        const bool temp_l = _sensor.is_opened_left_wall();
+        const bool temp_f = _sensor.is_opened_front_wall();
+        const bool temp_r = _sensor.is_opened_right_wall();
+        double_t temp_x;
+        double_t temp_y;
+        double_t temp_dir;
+
+        if ((_sensor.is_opened_front_wall()) &&
+            ((_map.at(point).walk_cnt - _map.at(next_center_point).walk_cnt) == 1)) {
             move_p(speed);
-        }else if((_sensor.is_opened_left_wall()) && (_map.at(point).walk_cnt - _map.at(next_left_point).walk_cnt) ==  1){
+        } else if ((_sensor.is_opened_left_wall()) &&
+                   (_map.at(point).walk_cnt - _map.at(next_left_point).walk_cnt) == 1) {
             move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             stop();
             wait_ms(wait_time);
             turn(turn_speed, ZUZU::LEFT_MACHINE);
+
+//            if (!temp_f && !temp_r) {
+//                old_turn(100, ZUZU::LEFT_MACHINE);
+//                stop();
+//                wait_ms(wait_time);
+//                move(-100, HALF_BLOCK);
+//                stop();
+//                wait_ms(wait_time);
+//                move(100, START_BLOCK);
+//                old_turn(100, ZUZU::RIGHT_MACHINE);
+//                stop();
+//                wait_ms(wait_time);
+//                move(-100, HALF_BLOCK);
+//                stop();
+//                wait_ms(wait_time);
+//                move(100, START_BLOCK);
+//
+//            } else
+                if (!temp_r) {
+                move(-100, HALF_BLOCK);
+                stop();
+                wait_ms(wait_time);
+                move(100, START_BLOCK);
+                stop();
+                wait_ms(wait_time);
+            }
+
+            if (_pe.get_map_position().direction == NORTH_MASK) {
+                temp_x = _pe.get_map_position().x * 180 - 90;
+                temp_y = _pe.get_map_position().y * 180 + 90;
+                temp_dir = 0;
+            } else if (_pe.get_map_position().direction == EAST_MASK) {
+                temp_x = _pe.get_map_position().x * 180 - 90;
+                temp_y = _pe.get_map_position().y * 180 + 90;
+                temp_dir = -PI/2;
+            } else if (_pe.get_map_position().direction == SOUTH_MASK){
+                temp_x = _pe.get_map_position().x * 180 - 90;
+                temp_y = _pe.get_map_position().y * 180 + 90;
+                temp_dir = PI/2;
+            }else{
+                temp_x =_pe.get_map_position().x * 180 + 90;
+                temp_y = _pe.get_map_position().y * 180 - 90;
+                temp_dir = PI;
+            }
+
+            _pe.set_position(temp_x, temp_y, temp_dir);
+
 //            old_turn(turn_speed, ZUZU::LEFT_MACHINE);
             stop();
             wait_ms(wait_time);
@@ -515,7 +578,7 @@ public:
             stop();
 //            wait_ms(wait_time);
 //            old_turn(turn_speed, ZUZU::TURN_MACHINE);
-////            turn(turn_speed, ZUZU::TURN_MACHINE);
+//            turn(turn_speed, ZUZU::TURN_MACHINE);
             fit();
             stop();
             wait_ms(wait_time);

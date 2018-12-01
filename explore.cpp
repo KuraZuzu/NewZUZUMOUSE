@@ -115,11 +115,13 @@ void Explore::marking_exprole() {
 
 void Explore::kyusin() {
 
+    uint8_t i;
+
     MapPosition stop_point;
     stop_point.x = 3;
     stop_point.y = 8;
 
-    const double _speed = 300;
+    const double _speed = 200;
     const double _turn_speed = 100;
     int wait_time = 200;
 
@@ -131,6 +133,7 @@ void Explore::kyusin() {
     mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 
     while (true){
+        i++;
         Point<uint8_t> point;
         Point<uint8_t> next_center_point;
         Point<uint8_t> next_left_point;
@@ -152,7 +155,6 @@ void Explore::kyusin() {
 //        log.push_back(mouse._pe.get_position());
 
         if(mouse._pe.get_map_position() == stop_point) break;
-
 
         if(mouse._pe.get_map_position().direction == NORTH_MASK){
 
