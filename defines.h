@@ -37,7 +37,7 @@ namespace ZUZU{
 #define CENTER 0x60   //70
 #define RIGHT 0x80
 #define CENTER_TH 120
-#define WALL_TH 140 //170
+#define WALL_TH 150 //170
 #define P_TH 170
 //      元は1000パルスで 109mm 前身
 //#define MM_TO_PULSE (2000/218)
@@ -48,5 +48,5 @@ namespace ZUZU{
 #define HALF_TURN (WIDTH * 3.141592 / 2 )
 #define LEFT_TURN (WIDTH * 3.141592 / 4 )
 #define RIGHT_TURN (WIDTH * 3.141592 / 4 )
-#define KP 2.0 //0.5
+#define KP 0.5 //0.5
 #endif //NEWZUZUMOUSE_DEFINES_H

@@ -133,7 +133,7 @@ int main() {
 //                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
 //                wait(1);
 //                motor.motor_off();
-                me.move(60, ONE_BLOCK);
+                me.move(60, HALF_BLOCK);
                 me.stop();
 
                 mode = ZUZU::COMMAND_MODE;

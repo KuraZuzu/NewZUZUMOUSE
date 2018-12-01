@@ -118,7 +118,7 @@ void Explore::kyusin() {
     int i;
     MapPosition stop_point;
     stop_point.x = 3;
-    stop_point.y = 8;
+    stop_point.y = 3;
 
     const double _speed = 250;
     const double _turn_speed = 80;
@@ -137,20 +137,19 @@ void Explore::kyusin() {
         Point<uint8_t> next_left_point;
         Point<uint8_t> next_right_point;
 
-        next_center_point.x = 255;
-        next_center_point.y = 255;
-        next_left_point.x = 255;
-        next_left_point.y = 255;
-        next_right_point.x = 255;
-        next_right_point.y = 255;
+        next_center_point.x = 0;
+        next_center_point.y = 0;
+        next_left_point.x = 0;
+        next_left_point.y = 0;
+        next_right_point.x = 0;
+        next_right_point.y = 0;
 
 
-        next_center_point.x = 255;
         point.x = mouse._pe.get_map_position().x;
         point.y = mouse._pe.get_map_position().y;
 
         mouse._pe.update_map(map);
-        make_walkmap(map,3,8);
+        make_walkmap(map,3,3);
 //        log.push_back(mouse._pe.get_position());
 
         if(mouse._pe.get_map_position() == stop_point) break;
@@ -248,7 +247,7 @@ void Explore::kyusin() {
             if( point.x < (map.size().x - 1)) next_left_point.x = point.x + (uint8_t)1;
             next_left_point.y = point.y;
 
-            if(0 < point.y) next_right_point.x = point.x - (uint8_t)1;
+            if(0 < point.x) next_right_point.x = point.x - (uint8_t)1;
             next_right_point.y = point.y;
 
             mouse.kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
@@ -281,7 +280,7 @@ void Explore::kyusin() {
 //                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 //            }
 
-        }else{
+        }else{ //west
 
             if(0 < point.x) next_center_point.x = point.x - (uint8_t)1;
             next_center_point.y = point.y;
@@ -290,7 +289,7 @@ void Explore::kyusin() {
             if(0 < point.y) next_left_point.y = point.y - (uint8_t)1;
 
             next_right_point.x = point.x;
-            if(point.x < (map.size().x - 1)) next_right_point.y = point.y + (uint8_t)1;
+            if(point.y < (map.size().y - 1)) next_right_point.y = point.y + (uint8_t)1;
 
             mouse.kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 //            if((map.at(point).walk_cnt - map.at(next_center_point).walk_cnt) == 1){
