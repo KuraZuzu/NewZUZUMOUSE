@@ -93,6 +93,7 @@ public:
 
     void kyusin();
 
+    void original_kyusin();
 
 
 };

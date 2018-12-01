@@ -587,6 +587,45 @@ public:
     }
 
 
+    void original_kyusin_running(double speed, double turn_speed, double wait_time, Point<uint8_t> point, Point<uint8_t> next_center_point, Point<uint8_t> next_left_point, Point<uint8_t> next_right_point) {
+
+
+        if ((_sensor.is_opened_front_wall()) &&
+            ((_map.at(point).walk_cnt - _map.at(next_center_point).walk_cnt) == 1)) {
+            move_p(speed);
+
+        } else if ((_sensor.is_opened_left_wall()) && (_map.at(point).walk_cnt - _map.at(next_left_point).walk_cnt) == 1) {
+            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
+            stop();
+            wait_ms(wait_time);
+            turn(turn_speed, ZUZU::LEFT_MACHINE);
+//            old_turn(turn_speed, ZUZU::LEFT_MACHINE);
+            stop();
+            wait_ms(wait_time);
+            move_d(speed, 0, ZUZU::ACCELERATION);
+
+        }else if((_sensor.is_opened_right_wall()) && ((_map.at(point).walk_cnt - _map.at(next_right_point).walk_cnt) == 1)){
+            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
+            stop();
+            wait_ms(wait_time);
+            turn(turn_speed, ZUZU::RIGHT_MACHINE);
+//            old_turn(turn_speed, ZUZU::RIGHT_MACHINE);
+            stop();
+            wait_ms(wait_time);
+            move_d(speed, 0, ZUZU::ACCELERATION);
+
+        }else{
+            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
+            stop();
+//            wait_ms(wait_time);
+//            old_turn(turn_speed, ZUZU::TURN_MACHINE);
+//            turn(turn_speed, ZUZU::TURN_MACHINE);
+            fit();
+            stop();
+            wait_ms(wait_time);
+            move_d(speed, 0, ZUZU::ACCELERATION);
+        }
+    }
 };
 
 

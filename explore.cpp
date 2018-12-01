@@ -118,8 +118,8 @@ void Explore::kyusin() {
     uint8_t i;
 
     MapPosition stop_point;
-    stop_point.x = 3;
-    stop_point.y = 8;
+    stop_point.x = 7;
+    stop_point.y = 7;
 
     const double _speed = 200;
     const double _turn_speed = 100;
@@ -151,7 +151,7 @@ void Explore::kyusin() {
         point.y = mouse._pe.get_map_position().y;
 
         mouse._pe.update_map(map);
-        make_walkmap(map,3,8);
+        make_walkmap(map,7,7);
 //        log.push_back(mouse._pe.get_position());
 
         if(mouse._pe.get_map_position() == stop_point) break;
@@ -321,6 +321,111 @@ void Explore::kyusin() {
 ////                wait_ms(wait_time);
 ////                mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 ////            }
+
+        }
+
+
+
+    }
+    mouse.stop();
+    wait_ms(wait_time);
+    mouse.move(_speed,HALF_BLOCK);
+    mouse.stop();
+}
+
+void Explore::original_kyusin() {
+
+    MapPosition stop_point;
+    stop_point.x = 7;
+    stop_point.y = 7;
+
+    const double _speed = 200;
+    const double _turn_speed = 100;
+    int wait_time = 200;
+
+
+    mouse.move(50 , START_BLOCK);
+    mouse.stop();
+    wait_ms(wait_time);
+    mouse._pe.set_position(90.0, 90.0, 0.0);
+    mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+
+    while (true){
+        Point<uint8_t> point;
+        Point<uint8_t> next_center_point;
+        Point<uint8_t> next_left_point;
+        Point<uint8_t> next_right_point;
+
+        next_center_point.x = 0;
+        next_center_point.y = 0;
+        next_left_point.x = 0;
+        next_left_point.y = 0;
+        next_right_point.x = 0;
+        next_right_point.y = 0;
+
+
+        point.x = mouse._pe.get_map_position().x;
+        point.y = mouse._pe.get_map_position().y;
+
+        mouse._pe.update_map(map);
+        make_walkmap(map,7,7);
+
+        if(mouse._pe.get_map_position() == stop_point) break;
+
+        if(mouse._pe.get_map_position().direction == NORTH_MASK){
+
+            next_center_point.x = point.x;
+            if(point.y < (map.size().y - 1)) next_center_point.y = point.y + (uint8_t)1;
+
+            if(0 < point.x) next_left_point.x = point.x - (uint8_t)1;
+            next_left_point.y = point.y;
+
+            if(point.x < (map.size().x - 1)) next_right_point.x = point.x + (uint8_t)1;
+            next_right_point.y = point.y;
+
+            mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
+
+
+
+        }else if(mouse._pe.get_map_position().direction == EAST_MASK){
+
+            if(point.x < (map.size().x - 1)) next_center_point.x = point.x + (uint8_t)1;
+            next_center_point.y = point.y;
+
+            next_left_point.x = point.x;
+            if(point.x < (map.size().y - 1)) next_left_point.y = point.y + (uint8_t)1;
+
+            next_right_point.x = point.x;
+            if(0 < point.y) next_right_point.y = point.y - (uint8_t)1;
+
+            mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
+
+        }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
+
+            next_center_point.x = point.x;
+            if(0 < point.y) next_center_point.y = point.y - (uint8_t)1;
+
+            if( point.x < (map.size().x - 1)) next_left_point.x = point.x + (uint8_t)1;
+            next_left_point.y = point.y;
+
+            if(0 < point.x) next_right_point.x = point.x - (uint8_t)1;
+            next_right_point.y = point.y;
+
+            mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
+
+
+        }else{ //west
+
+            if(0 < point.x) next_center_point.x = point.x - (uint8_t)1;
+            next_center_point.y = point.y;
+
+            next_left_point.x = point.x;
+            if(0 < point.y) next_left_point.y = point.y - (uint8_t)1;
+
+            next_right_point.x = point.x;
+            if(point.y < (map.size().y - 1)) next_right_point.y = point.y + (uint8_t)1;
+
+            mouse.kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 
         }
 

@@ -8,6 +8,7 @@
 namespace ZUZU{
     enum MODE{
         COMMAND_MODE,
+        ORIGINAL_KYUSIN,
         KYUSIN,
         LEFT_HAND_WITHOUT_MAP,
         SERIAL_MODE,
