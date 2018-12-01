@@ -14,17 +14,23 @@
 #include "new_zuzumouse.h"
 #include "serial_utility.h"
 #include "mslm_v3/Point.h"
+#include "mslm_v3/map3.h"
+#include "serial_utility.h"
+
+
 
 class Machine {
 public:
     MotorManager &_motor;
     SensorManager &_sensor;
     PositionEstimator &_pe;
-    MapPosition _mp;
+    Map3& _map;
 
-    Machine(MotorManager &motor, SensorManager &sensor, PositionEstimator &pe, MapPosition mp) : _motor(motor),
+    Machine(MotorManager &motor, SensorManager &sensor, PositionEstimator &pe, Map3& map) : _motor(motor),
                                                                                                  _sensor(sensor),
-                                                                                                 _pe(pe), _mp(mp) {
+                                                                                                 _pe(pe),
+                                                                                                 _map(map)
+                                                                                                 {
         _motor.init();
 
     }
@@ -95,7 +101,7 @@ public:
     void move_d(double _speed, double _distance, ZUZU::ACCEL _mode) {
 
         _motor.reset_counts();
-        double _lowest_speed = 80;
+        double _lowest_speed = 130;
 
         if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
@@ -154,7 +160,7 @@ public:
 
 
     void turn(double_t v, ZUZU::DIRECTION _direction){
-
+        serial_odometry(_pe);
         const uint8_t  temp_dir = _pe.get_map_position().direction;
         double_t now_rad;
         double_t temp_rad;
@@ -174,7 +180,8 @@ public:
 
             }
         }
-        double_t target_rad = (_direction==ZUZU::TURN_MACHINE)?PI/4.0 + PI/2.0:PI/4.0;
+        double_t target_rad = (_direction==ZUZU::TURN_MACHINE)?PI/4.0 + PI/2.0: PI/4.0;
+//        double_t  target_rad = 0.0;
         while (true) {
             now_rad = _pe.get_position().rad;
             if (abs(now_rad - temp_rad) >= target_rad)break;
@@ -187,6 +194,7 @@ public:
                 _motor.set_right_speed(-v);
             }
         }
+        stop();
     }
 
 
@@ -223,39 +231,83 @@ public:
 
     void p_control(double _speed) {
 
-        if (_sensor.get_front_wall_distance() < CENTER_TH) {
-            _motor.set_left_speed(_speed);
-            _motor.set_right_speed(_speed);
+        _motor.set_left_speed(_speed);
+        _motor.set_right_speed(_speed);
 
-        } else if (_sensor.get_left_wall_distance() < WALL_TH && _sensor.get_right_wall_distance() < WALL_TH) {
+        if(_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
             const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
             const int e_t = 0 - y_t;
 
             _motor.set_left_speed(_speed + e_t * KP);
             _motor.set_right_speed(_speed - e_t * KP);
 
-
-        } else if (_sensor.get_left_wall_distance() < WALL_TH) {
-            const int y_t = (_sensor.get_left_wall_distance() - 122);
-
-            _motor.set_left_speed(_speed - y_t * KP);
-            _motor.set_right_speed(_speed + y_t * KP);
-
-
-        } else if (_sensor.get_right_wall_distance() < WALL_TH) {
-            const int y_t = (104 - _sensor.get_right_wall_distance());
-
-            _motor.set_left_speed(_speed - y_t * KP);
-            _motor.set_right_speed(_speed + y_t * KP);
-
-
-        } else {
-            _motor.set_left_speed(_speed);
-            _motor.set_right_speed(_speed);
-
+//        } else if (_sensor.get_left_wall_distance() < WALL_TH) {
+//            const int y_t = (_sensor.get_left_wall_distance() - 122);
+//
+//            _motor.set_left_speed(_speed - y_t * KP);
+//            _motor.set_right_speed(_speed + y_t * KP);
+//
+//
+//        } else if (_sensor.get_right_wall_distance() < WALL_TH) {
+//            const int y_t = (104 - _sensor.get_right_wall_distance());
+//
+//            _motor.set_left_speed(_speed - y_t * KP);
+//            _motor.set_right_speed(_speed + y_t * KP);
+//
+//
+//        } else {
+//            _motor.set_left_speed(_speed);
+//            _motor.set_right_speed(_speed);
+//
         }
 
+    }
 
+
+//    void odometry_p_control(double _speed) {
+//
+//            double diff_x;
+//            double diff_y;
+//
+//            _pe.get_position().x =
+//                    _pe.get_map_position().y
+//
+//            _motor.set_left_speed(_speed);
+//            _motor.set_right_speed(_speed);
+//
+//    }
+//
+    void kyusin_running(double speed, double turn_speed, double wait_time, Point<uint8_t> point, Point<uint8_t> next_center_point, Point<uint8_t> next_left_point, Point<uint8_t> next_right_point){
+        if((_sensor.is_opened_front_wall()) && ((_map.at(point).walk_cnt - _map.at(next_center_point).walk_cnt) == 1)){
+            move_p(speed);
+        }else if((_sensor.is_opened_left_wall()) && (_map.at(point).walk_cnt - _map.at(next_left_point).walk_cnt) ==  1){
+            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
+            stop();
+            wait_ms(wait_time);
+            turn(turn_speed, ZUZU::LEFT_MACHINE);
+//            old_turn(turn_speed, ZUZU::RIGHT_MACHINE);
+            stop();
+            wait_ms(wait_time);
+            move_d(speed, 0, ZUZU::ACCELERATION);
+        }else if((_sensor.is_opened_right_wall()) && ((_map.at(point).walk_cnt - _map.at(next_right_point).walk_cnt) == 1)){
+            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
+            stop();
+            wait_ms(wait_time);
+            turn(turn_speed, ZUZU::RIGHT_MACHINE);
+//            old_turn(turn_speed, ZUZU::RIGHT_MACHINE);
+            stop();
+            wait_ms(wait_time);
+            move_d(speed, 0, ZUZU::ACCELERATION);
+        }else{
+            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
+            stop();
+            wait_ms(wait_time);
+            old_turn(turn_speed, ZUZU::TURN_MACHINE);
+//            turn(turn_speed, ZUZU::TURN_MACHINE);
+            stop();
+            wait_ms(wait_time);
+            move_d(speed, 0, ZUZU::ACCELERATION);
+        }
     }
 
 

@@ -6,6 +6,7 @@
 #include "mslm_v3/map3.h"
 #include "mslm_v3/SensorManager.h"
 #include "serial_utility.h"
+#include "mbed.h"
 
 DigitalOut myled1(LED1);
 DigitalOut myled2(LED2);
@@ -22,10 +23,8 @@ Switch minus_sw5(p5,PullNone);
 MotorManager motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18);
 SensorManager sensor(p17, p20, p16);
 PositionEstimator pe(motor._position,sensor);
-MapPosition mp;
-//NewZuzumouse me(motor,sensor);
-Machine me(motor, sensor, pe, mp);
 Map3 map(16, 16);
+Machine me(motor, sensor, pe, map);
 Block block;
 Explore test(me, map);
 
@@ -111,6 +110,31 @@ int main() {
                 myled2 = 1;
                 myled3 = 1;
                 myled4 = 1;
+                pe.set_position(90,90,0.0);
+                serial_odometry(pe);
+
+                motor.motor_on();
+                wait(1);
+
+////                test.mouse.turn(60, ZUZU::TURN_MACHINE);
+////                wait(1);
+////                test.mouse.turn(60, ZUZU::TURN_MACHINE);
+////                wait(1);
+////                test.mouse.turn(60, ZUZU::TURN_MACHINE);
+////                wait(1);
+////                test.mouse.turn(60, ZUZU::TURN_MACHINE);
+////                wait(1);
+//                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
+//                wait(1);
+//                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
+//                wait(1);
+//                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
+//                wait(1);
+//                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
+//                wait(1);
+//                motor.motor_off();
+                me.move(60, ONE_BLOCK);
+                me.stop();
 
                 mode = ZUZU::COMMAND_MODE;
                 break;
@@ -120,13 +144,15 @@ int main() {
                 myled3 = 0;
                 myled4 = 0;
                 wait(1);
-                pc.printf("\r\b\r");
-                printf("%d %d %d diff=%d\n\r",
-                       sensor.get_left_wall_distance(),
-                       sensor.get_front_wall_distance(),
-                       sensor.get_right_wall_distance(),
-                       sensor.get_left_wall_distance()-sensor.get_right_wall_distance()
-                );
+                serial_sensor(sensor);
+//                pc.printf("\r\b\r");
+//                printf("%d %d %d diff=%d\n\r",
+//                       sensor.get_left_wall_distance(),
+//                       sensor.get_front_wall_distance(),
+//                       sensor.get_right_wall_distance(),
+//                       sensor.get_left_wall_distance()-sensor.get_right_wall_distance()
+//                );
+                mode = ZUZU::COMMAND_MODE;
 
                 break;
         }
