@@ -118,7 +118,7 @@ void Explore::kyusin() {
     int i;
     MapPosition stop_point;
     stop_point.x = 3;
-    stop_point.y = 3;
+    stop_point.y = 8;
 
     const double _speed = 250;
     const double _turn_speed = 80;
@@ -149,7 +149,7 @@ void Explore::kyusin() {
         point.y = mouse._pe.get_map_position().y;
 
         mouse._pe.update_map(map);
-        make_walkmap(map,3,3);
+        make_walkmap(map,3,8);
 //        log.push_back(mouse._pe.get_position());
 
         if(mouse._pe.get_map_position() == stop_point) break;

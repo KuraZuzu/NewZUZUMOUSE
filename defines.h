@@ -15,7 +15,10 @@ namespace ZUZU{
         SENSOR_MODE,
     };
 
-
+    enum D_MODE{
+        IN,
+        OUT
+    };
 
 
     enum DIRECTION{
@@ -44,9 +47,11 @@ namespace ZUZU{
 #define ONE_BLOCK 180.0 //(180 * MM_TO_PULSE)
 #define HALF_BLOCK (ONE_BLOCK / 2.0)
 #define START_BLOCK 44.2 //* MM_TO_PULSE
-#define WIDTH 76.1   // 76.5
+#define WIDTH 77.7   // 76.1
 #define HALF_TURN (WIDTH * 3.141592 / 2 )
 #define LEFT_TURN (WIDTH * 3.141592 / 4 )
 #define RIGHT_TURN (WIDTH * 3.141592 / 4 )
-#define KP 0.5 //0.5
+#define KP 1.0 //0.5
+#define ODOMETRY_KP 0.5
+
 #endif //NEWZUZUMOUSE_DEFINES_H

@@ -100,6 +100,7 @@ public:
 
     void move_d(double _speed, double _distance, ZUZU::ACCEL _mode) {
 
+
         _motor.reset_counts();
         double _lowest_speed = 130;
 
@@ -139,7 +140,9 @@ public:
 //                _speed
 //a * motor.distance_counts() + _lowest_speed
                 double d_speed = a * fabs(current_position - first_position) + _lowest_speed;
-                p_control(d_speed);
+//                p_control(d_speed);
+                odometry_p_control(d_speed, ZUZU::D_MODE::OUT);
+
             }
         }
 
@@ -150,7 +153,8 @@ public:
 
             while (_distance > _motor.distance_counts()) {
                 double d_speed = a * (_distance - _motor.distance_counts()) + _lowest_speed;
-                p_control(d_speed);
+//                p_control(d_speed);
+                odometry_p_control(d_speed, ZUZU::D_MODE::IN);
             }
         }
 
@@ -228,8 +232,130 @@ public:
         _motor.reset_counts();
     }
 
+    void odometry_p_control(double _speed, ZUZU::D_MODE _mode) {
+
+        double current_x = _pe.get_position().x;
+        double current_y = _pe.get_position().y;
+        double true_x = (_pe.get_map_position().x * 180) + 90;
+        double true_y = (_pe.get_map_position().y * 180) + 90;
+
+        if(_mode == ZUZU::D_MODE::IN) {
+
+            if (_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
+                const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
+                const int e_t = 0 - y_t;
+
+                if ((_pe.get_map_position().direction == NORTH_MASK) &&
+                    (_pe.get_map_position().direction == SOUTH_MASK)) {
+
+                    if (0 < true_y - current_y) {
+                        _motor.set_left_speed(_speed + e_t * KP);
+                        _motor.set_right_speed(_speed - e_t * KP);
+                    } else {
+                        _motor.set_left_speed(0);
+                        _motor.set_right_speed(0);
+                    }
+
+                } else {
+                    if (0 < true_x - current_x) {
+                        _motor.set_left_speed(_speed + e_t * KP);
+                        _motor.set_right_speed(_speed - e_t * KP);
+                    } else {
+                        _motor.set_left_speed(0);
+                        _motor.set_right_speed(0);
+                    }
+                }
+
+
+            } else {
+
+                if ((_pe.get_map_position().direction == NORTH_MASK) ||
+                    (_pe.get_map_position().direction == SOUTH_MASK)) {
+                    const double e_t = (true_x - current_x);
+
+                    if (0 < true_y - current_y) {
+                        _motor.set_left_speed(_speed + e_t * ODOMETRY_KP);
+                        _motor.set_right_speed(_speed - e_t * ODOMETRY_KP);
+                    } else {
+                        _motor.set_left_speed(0);
+                        _motor.set_right_speed(0);
+                    }
+
+
+                } else {
+                    const double e_t = (true_y - current_y);
+
+                    if (0 < true_y - current_y) {
+                        _motor.set_left_speed(_speed - e_t * ODOMETRY_KP);
+                        _motor.set_right_speed(_speed + e_t * ODOMETRY_KP);
+                    } else {
+                        _motor.set_left_speed(0);
+                        _motor.set_right_speed(0);
+                    }
+
+                }
+
+            }
+
+        }else{
+
+
+
+
+
+            if (_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
+                const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
+                const int e_t = 0 - y_t;
+
+                if ((_pe.get_map_position().direction == NORTH_MASK) && (_pe.get_map_position().direction == SOUTH_MASK)) {
+
+                        _motor.set_left_speed(_speed + e_t * KP);
+                        _motor.set_right_speed(_speed - e_t * KP);
+
+
+                } else {
+                        _motor.set_left_speed(_speed + e_t * KP);
+                        _motor.set_right_speed(_speed - e_t * KP);
+                }
+
+
+            } else {
+
+                if ((_pe.get_map_position().direction == NORTH_MASK) ||
+                    (_pe.get_map_position().direction == SOUTH_MASK)) {
+                    const double e_t = (true_x - current_x);
+
+                        _motor.set_left_speed(_speed + e_t * ODOMETRY_KP);
+                        _motor.set_right_speed(_speed - e_t * ODOMETRY_KP);
+
+
+                } else {
+                    const double e_t = (true_y - current_y);
+
+                        _motor.set_left_speed(_speed - e_t * ODOMETRY_KP);
+                        _motor.set_right_speed(_speed + e_t * ODOMETRY_KP);
+
+                }
+
+            }
+
+
+
+
+
+
+
+
+
+
+        }
+
+
+    }
+
 
     void p_control(double _speed) {
+
 
         _motor.set_left_speed(_speed);
         _motor.set_right_speed(_speed);
