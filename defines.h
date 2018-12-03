@@ -9,6 +9,8 @@ namespace ZUZU{
     enum MODE{
         COMMAND_MODE,
         ORIGINAL_KYUSIN,
+        ORIGINAL_KYUSIN_2,
+        ORIGINAL_KYUSIN_3,
         KYUSIN,
         LEFT_HAND_WITHOUT_MAP,
         SERIAL_MODE,
@@ -52,8 +54,8 @@ namespace ZUZU{
 #define HALF_TURN (WIDTH * 3.141592 / 2 )
 #define LEFT_TURN (WIDTH * 3.141592 / 4 )
 #define RIGHT_TURN (WIDTH * 3.141592 / 4 )
-#define KP 2 //0.5
-#define SINGLE_KP 2
+#define KP 0.5 //0.5
+#define SINGLE_KP 0.5
 #define EMR_TH 0
 #define ODOMETRY_KP 1.0
 

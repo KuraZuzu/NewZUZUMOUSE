@@ -93,7 +93,7 @@ public:
 
     void kyusin();
 
-    void original_kyusin();
+    void original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t turn_speed);
 
 
 };

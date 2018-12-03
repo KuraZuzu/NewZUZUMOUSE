@@ -103,11 +103,11 @@ public:
 //
 //    }
 
-    void move_d(double _speed, double _distance, ZUZU::ACCEL _mode) {
+    void move_d(double _speed, double _distance,  ZUZU::ACCEL _mode) {
 
 
         _motor.reset_counts();
-        double _lowest_speed = 100;
+        double _lowest_speed = 130;
 
         if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
@@ -133,8 +133,8 @@ public:
             }
 
             const double a_dist = fabs(next_border - first_position);
-//            a = (_speed - _lowest_speed) / a_dist;
-            a = (_speed - _lowest_speed) / HALF_BLOCK;
+            a = (_speed - _lowest_speed) / a_dist;
+//            a = (_speed - _lowest_speed) / HALF_BLOCK;
 
             while (first_block == _pe.get_map_position()) {
 
@@ -161,15 +161,15 @@ public:
 
             while (_distance > _motor.distance_counts()) {
                 double d_speed = a * (_distance - _motor.distance_counts()) + _lowest_speed;
-                if(_sensor.get_v_front_wall_distance() < EMR_TH){
-                    stop();
-                    if(_pe.get_map_position().direction == NORTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) - 90, _pe.get_position().rad);
-                    else if(_pe.get_map_position().direction == EAST_MASK) _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
-                    else if(_pe.get_map_position().direction == SOUTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) + 90, _pe.get_position().rad);
-                    else _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
-
-                    break;
-                }
+//                if(_sensor.get_v_front_wall_distance() < EMR_TH){
+//                    stop();
+//                    if(_pe.get_map_position().direction == NORTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) - 90, _pe.get_position().rad);
+//                    else if(_pe.get_map_position().direction == EAST_MASK) _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
+//                    else if(_pe.get_map_position().direction == SOUTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) + 90, _pe.get_position().rad);
+//                    else _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
+//
+//                    break;
+//                }
                 p_control(d_speed);
 //                odometry_p_control(d_speed, ZUZU::D_MODE::IN);
 
@@ -181,10 +181,18 @@ public:
 
 
     void fit(){
-        double_t dir;
 
+        if(_pe.get_map_position().direction == NORTH_MASK) const double_t fit_dir = PI;  //侵入時にNORTHなら出るときはSOUTH
+        else if(_pe.get_map_position().direction == EAST_MASK) const double_t fit_dir = PI/2;  //侵入時にEASTなら出るときにWET
+        else if(_pe.get_map_position().direction == SOUTH_MASK) const double_t fit_dir = 0;  //侵入時にSOUTHなら出るときにNORTH
+        else const double_t fit_dir = -PI/2;  //侵入時にWESTなら出るときにEAST
+
+
+        double_t fit_dir;
         double_t fit_x = (_pe.get_map_position().x * 180) + 90;
         double_t fit_y = (_pe.get_map_position().y * 180) + 90;
+
+
         old_turn(100, ZUZU::LEFT_MACHINE);
         stop();
         wait_ms(100);
@@ -202,12 +210,8 @@ public:
         wait_ms(100);
         move(100, START_BLOCK);
         stop();
-        if(_pe.get_map_position().direction == NORTH_MASK) dir = 0;
-        else if(_pe.get_map_position().direction == EAST_MASK) dir = -PI/2;
-        else if(_pe.get_map_position().direction == SOUTH_MASK) dir = PI;
-        else dir = PI/2;
         wait_ms(100);
-        _pe.set_position(fit_x, fit_y, dir);
+        _pe.set_position(fit_x, fit_y, fit_dir);
     }
 
 

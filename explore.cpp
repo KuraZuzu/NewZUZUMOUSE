@@ -121,7 +121,7 @@ void Explore::kyusin() {
     stop_point.x = 7;
     stop_point.y = 7;
 
-    const double _speed = 200;
+    const double _speed = 250;
     const double _turn_speed = 100;
     int wait_time = 200;
 
@@ -133,7 +133,6 @@ void Explore::kyusin() {
     mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 
     while (true){
-        i++;
         Point<uint8_t> point;
         Point<uint8_t> next_center_point;
         Point<uint8_t> next_left_point;
@@ -333,15 +332,16 @@ void Explore::kyusin() {
     mouse.stop();
 }
 
-void Explore::original_kyusin() {
+void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t turn_speed) {
+
 
     MapPosition stop_point;
-    stop_point.x = 7;
-    stop_point.y = 7;
+    stop_point.x = _x;
+    stop_point.y = _y;
 
-    const double _speed = 200;
-    const double _turn_speed = 100;
-    int wait_time = 200;
+    const double _speed = speed;
+    const double _turn_speed = turn_speed;
+    int wait_time = 150;
 
 
     mouse.move(50 , START_BLOCK);
@@ -351,6 +351,7 @@ void Explore::original_kyusin() {
     mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
 
     while (true){
+
         Point<uint8_t> point;
         Point<uint8_t> next_center_point;
         Point<uint8_t> next_left_point;
@@ -368,7 +369,7 @@ void Explore::original_kyusin() {
         point.y = mouse._pe.get_map_position().y;
 
         mouse._pe.update_map(map);
-        make_walkmap(map,7,7);
+        make_walkmap(map,_x,_y);
 
         if(mouse._pe.get_map_position() == stop_point) break;
 
@@ -425,7 +426,7 @@ void Explore::original_kyusin() {
             next_right_point.x = point.x;
             if(point.y < (map.size().y - 1)) next_right_point.y = point.y + (uint8_t)1;
 
-            mouse.kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
+            mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 
         }
 
