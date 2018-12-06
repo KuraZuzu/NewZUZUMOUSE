@@ -107,7 +107,7 @@ public:
 
 
         _motor.reset_counts();
-        double _lowest_speed = 130;
+        double _lowest_speed = 180;
 
         if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
@@ -580,10 +580,10 @@ public:
         }else{
             move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             stop();
-//            wait_ms(wait_time);
+            wait_ms(wait_time);
 //            old_turn(turn_speed, ZUZU::TURN_MACHINE);
-//            turn(turn_speed, ZUZU::TURN_MACHINE);
-            fit();
+            turn(turn_speed, ZUZU::TURN_MACHINE);
+//            fit();
             stop();
             wait_ms(wait_time);
             move_d(speed, 0, ZUZU::ACCELERATION);
@@ -621,10 +621,10 @@ public:
         }else{
             move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             stop();
-//            wait_ms(wait_time);
+            wait_ms(wait_time);
 //            old_turn(turn_speed, ZUZU::TURN_MACHINE);
-//            turn(turn_speed, ZUZU::TURN_MACHINE);
-            fit();
+            turn(turn_speed, ZUZU::TURN_MACHINE);
+//            fit();
             stop();
             wait_ms(wait_time);
             move_d(speed, 0, ZUZU::ACCELERATION);

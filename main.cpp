@@ -70,7 +70,7 @@ int main() {
                 wait(wait_tima);
                 motor.motor_on();
                 wait(wait_tima);
-                test.original_kyusin(8, 8, 200, 70);
+                test.original_kyusin(3, 8, 200, 70);
                 wait(wait_tima);
                 motor.motor_off();
 
@@ -88,7 +88,7 @@ int main() {
                 wait(wait_tima);
                 motor.motor_on();
                 wait(wait_tima);
-                test.original_kyusin(8, 8, 350, 85);
+                test.original_kyusin(3, 8, 350, 80);
                 wait(wait_tima);
                 motor.motor_off();
 
@@ -103,7 +103,7 @@ int main() {
                 wait(wait_tima);
                 motor.motor_on();
                 wait(wait_tima);
-                test.original_kyusin(8, 8, 600, 90);
+                test.original_kyusin(3, 8, 400, 100);
                 wait(wait_tima);
                 motor.motor_off();
 
