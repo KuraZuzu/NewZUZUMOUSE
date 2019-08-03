@@ -2,11 +2,11 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="newzuzumouse" targetName="new_zuzumouse" />
       <config projectName="newzuzumouse" targetName="sercon" />
       <config projectName="newzuzumouse" targetName="upload" />
-      <config projectName="newzuzumouse" targetName="MSLMv3" />
       <config projectName="newzuzumouse" targetName="SIM" />
+      <config projectName="newzuzumouse" targetName="MSLMv3" />
+      <config projectName="newzuzumouse" targetName="new_zuzumouse" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -16,21 +16,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Machine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/calc.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/defines.h" beforeDir="false" afterPath="$PROJECT_DIR$/defines.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/explore.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/explore.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mbed-cmake/arm_toolchain.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mbed-cmake/arm_toolchain.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/Motor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3/SensorManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/SensorManager.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/algorithm.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/switch.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/switch.h" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -57,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mslm_v3/CMakeLists.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            <state relative-caret-position="190">
+              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -69,31 +60,50 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mslm_v3/SensorManager.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
+            <state relative-caret-position="150">
               <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mslm_v3/sim_main.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/mslm_v3/PositionEstimator.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="84">
+              <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+              <folding>
+                <element signature="e#146#164#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cmake-build-debug/can_api.d">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" selection-start-column="12" selection-end-column="12" />
+            <state relative-caret-position="150">
+              <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mslm_v3/vector.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mslm_v3/switch.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-155" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="10">
-              <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+            <state relative-caret-position="307">
+              <caret line="157" column="49" lean-forward="true" selection-start-line="156" selection-start-column="39" selection-end-line="157" selection-end-column="49" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -101,32 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mslm_v3/sensor.h">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/explore.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-              <folding>
-                <element signature="e#34#54#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Machine.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="39" selection-start-line="39" selection-end-line="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/mbed/SPI.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="920">
-              <caret line="92" column="15" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="15" />
+            <state relative-caret-position="180">
+              <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -192,7 +181,7 @@
     </replaceStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/mslm_v3" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -235,7 +224,6 @@
         <option value="$PROJECT_DIR$/new_zuzumouse.h" />
         <option value="$PROJECT_DIR$/mslm_v3/SensorManager.h" />
         <option value="$PROJECT_DIR$/explore.h" />
-        <option value="$PROJECT_DIR$/explore.cpp" />
         <option value="$PROJECT_DIR$/mslm_v3/switch.h" />
         <option value="$PROJECT_DIR$/mslm_v3/Motor.h" />
         <option value="$PROJECT_DIR$/mslm_v3/Motor.cpp" />
@@ -245,9 +233,10 @@
         <option value="$PROJECT_DIR$/mbed/TARGET_LPC1768/TARGET_NXP/TARGET_LPC176X/TARGET_MBED_LPC1768/PinNames.h" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/mbed/DigitalIn.h" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/Machine.h" />
         <option value="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/explore.cpp" />
       </list>
     </option>
   </component>
@@ -266,6 +255,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -282,7 +272,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -466,6 +455,7 @@
       <workItem from="1563789436258" duration="1825000" />
       <workItem from="1564309583126" duration="87000" />
       <workItem from="1564309697460" duration="1450000" />
+      <workItem from="1564854545334" duration="439000" />
     </task>
     <task id="LOCAL-00001" summary="動的確保">
       <created>1542109937173</created>
@@ -485,7 +475,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="735968000" />
+    <option name="totallyTimeSpent" value="736407000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -497,23 +487,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="732" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="777" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9017094" visible="true" weight="0.27382874" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.9017094" visible="true" weight="0.27786753" />
       <window_info id="Structure" order="1" sideWeight="0.17548077" side_tool="true" weight="0.24878837" />
       <window_info id="Favorites" order="2" sideWeight="0.0982906" side_tool="true" weight="0.23056443" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32843137" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4789984" weight="0.22690438" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.47738287" visible="true" weight="0.2265861" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3970588" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32485875" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Messages" order="8" sideWeight="0.84491116" visible="true" weight="0.16207455" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.84329563" weight="0.32930514" />
       <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.4927302" weight="0.32485875" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.15508886" side_tool="true" visible="true" weight="0.16207455" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5226171" side_tool="true" visible="true" weight="0.2265861" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.326742" />
       <window_info anchor="bottom" id="CMake" order="12" sideWeight="0.49254525" weight="0.3220339" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -653,14 +643,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="map map map" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/mbed/wait_api.h">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mslm_v3/cmake-build-debug/MSLM.cbp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1" />
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/bin/cmake/mac/share/cmake-3.12/Modules/CMakeForceCompiler.cmake" />
     <entry file="file://$PROJECT_DIR$/mslm_v3/cmake-build-debug/CMakeCache.txt">
       <provider selected="true" editor-type-id="text-editor">
@@ -766,16 +748,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mslm_v3/PositionEstimator.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
-          <folding>
-            <element signature="e#146#164#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/mslm_v3/map3.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -807,7 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/explore.cpp" />
     <entry file="file://$PROJECT_DIR$/defines.h" />
     <entry file="file://$PROJECT_DIR$/serial_utility.cpp">
       <provider selected="true" editor-type-id="text-editor">
@@ -866,6 +837,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mslm_v3/sim_main.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mslm_v3/sensor.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
+          <folding>
+            <element signature="e#34#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Machine.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="39" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mbed/SPI.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="920">
@@ -880,6 +871,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/mslm_v3/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -887,27 +885,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Machine.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mslm_v3/sensor.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="23" column="30" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="e#34#54#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="21" column="15" selection-start-line="21" selection-start-column="15" selection-end-line="21" selection-end-column="15" />
+        <state relative-caret-position="307">
+          <caret line="157" column="49" lean-forward="true" selection-start-line="156" selection-start-column="39" selection-end-line="157" selection-end-column="49" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -916,25 +897,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/can_api.d">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" selection-start-column="12" selection-end-column="12" />
+        <state relative-caret-position="150">
+          <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mslm_v3/vector.cpp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mslm_v3/switch.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-155" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mslm_v3/SensorManager.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
+        <state relative-caret-position="150">
           <caret line="19" selection-start-line="19" selection-end-line="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mslm_v3/sim_main.cpp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mslm_v3/CMakeLists.txt">
+    <entry file="file://$PROJECT_DIR$/mslm_v3/PositionEstimator.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="23" lean-forward="true" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        <state relative-caret-position="84">
+          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+          <folding>
+            <element signature="e#146#164#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/explore.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
         </state>
       </provider>
     </entry>

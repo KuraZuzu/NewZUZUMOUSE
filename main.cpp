@@ -95,47 +95,6 @@ int main() {
                 mode = ZUZU::COMMAND_MODE;
                 break;
 
-//                ///////////( 1.5 )//////////////////////////////////////////////////// 最初のバージョンの求心法モード
-//
-//            case ZUZU::ORIGINAL_KYUSIN_NEW_SPEED:
-//
-//            {
-//                int i;
-//                uint8_t j;
-//
-//
-//
-//                if (select_sw3.update())
-//                    i += 1;
-//                    j += 50;
-//
-//                } else if (plus_sw4.update()) {
-//
-//                    i -= 1;
-//                    j -= 50;
-//
-//                } else if (minus_sw5.update()) {
-//
-//                    if (0 < mode_i) --mode_i;
-//                    else mode_i = 0b1111;
-//
-//                }
-//
-//                led = mode_i;
-//
-//
-//                wait(wait_tima);
-//                motor.motor_on();
-//                wait(wait_tima);
-//                test.original_kyusin();
-//                wait(wait_tima);
-//                motor.motor_off();
-//            }
-//                mode = ZUZU::COMMAND_MODE;
-//                break;
-//
-
-
 
 
 
@@ -183,23 +142,6 @@ int main() {
                 motor.motor_on();
                 wait(1);
 
-////                test.mouse.turn(60, ZUZU::TURN_MACHINE);
-////                wait(1);
-////                test.mouse.turn(60, ZUZU::TURN_MACHINE);
-////                wait(1);
-////                test.mouse.turn(60, ZUZU::TURN_MACHINE);
-////                wait(1);
-////                test.mouse.turn(60, ZUZU::TURN_MACHINE);
-////                wait(1);
-//                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
-//                wait(1);
-//                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
-//                wait(1);
-//                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
-//                wait(1);
-//                test.mouse.old_turn(60, ZUZU::TURN_MACHINE);
-//                wait(1);
-//                motor.motor_off();
                 me.move(60, HALF_BLOCK);
                 me.stop();
 
