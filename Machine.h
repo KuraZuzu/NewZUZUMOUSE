@@ -107,7 +107,7 @@ public:
 
 
         _motor.reset_counts();
-        double _lowest_speed = 180;
+        double _lowest_speed = 80;
 
         if (_mode == ZUZU::ACCEL::ACCELERATION) {
 
@@ -185,7 +185,7 @@ public:
         if(_pe.get_map_position().direction == NORTH_MASK) const double_t fit_dir = PI;  //侵入時にNORTHなら出るときはSOUTH
         else if(_pe.get_map_position().direction == EAST_MASK) const double_t fit_dir = PI/2;  //侵入時にEASTなら出るときにWET
         else if(_pe.get_map_position().direction == SOUTH_MASK) const double_t fit_dir = 0;  //侵入時にSOUTHなら出るときにNORTH
-        else const double_t fit_dir = -PI/2;  //侵入時にWESTなら出るときにEAST
+        else const double_t fit_dir = PI*3/2;  //侵入時にWESTなら出るときにEAST
 
 
         double_t fit_dir;
@@ -193,7 +193,7 @@ public:
         double_t fit_y = (_pe.get_map_position().y * 180) + 90;
 
 
-        old_turn(100, ZUZU::LEFT_MACHINE);
+        // old_turn(100, ZUZU::LEFT_MACHINE);
         stop();
         wait_ms(100);
         move(-100, HALF_BLOCK);
@@ -202,15 +202,15 @@ public:
         move(100, START_BLOCK);
         stop();
         wait_ms(100);
-        old_turn(100, ZUZU::LEFT_MACHINE);
-        stop();
-        wait_ms(100);
-        move(-100, HALF_BLOCK);
-        stop();
-        wait_ms(100);
-        move(100, START_BLOCK);
-        stop();
-        wait_ms(100);
+        // old_turn(100, ZUZU::LEFT_MACHINE);
+        // stop();
+        // wait_ms(100);
+        // move(-100, HALF_BLOCK);
+        // stop();
+        // wait_ms(100);
+        // move(100, START_BLOCK);
+        // stop();
+        // wait_ms(100);
         _pe.set_position(fit_x, fit_y, fit_dir);
     }
 
@@ -285,165 +285,6 @@ public:
     }
 
 
-//    void odometry_p_control(double _speed, ZUZU::D_MODE _mode=ZUZU::D_MODE::IN) {
-//
-//        double current_x = _pe.get_position().x;
-//        double current_y = _pe.get_position().y;
-//        double true_x = (_pe.get_map_position().x * 180) + 90;
-//        double true_y = (_pe.get_map_position().y * 180) + 90;
-//
-////        serial_odometry(_pe);
-////        if(ctrl_time.read_ms() > 20) {
-//            if (_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
-//                const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
-//                const int e_t = 0 - y_t;
-//
-//                if ((_pe.get_map_position().direction == NORTH_MASK) &&
-//                    (_pe.get_map_position().direction == SOUTH_MASK)) {
-//                    _motor.set_left_speed(_speed + e_t * KP);
-//                    _motor.set_right_speed(_speed - e_t * KP);
-//                } else {
-//                    _motor.set_left_speed(_speed + e_t * KP);
-//                    _motor.set_right_speed(_speed - e_t * KP);
-//                }
-//
-//
-//            } else {
-//                if ((_pe.get_map_position().direction == NORTH_MASK) ||
-//                    (_pe.get_map_position().direction == SOUTH_MASK)) {
-////                    const double e_t = (90.0 - current_x);
-////
-////                    _motor.set_left_speed(_speed + ((e_t * ODOMETRY_KP) - ((e_t - e_t_temp) * 0.8)));
-////                    _motor.set_right_speed(_speed - ((e_t * ODOMETRY_KP) - ((e_t - e_t_temp) * 0.8)));
-////                    e_t_temp = e_t;
-//
-//                    const double e_t = (true_y - current_y);
-//                    _motor.set_left_speed(_speed - e_t * ODOMETRY_KP);
-//                    _motor.set_right_speed(_speed + e_t * ODOMETRY_KP);
-//
-//                } else {
-//                    const double e_t = (true_y - current_y);
-//                    _motor.set_left_speed(_speed - e_t * ODOMETRY_KP);
-//                    _motor.set_right_speed(_speed + e_t * ODOMETRY_KP);
-//                }
-//
-//            }
-////            ctrl_time.reset();
-////        }
-//
-//
-//
-//    }
-
-
-
-//    void odometry_p_control(double _speed, ZUZU::D_MODE _mode) {
-//
-//        double current_x = _pe.get_position().x;
-//        double current_y = _pe.get_position().y;
-//        double true_x = (_pe.get_map_position().x * 180) + 90;
-//        double true_y = (_pe.get_map_position().y * 180) + 90;
-//
-//        if(_mode == ZUZU::D_MODE::IN) {
-//
-//            if (_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
-//                const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
-//                const int e_t = 0 - y_t;
-//
-//                if ((_pe.get_map_position().direction == NORTH_MASK) && (_pe.get_map_position().direction == SOUTH_MASK)) {
-//
-//                    if (0 < true_y - current_y) {
-//                        _motor.set_left_speed(_speed + e_t * KP);
-//                        _motor.set_right_speed(_speed - e_t * KP);
-//                    } else {
-//                        _motor.set_left_speed(0);
-//                        _motor.set_right_speed(0);
-//                    }
-//
-//                } else {
-//                    if (0 < true_x - current_x) {
-//                        _motor.set_left_speed(_speed + e_t * KP);
-//                        _motor.set_right_speed(_speed - e_t * KP);
-//                    } else {
-//                        _motor.set_left_speed(0);
-//                        _motor.set_right_speed(0);
-//                    }
-//                }
-//
-//
-//            } else {
-//
-//                if ((_pe.get_map_position().direction == NORTH_MASK) ||
-//                    (_pe.get_map_position().direction == SOUTH_MASK)) {
-//                    const double e_t = (true_x - current_x);
-//
-//                    if (0 < true_y - current_y) {
-//                        _motor.set_left_speed(_speed + e_t * ODOMETRY_KP);
-//                        _motor.set_right_speed(_speed - e_t * ODOMETRY_KP);
-//                    } else {
-//                        _motor.set_left_speed(0);
-//                        _motor.set_right_speed(0);
-//                    }
-//
-//
-//                } else {
-//                    const double e_t = (true_y - current_y);
-//
-//                    if (0 < true_y - current_y) {
-//                        _motor.set_left_speed(_speed - e_t * ODOMETRY_KP);
-//                        _motor.set_right_speed(_speed + e_t * ODOMETRY_KP);
-//                    } else {
-//                        _motor.set_left_speed(0);
-//                        _motor.set_right_speed(0);
-//                    }
-//
-//                }
-//
-//            }
-//
-//        }else{
-//
-//            if (_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
-//                const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
-//                const int e_t = 0 - y_t;
-//
-//                if ((_pe.get_map_position().direction == NORTH_MASK) && (_pe.get_map_position().direction == SOUTH_MASK)) {
-//
-//                        _motor.set_left_speed(_speed + e_t * KP);
-//                        _motor.set_right_speed(_speed - e_t * KP);
-//
-//
-//                } else {
-//                        _motor.set_left_speed(_speed + e_t * KP);
-//                        _motor.set_right_speed(_speed - e_t * KP);
-//                }
-//
-//
-//            } else {
-//
-//                if ((_pe.get_map_position().direction == NORTH_MASK) ||
-//                    (_pe.get_map_position().direction == SOUTH_MASK)) {
-//                    const double e_t = (true_x - current_x);
-//
-//                        _motor.set_left_speed(_speed + e_t * ODOMETRY_KP);
-//                        _motor.set_right_speed(_speed - e_t * ODOMETRY_KP);
-//
-//
-//                } else {
-//                    const double e_t = (true_y - current_y);
-//
-//                        _motor.set_left_speed(_speed - e_t * ODOMETRY_KP);
-//                        _motor.set_right_speed(_speed + e_t * ODOMETRY_KP);
-//
-//                }
-//
-//            }
-//
-//
-//        }
-//
-//    }
-
 
     void p_control(double _speed) {
 
@@ -486,19 +327,6 @@ public:
     }
 
 
-//    void odometry_p_control(double _speed) {
-//
-//            double diff_x;
-//            double diff_y;
-//
-//            _pe.get_position().x =
-//                    _pe.get_map_position().y
-//
-//            _motor.set_left_speed(_speed);
-//            _motor.set_right_speed(_speed);
-//
-//    }
-//
     void kyusin_running(double speed, double turn_speed, double wait_time, Point<uint8_t> point, Point<uint8_t> next_center_point, Point<uint8_t> next_left_point, Point<uint8_t> next_right_point) {
 
         const bool temp_l = _sensor.is_opened_left_wall();
@@ -518,23 +346,7 @@ public:
             wait_ms(wait_time);
             turn(turn_speed, ZUZU::LEFT_MACHINE);
 
-//            if (!temp_f && !temp_r) {
-//                old_turn(100, ZUZU::LEFT_MACHINE);
-//                stop();
-//                wait_ms(wait_time);
-//                move(-100, HALF_BLOCK);
-//                stop();
-//                wait_ms(wait_time);
-//                move(100, START_BLOCK);
-//                old_turn(100, ZUZU::RIGHT_MACHINE);
-//                stop();
-//                wait_ms(wait_time);
-//                move(-100, HALF_BLOCK);
-//                stop();
-//                wait_ms(wait_time);
-//                move(100, START_BLOCK);
-//
-//            } else
+
                 if (!temp_r) {
                 move(-100, HALF_BLOCK);
                 stop();
@@ -568,6 +380,7 @@ public:
             stop();
             wait_ms(wait_time);
             move_d(speed, 0, ZUZU::ACCELERATION);
+
         }else if((_sensor.is_opened_right_wall()) && ((_map.at(point).walk_cnt - _map.at(next_right_point).walk_cnt) == 1)){
             move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             stop();
@@ -580,11 +393,11 @@ public:
         }else{
             move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             stop();
-            wait_ms(wait_time);
+//            wait_ms(wait_time);
 //            old_turn(turn_speed, ZUZU::TURN_MACHINE);
-            turn(turn_speed, ZUZU::TURN_MACHINE);
-//            fit();
-            stop();
+//            turn(turn_speed, ZUZU::TURN_MACHINE);
+            // fit();
+
             wait_ms(wait_time);
             move_d(speed, 0, ZUZU::ACCELERATION);
         }
@@ -602,8 +415,8 @@ public:
             move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             stop();
             wait_ms(wait_time);
-            turn(turn_speed, ZUZU::LEFT_MACHINE);
-//            old_turn(turn_speed, ZUZU::LEFT_MACHINE);
+            // turn(turn_speed, ZUZU::LEFT_MACHINE);
+            old_turn(turn_speed, ZUZU::LEFT_MACHINE);
             stop();
             wait_ms(wait_time);
             move_d(speed, 0, ZUZU::ACCELERATION);
@@ -612,8 +425,8 @@ public:
             move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             stop();
             wait_ms(wait_time);
-            turn(turn_speed, ZUZU::RIGHT_MACHINE);
-//            old_turn(turn_speed, ZUZU::RIGHT_MACHINE);
+            // turn(turn_speed, ZUZU::RIGHT_MACHINE);
+            old_turn(turn_speed, ZUZU::RIGHT_MACHINE);
             stop();
             wait_ms(wait_time);
             move_d(speed, 0, ZUZU::ACCELERATION);
@@ -622,9 +435,9 @@ public:
             move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             stop();
             wait_ms(wait_time);
-//            old_turn(turn_speed, ZUZU::TURN_MACHINE);
-            turn(turn_speed, ZUZU::TURN_MACHINE);
-//            fit();
+            old_turn(turn_speed, ZUZU::TURN_MACHINE);
+            // turn(turn_speed, ZUZU::TURN_MACHINE);
+            // fit();
             stop();
             wait_ms(wait_time);
             move_d(speed, 0, ZUZU::ACCELERATION);

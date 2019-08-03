@@ -376,12 +376,12 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
         if(mouse._pe.get_map_position().direction == NORTH_MASK){
 
             next_center_point.x = point.x;
-            if(point.y < (map.size().y - 1)) next_center_point.y = point.y + (uint8_t)1;
+            next_center_point.y = point.y + (uint8_t)1;
 
-            if(0 < point.x) next_left_point.x = point.x - (uint8_t)1;
+            next_left_point.x = point.x - (uint8_t)1;
             next_left_point.y = point.y;
 
-            if(point.x < (map.size().x - 1)) next_right_point.x = point.x + (uint8_t)1;
+            next_right_point.x = point.x + (uint8_t)1;
             next_right_point.y = point.y;
 
             mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
@@ -390,26 +390,26 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
 
         }else if(mouse._pe.get_map_position().direction == EAST_MASK){
 
-            if(point.x < (map.size().x - 1)) next_center_point.x = point.x + (uint8_t)1;
+            next_center_point.x = point.x + (uint8_t)1;
             next_center_point.y = point.y;
 
             next_left_point.x = point.x;
-            if(point.x < (map.size().y - 1)) next_left_point.y = point.y + (uint8_t)1;
+            next_left_point.y = point.y + (uint8_t)1;
 
             next_right_point.x = point.x;
-            if(0 < point.y) next_right_point.y = point.y - (uint8_t)1;
+            next_right_point.y = point.y - (uint8_t)1;
 
             mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 
         }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
 
             next_center_point.x = point.x;
-            if(0 < point.y) next_center_point.y = point.y - (uint8_t)1;
+            next_center_point.y = point.y - (uint8_t)1;
 
-            if( point.x < (map.size().x - 1)) next_left_point.x = point.x + (uint8_t)1;
+            next_left_point.x = point.x + (uint8_t)1;
             next_left_point.y = point.y;
 
-            if(0 < point.x) next_right_point.x = point.x - (uint8_t)1;
+            next_right_point.x = point.x - (uint8_t)1;
             next_right_point.y = point.y;
 
             mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
@@ -417,14 +417,14 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
 
         }else{ //west
 
-            if(0 < point.x) next_center_point.x = point.x - (uint8_t)1;
+            next_center_point.x = point.x - (uint8_t)1;
             next_center_point.y = point.y;
 
             next_left_point.x = point.x;
-            if(0 < point.y) next_left_point.y = point.y - (uint8_t)1;
+            next_left_point.y = point.y - (uint8_t)1;
 
             next_right_point.x = point.x;
-            if(point.y < (map.size().y - 1)) next_right_point.y = point.y + (uint8_t)1;
+            next_right_point.y = point.y + (uint8_t)1;
 
             mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 
@@ -433,10 +433,12 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
 
 
     }
-    mouse.stop();
-    wait_ms(wait_time);
+    // mouse.stop();
+    // wait_ms(wait_time);
     mouse.move(_speed,HALF_BLOCK);
+    // mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
     mouse.stop();
+
 }
 
 //void kyusin_running(double) {

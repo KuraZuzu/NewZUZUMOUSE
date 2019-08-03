@@ -54,4 +54,4 @@ add_subdirectory(mslm_v3)
 
 
 add_executable(${BIN} ${SOURCE_FILE} ${MBED_OBJECTS})
-target_link_libraries(${BIN} ${MBED_LIBS} MSLM)
+target_link_libraries(${BIN} ${MBED_LIBS} MSLMv3)

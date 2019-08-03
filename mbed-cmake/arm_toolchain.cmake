@@ -23,4 +23,3 @@ set(USE_RTOS false)
 set(USE_NET false)
 set(USE_USB false)
 set(USE_DSP false)
-

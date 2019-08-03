@@ -1,6 +1,7 @@
 #ifndef NEWZUZUMOUSE_EXPLORE_H
 #define NEWZUZUMOUSE_EXPLORE_H
 
+
 #include "Machine.h"
 #include "mslm_v3/PositionEstimator.h"
 #include "mslm_v3/map3.h"
@@ -10,6 +11,7 @@
 
 class Explore {
 public:
+
     Machine& mouse;
     Map3& map;
     Vector<Position> log;

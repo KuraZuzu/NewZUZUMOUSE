@@ -8,10 +8,6 @@
 #include "serial_utility.h"
 #include "mbed.h"
 
-DigitalOut myled1(LED1);
-DigitalOut myled2(LED2);
-DigitalOut myled3(LED3);
-DigitalOut myled4(LED4);
 BusOut led(LED4,LED3,LED2,LED1);
 Serial pc(USBTX, USBRX);
 Switch sw2(p8,PullUp);
@@ -23,7 +19,7 @@ Switch minus_sw5(p5,PullNone);
 MotorManager motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18);
 SensorManager sensor(p17, p20, p16);
 PositionEstimator pe(motor._position,sensor);
-Map3 map(16, 16);
+Map3 map(4, 4);
 Machine me(motor, sensor, pe, map);
 Block block;
 Explore test(me, map);
@@ -31,7 +27,6 @@ Explore test(me, map);
 
 int main() {
     uint8_t wait_tima = 1;
-    myled1 = 1;
     wait(wait_tima);
 
     ZUZU::MODE mode = ZUZU::COMMAND_MODE;
@@ -63,15 +58,11 @@ int main() {
 ///////////( 1 )//////////////////////////////////////////////////// 最初のバージョンの求心法モード
 
             case ZUZU::ORIGINAL_KYUSIN:
-                myled1 = 1;
-                myled2 = 1;
-                myled3 = 1;
-                myled4 = 1;
+                led = 0b1111;
                 wait(wait_tima);
                 motor.motor_on();
                 wait(wait_tima);
-                test.original_kyusin(3, 8, 200, 70);
-                wait(wait_tima);
+                test.original_kyusin(3, 3, 200, 70);
                 motor.motor_off();
 
                 mode = ZUZU::COMMAND_MODE;
@@ -81,14 +72,11 @@ int main() {
                 //////)//////////////////////////////////////////////////// 最初のバージョンの求心法モード2222222222
 
             case ZUZU::ORIGINAL_KYUSIN_2:
-                myled1 = 1;
-                myled2 = 1;
-                myled3 = 1;
-                myled4 = 1;
+                led = 0b1111;
                 wait(wait_tima);
                 motor.motor_on();
                 wait(wait_tima);
-                test.original_kyusin(3, 8, 350, 80);
+                test.original_kyusin(3, 3, 650, 150);
                 wait(wait_tima);
                 motor.motor_off();
 
@@ -96,14 +84,11 @@ int main() {
                 break;
 
             case ZUZU::ORIGINAL_KYUSIN_3:
-                myled1 = 1;
-                myled2 = 1;
-                myled3 = 1;
-                myled4 = 1;
+                led = 0b1111;
                 wait(wait_tima);
                 motor.motor_on();
                 wait(wait_tima);
-                test.original_kyusin(3, 8, 400, 100);
+                test.original_kyusin(8, 8, 600, 90);
                 wait(wait_tima);
                 motor.motor_off();
 
@@ -156,10 +141,7 @@ int main() {
 
 ///////////( 2 )//////////////////////////////////////////////////// もはや意味不明な求心法モード
             case ZUZU::KYUSIN:
-                myled1 = 1;
-                myled2 = 1;
-                myled3 = 1;
-                myled4 = 1;
+                led = 0b1111;
                 wait(wait_tima);
                 motor.motor_on();
                 wait(wait_tima);
@@ -172,10 +154,7 @@ int main() {
 
 ///////////( 3 )//////////////////////////////////////////////////// マップ無し左手(単純左手)法
             case ZUZU::LEFT_HAND_WITHOUT_MAP: //2
-                myled1 = 1;
-                myled2 = 1;
-                myled3 = 1;
-                myled4 = 1;
+                led = 0b1111;
                 wait(wait_tima);
                 motor.motor_on();
                 wait(wait_tima);
@@ -188,10 +167,7 @@ int main() {
 
 ///////////( 4 )//////////////////////////////////////////////////// (シリアルモード)
             case ZUZU::SERIAL_MODE: //3
-                myled1 = 1;
-                myled2 = 1;
-                myled3 = 1;
-                myled4 = 1;
+                led = 0b1111;
                 serial_map(map);
                 for (int i = 0; i < test.log.size(); ++i) printf("X:%.3f Y:%.3f R:%.3f \r\n", test.log.at(i).x/180.0, test.log.at(i).y/180.0, test.log.at(i).rad);
 
@@ -200,10 +176,7 @@ int main() {
 
 ///////////( 5 )//////////////////////////////////////////////////// (テストモード)
             case ZUZU::TEST_MODE:
-                myled1 = 1;
-                myled2 = 1;
-                myled3 = 1;
-                myled4 = 1;
+                led = 0b1111;
                 pe.set_position(90,90,0.0);
                 serial_odometry(pe);
 
@@ -235,23 +208,21 @@ int main() {
 
 ///////////( 6 )//////////////////////////////////////////////////// (センサーチェックモード)
             case ZUZU::SENSOR_MODE:
-                myled3 = 0;
-                myled4 = 0;
+                led = 0b1100;
                 wait(1);
-                serial_sensor(sensor);
-//                pc.printf("\r\b\r");
-//                printf("%d %d %d diff=%d\n\r",
-//                       sensor.get_left_wall_distance(),
-//                       sensor.get_front_wall_distance(),
-//                       sensor.get_right_wall_distance(),
-//                       sensor.get_left_wall_distance()-sensor.get_right_wall_distance()
-//                );
+                // serial_sensor(sensor);
+                while(1){
+                   pc.printf("\r\b\r");
+                   printf("%d %d %d diff=%d\n\r",
+                          sensor.get_left_wall_distance(),
+                          sensor.get_front_wall_distance(),
+                          sensor.get_right_wall_distance(),
+                          sensor.get_left_wall_distance()-sensor.get_right_wall_distance()
+                   );
+                }
                 mode = ZUZU::COMMAND_MODE;
 
                 break;
         }
     }
 }
-
-
-
