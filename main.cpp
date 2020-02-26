@@ -7,6 +7,7 @@
 #include "mslm_v3/SensorManager.h"
 #include "serial_utility.h"
 #include "mbed.h"
+#include "lp_ticker_api.h"
 
 BusOut led(LED4,LED3,LED2,LED1);
 Serial pc(USBTX, USBRX);
@@ -14,7 +15,6 @@ Switch sw2(p8,PullUp);
 Switch select_sw3(p7,PullNone);
 Switch plus_sw4(p6,PullUp);
 Switch minus_sw5(p5,PullNone);
-
 
 MotorManager motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18);
 SensorManager sensor(p17, p20, p16);
@@ -28,7 +28,6 @@ Explore test(me, map);
 int main() {
     uint8_t wait_tima = 1;
     wait(wait_tima);
-
     ZUZU::MODE mode = ZUZU::COMMAND_MODE;
     uint8_t mode_i = 0b0000;
     while (true) {

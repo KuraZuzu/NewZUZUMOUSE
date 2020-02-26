@@ -4,11 +4,6 @@
 #ifndef NEWZUZUMOUSE_NEW_ZUZUMOUSE_H
 #define NEWZUZUMOUSE_NEW_ZUZUMOUSE_H
 
-//#include "defines.h"
-//#include "mbed.h"
-//#include "mslm_v3/Motor.h"
-//#include "mslm_v3/SensorManager.h"
-
 #include "defines.h"
 #include "mslm_v3/deftype.h"
 #include "mbed.h"
