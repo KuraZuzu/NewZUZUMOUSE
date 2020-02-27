@@ -30,12 +30,17 @@ public:
 
     }
 
-/* P制御。自機と左右の壁の距離から、直進に補正させる制御 */
+/* P制御。自機と左右の壁の距離から、直進に補正させる制御
+   左右の距離センサを元に、その差分から両方のモータの速度比を調整する
+   KP値という倍率を用いて、速度に対しての差分の重みを設定する       */
     void p_control(double _speed) {
+
+        // 前方センサの値が一定以下の時、P制御はしない
         if(_sensor.get_front_wall_distance() < CENTER_TH) {
             _motor.set_left_speed(_speed);
             _motor.set_right_speed(_speed);
 
+        // 両方の距離せんさが閾値以下の時、両方の値を参考にP制御
         } else if (_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
             const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
             const int e_t = 0 - y_t;
@@ -43,18 +48,21 @@ public:
             _motor.set_left_speed(_speed + e_t * KP);
             _motor.set_right_speed(_speed - e_t * KP);
 
+        // 左の距離せんさが閾値以下の時、両方の値を参考にP制御
         } else if (_sensor.get_left_wall_distance() < P_TH) {
-            const int y_t = (_sensor.get_left_wall_distance() - 122);
+            const int y_t = (_sensor.get_left_wall_distance() - 122); //122とは、左のセンサの中央からの距離(個体差を考慮)
 
             _motor.set_left_speed(_speed - y_t * SINGLE_KP);
             _motor.set_right_speed(_speed + y_t * SINGLE_KP);
 
+        // 左の距離せんさが閾値以下の時、両方の値を参考にP制御
         } else if (_sensor.get_right_wall_distance() < P_TH) {
-            const int y_t = (104 - _sensor.get_right_wall_distance());
+            const int y_t = (104 - _sensor.get_right_wall_distance()); //104とは、左のセンサの中央からの距離(個体差を考慮)
 
             _motor.set_left_speed(_speed - y_t * SINGLE_KP);
             _motor.set_right_speed(_speed + y_t * SINGLE_KP);
 
+        //両方のセンサ距離が閾値以下だと、P制御はしない
         } else {
             _motor.set_left_speed(_speed);
             _motor.set_right_speed(_speed);
@@ -65,13 +73,13 @@ public:
 
 /* P制御を使わず、まっすぐ前進 */
     void move(double_t v, double_t dist) {
-        const Position temp = _pe.get_position();
+        const Position first_pos = _pe.get_position(); //初期位置(走りはじめの位置)の保存
         while (true) {
-            const Position diff = _pe.get_position() - temp;
-            const double_t diff_dist = (diff.x * diff.x) + (diff.y * diff.y);
-            if (diff_dist > (dist * dist)) break;
-            _motor.set_left_speed(v);
-            _motor.set_right_speed(v);
+            const Position diff = _pe.get_position() - first_pos; //現在位置と初期位置の差分算出
+            const double_t diff_dist = (diff.x * diff.x) + (diff.y * diff.y); //メネラウスの定理と同じ要領で、進んだ距離算出
+            if (diff_dist > (dist * dist)) break; //上で算出した距離が、指定した距離を上回るまで "true"
+            _motor.set_left_speed(v);  //左モータの速度指令
+            _motor.set_right_speed(v); //右モータの速度指令
         }
     }
 
@@ -88,11 +96,11 @@ public:
         _motor.reset_counts(); // モーターの回転数のカウントリセット
     }
 
-    /// 指定した分の距離を前進。自己位置を参照しないでの制御
+    /// 指定した分の距離を前進。自己位置を参照しない制御
     void move_p(double_t v, double_t dist) {
-        const Position temp = _pe.get_position();
+        const Position first_pos = _pe.get_position();  //初期位置の座標取得
         while (true) {
-            Position diff = _pe.get_position() - temp;
+            Position diff = _pe.get_position() - first_pos;  //初期位置から現在位置の差分をとり、進んだ距離算出
             if (abs(diff.x) > dist || abs(diff.y) > dist) break;  //左右どちらかの回転数が、指定の距離を満たすまで "true"
             p_control(v);  //P制御の関数呼び出し
         }
@@ -106,32 +114,33 @@ public:
         _motor.reset_counts(); // モーターの回転数のカウントリセット
         constexpr double _lowest_speed = 80;
 
-        if (_mode == ZUZU::ACCEL::ACCELERATION) {
+        if (_mode == ZUZU::ACCEL::ACCELERATION) { //マシンが加速する場合
 
             const MapPosition first_block = _pe.get_map_position();
-            double next_border;
-            double first_position;
+            double target_dist;
+            double first_dist;
             double accel;
             const uint8_t _direction = _pe.get_map_position().direction;
             double current_position;
 
-            //進行方向のブロックに対して、適正な目標座標をセットさせる
+            //進行方向のブロックに対して、適正な目標座標をセットさせる。
+            //この場合は、加速を行うので、ブロック同士の間の座標となる
             if (_direction == NORTH_MASK) {
-                first_position = _pe.get_position().y;
-                next_border = (_pe.get_map_position().y * ONE_BLOCK);
+                first_dist = _pe.get_position().y;
+                target_dist = (_pe.get_map_position().y * ONE_BLOCK); //マップ座標単位 * 1ブロックの距離
             } else if (_direction == EAST_MASK) {
-                first_position = _pe.get_position().x;
-                next_border = (_pe.get_map_position().x * ONE_BLOCK);
+                first_dist = _pe.get_position().x;
+                target_dist = (_pe.get_map_position().x * ONE_BLOCK);
             } else if (_direction == SOUTH_MASK) {
-                first_position = _pe.get_position().y;
-                next_border = ((_pe.get_map_position().y - 1) * ONE_BLOCK);
+                first_dist = _pe.get_position().y;
+                target_dist = ((_pe.get_map_position().y - 1) * ONE_BLOCK);
             } else {
-                first_position = _pe.get_position().x;
-                next_border = ((_pe.get_map_position().x - 1) * ONE_BLOCK);
+                first_dist = _pe.get_position().x;
+                target_dist = ((_pe.get_map_position().x - 1) * ONE_BLOCK);
             }
 
-            const double a_dist = fabs(next_border - first_position);
-            accel = (_speed - _lowest_speed) / a_dist;
+            const double a_dist = fabs(target_dist - first_dist); //目的座標までの距離を絶対値で確保する
+            accel = (_speed - _lowest_speed) / a_dist;                //距離をもとに、加速度を確保
 
             while (first_block == _pe.get_map_position()) {
                 if (_direction == NORTH_MASK) current_position = _pe.get_position().y;
@@ -139,27 +148,18 @@ public:
                 else if (_direction == SOUTH_MASK) current_position = _pe.get_position().y;
                 else current_position = _pe.get_position().x;
 
-                double d_speed = accel * fabs(current_position - first_position) + _lowest_speed;
-                p_control(d_speed);
+                double d_speed = accel * fabs(current_position - first_dist) + _lowest_speed; //距離をもとに速度算出
+                p_control(d_speed); //座標を移動するまで前進
 
             }
         }
 
 
-        if (_mode == ZUZU::ACCEL::DECELERATION) {
+        if (_mode == ZUZU::ACCEL::DECELERATION) { //マシンが減速するばいい
             double accel = ((_speed - _lowest_speed) / _distance);  // ブロック間の距離に応じて線形加速させる
 
             while (_distance > _motor.distance_counts()) {
                 double d_speed = accel * (_distance - _motor.distance_counts()) + _lowest_speed; // 速度 = (加速度 * 加速距離) + 初速度
-//                if(_sensor.get_v_front_wall_distance() < EMR_TH){
-//                    stop();
-//                    if(_pe.get_map_position().direction == NORTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) - 90, _pe.get_position().rad);
-//                    else if(_pe.get_map_position().direction == EAST_MASK) _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
-//                    else if(_pe.get_map_position().direction == SOUTH_MASK) _pe.set_position(_pe.get_position().x, (_pe.get_map_position().y * 180) + 90, _pe.get_position().rad);
-//                    else _pe.set_position((_pe.get_map_position().x * 180) - 90, _pe.get_position().y, _pe.get_position().rad);
-//
-//                    break;
-//                }
                 p_control(d_speed);
 
             }
@@ -171,15 +171,17 @@ public:
 
 /* 自己位置推定の積算誤差が発生してしまうので、それを修正させる制御 */
     void fit(){
-        if(_pe.get_map_position().direction == NORTH_MASK) const double_t fit_dir = PI;        //侵入時にNORTHなら出るときはSOUTH
-        else if(_pe.get_map_position().direction == EAST_MASK) const double_t fit_dir = PI/2;  //侵入時にEASTなら出るときにWET
-        else if(_pe.get_map_position().direction == SOUTH_MASK) const double_t fit_dir = 0;    //侵入時にSOUTHなら出るときにNORTH
-        else const double_t fit_dir = PI*3/2;                                                  //侵入時にWESTなら出るときにEAST
 
         double_t fit_dir;
-        double_t fit_x = (_pe.get_map_position().x * 180) + 90;
-        double_t fit_y = (_pe.get_map_position().y * 180) + 90;
+        if(_pe.get_map_position().direction == NORTH_MASK) fit_dir = PI;        //侵入時にNORTHなら出るときはSOUTH
+        else if(_pe.get_map_position().direction == EAST_MASK) fit_dir = PI/2;  //侵入時にEASTなら出るときにWET
+        else if(_pe.get_map_position().direction == SOUTH_MASK) fit_dir = 0;    //侵入時にSOUTHなら出るときにNORTH
+        else fit_dir = PI*3/2;                                                  //侵入時にWESTなら出るときにEAST
 
+        double_t fit_x = (_pe.get_map_position().x * ONE_BLOCK) + HALF_BLOCK; //機体はブロックの中心点にいるので、HALF_BLOCK を足す
+        double_t fit_y = (_pe.get_map_position().y * ONE_BLOCK) + HALF_BLOCK; // 同上
+
+        /////この一連の動作により、自機を正確なマップの中心にセットする
         stop();
         wait_ms(100);
         move(-100, HALF_BLOCK);
@@ -188,19 +190,20 @@ public:
         move(100, START_BLOCK);
         stop();
         wait_ms(100);
-
-        _pe.set_position(fit_x, fit_y, fit_dir);
+        /////
+        _pe.set_position(fit_x, fit_y, fit_dir); //実際に自己位置をセットする
     }
 
 
+/* 指定の方向に機体を旋回 */
     void turn(double_t v, ZUZU::DIRECTION _direction){
-        serial_odometry(_pe);
-        const uint8_t  temp_dir = _pe.get_map_position().direction;
+        //serial_odometry(_pe);  //シリアル通信を用いてのデバッグ用
+        const uint8_t  first_dir = _pe.get_map_position().direction; //初期の向いている方向
         double_t now_rad;
         double_t temp_rad;
         while(true){
-            uint8_t current_dir = _pe.get_map_position().direction;
-            if(temp_dir != current_dir){
+            const uint8_t current_dir = _pe.get_map_position().direction; //現在の向いている方向
+            if(first_dir != current_dir){ //向いている方向が変わらないうちは"true"
                 temp_rad = _pe.get_position().rad;
                 break;
             }
@@ -240,83 +243,13 @@ public:
     }
 
 
-    void kyusin_running(double speed, double turn_speed, double wait_time, Point<uint8_t> point, Point<uint8_t> next_center_point, Point<uint8_t> next_left_point, Point<uint8_t> next_right_point) {
-
-        const bool temp_l = _sensor.is_opened_left_wall();
-        const bool temp_f = _sensor.is_opened_front_wall();
-        const bool temp_r = _sensor.is_opened_right_wall();
-        double_t temp_x;
-        double_t temp_y;
-        double_t temp_dir;
-
-        if ((_sensor.is_opened_front_wall()) && ((_map.at(point).walk_cnt - _map.at(next_center_point).walk_cnt) == 1)) {
-            move_p(speed);
-
-        } else if ((_sensor.is_opened_left_wall()) &&
-                   (_map.at(point).walk_cnt - _map.at(next_left_point).walk_cnt) == 1) {
-            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
-            stop();
-            wait_ms(wait_time);
-            turn(turn_speed, ZUZU::LEFT_MACHINE);
-
-                if (!temp_r) {
-                move(-100, HALF_BLOCK);
-                stop();
-                wait_ms(wait_time);
-                move(100, START_BLOCK);
-                stop();
-                wait_ms(wait_time);
-            }
-
-            if (_pe.get_map_position().direction == NORTH_MASK) {
-                temp_x = _pe.get_map_position().x * 180 - 90;
-                temp_y = _pe.get_map_position().y * 180 + 90;
-                temp_dir = 0;
-
-            } else if (_pe.get_map_position().direction == EAST_MASK) {
-                temp_x = _pe.get_map_position().x * 180 - 90;
-                temp_y = _pe.get_map_position().y * 180 + 90;
-                temp_dir = -PI/2;
-
-            } else if (_pe.get_map_position().direction == SOUTH_MASK){
-                temp_x = _pe.get_map_position().x * 180 - 90;
-                temp_y = _pe.get_map_position().y * 180 + 90;
-                temp_dir = PI/2;
-
-            }else{
-                temp_x =_pe.get_map_position().x * 180 + 90;
-                temp_y = _pe.get_map_position().y * 180 - 90;
-                temp_dir = PI;
-
-            }
-
-            _pe.set_position(temp_x, temp_y, temp_dir);
-
-            stop();
-            wait_ms(wait_time);
-            move_d(speed, 0, ZUZU::ACCELERATION);
-
-        }else if((_sensor.is_opened_right_wall()) && ((_map.at(point).walk_cnt - _map.at(next_right_point).walk_cnt) == 1)){
-            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
-            stop();
-            wait_ms(wait_time);
-            turn(turn_speed, ZUZU::RIGHT_MACHINE);
-            stop();
-            wait_ms(wait_time);
-            move_d(speed, 0, ZUZU::ACCELERATION);
-
-        }else{
-            move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
-            stop();
-            wait_ms(wait_time);
-            move_d(speed, 0, ZUZU::ACCELERATION);
-
-        }
-    }
+/* 求心(目的座標に最短で向かう)手法のルールベースの基礎アルゴリズム */
+    void kyusin_method(double speed, double turn_speed, double wait_time, Point<uint8_t> point, Point<uint8_t> next_center_point, Point<uint8_t> next_left_point, Point<uint8_t> next_right_point) {
 
 
-    void original_kyusin_running(double speed, double turn_speed, double wait_time, Point<uint8_t> point, Point<uint8_t> next_center_point, Point<uint8_t> next_left_point, Point<uint8_t> next_right_point) {
-
+        /*前方の壁が空いていた時、そして、マップの数情報で、マップが隣り合ってて通行可能な時
+          といったような処理を、見える壁全てに対して行う。
+          この機体では、曲がらずに前進することの重みが1番重要となるように、1番上に前進処理が書かれている*/
         if ((_sensor.is_opened_front_wall()) &&
             ((_map.at(point).walk_cnt - _map.at(next_center_point).walk_cnt) == 1)) {
             move_p(speed);

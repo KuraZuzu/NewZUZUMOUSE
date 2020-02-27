@@ -19,12 +19,11 @@ public:
     Explore(Machine& _mouse, Map3& _map):mouse(_mouse), map(_map){  //コンストラクタ
     }
 
-    void make_walkmap(Map3 &map, uint8_t x, uint8_t y); // 歩数情報を更新。更新した壁情報を反映。
+    void kyusin(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed); // ゴール座標に向かって制御する。マップを参照。
 
     void left_hand(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed); // 古典的な左手方で走る。マップは参照しない。
 
-    void kyusin(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed); // ゴール座標に向かって制御する。マップを参照。
-
+    void make_walkmap(Map3 &map, uint8_t x, uint8_t y); // 歩数情報を更新。更新した壁情報を反映。
 
 };
 

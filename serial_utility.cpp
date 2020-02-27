@@ -11,7 +11,7 @@ void serial_map(Map3 &map) {
         a.y = i;
         for (int j = 0; j < map.size().x; ++j) {
             a.x = j;
-            printf("%d, ",map.at(a).get_wall());
+            printf("%d, ",map.at(a).get_wall()); //各ビットごとに壁情報が記録されている
 
         }
         printf("\r\n");
@@ -21,7 +21,7 @@ void serial_map(Map3 &map) {
         a.y = i;
         for (int j = 0; j < map.size().x; ++j) {
             a.x = j;
-            printf("%d, ",map.at(a).walk_cnt);
+            printf("%d, ",map.at(a).walk_cnt);  //各ビットごとに歩数情報が記録されている
 
         }
         printf("\r\n");
@@ -33,6 +33,8 @@ void serial_map(Map3 &map) {
 void serial_odometry(PositionEstimator &_pe) {
     double_t rad = _pe.get_position().rad;
     double_t deg = rad * 180.0/3.1415;
+
+    //(ブロックx, ブロックy,  座標x, 座標y,  角度rad, 角度deg) が表示される
     printf("x:%d y:%d  x:%.3f y:%.3f rad:%.3f deg:%.3f \r\n", _pe.get_map_position().x,
            _pe.get_map_position().y,
            _pe.get_position().x,
@@ -48,7 +50,6 @@ void serial_sensor(SensorManager &_sensor) {
             ls.push_back(_sensor.get_left_wall_distance());
             rs.push_back(_sensor.get_right_wall_distance());
             fs.push_back(_sensor.get_front_wall_distance());
-//            wait_ms(5);
     }
 
     int32_t max_diff = 0;
@@ -56,7 +57,9 @@ void serial_sensor(SensorManager &_sensor) {
     int32_t mean= 0;
     for (int j = 0; j < ls.size(); ++j) {
         int32_t diff = ls.at(j)-rs.at(j);
-        printf("%d %d %d diff=%d\n\r",
+
+        // (左センサ, 中央センサ, 右センサ, 左右センサの差分)といったように、センサで読み取った距離[cm]が表示される
+        printf("%ld %ld %ld diff=%ld\n\r",
                ls.at(j),
                fs.at(j),
                rs.at(j),
@@ -70,14 +73,6 @@ void serial_sensor(SensorManager &_sensor) {
         if (max_diff < diff)max_diff = diff;
         if (min_diff > diff)min_diff = diff;
     }
-    printf("Mean: %d Max: %d Min: %d \r\n",mean ,max_diff,min_diff);
+    printf("Mean: %ld Max: %ld Min: %ld \r\n",mean ,max_diff,min_diff);
 
-
-//                                                              printf("\r\b\r");
-//    printf("%d %d %d diff=%d\n\r",
-//           _sensor.get_left_wall_distance(),
-//           _sensor.get_front_wall_distance(),
-//           _sensor.get_right_wall_distance(),
-//           _sensor.get_left_wall_distance()-_sensor.get_right_wall_distance()
-//    );
 }
