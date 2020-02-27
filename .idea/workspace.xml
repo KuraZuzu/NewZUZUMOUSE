@@ -17,6 +17,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Machine.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/defines.h" beforeDir="false" afterPath="$PROJECT_DIR$/defines.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/explore.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/explore.cpp" afterDir="false" />
@@ -24,7 +25,7 @@
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3/Motor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_zuzumouse.h" beforeDir="false" afterPath="$PROJECT_DIR$/new_zuzumouse.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_zuzumouse.h" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -368,21 +369,29 @@
       <screen x="0" y="23" width="1280" height="732" />
     </state>
     <state x="240" y="55" key="#Code_Folding/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582807898591" />
-    <state width="1238" height="175" key="GridCell.Tab.0.bottom" timestamp="1582735975299">
+    <state x="378" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582810438211">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="1238" height="175" key="GridCell.Tab.0.bottom/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582735975299" />
-    <state width="1238" height="175" key="GridCell.Tab.0.center" timestamp="1582735975296">
+    <state x="378" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810438211" />
+    <state width="1238" height="168" key="GridCell.Tab.0.bottom" timestamp="1582810357312">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="1238" height="175" key="GridCell.Tab.0.center/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582735975296" />
-    <state width="1238" height="175" key="GridCell.Tab.0.left" timestamp="1582735975296">
+    <state width="1238" height="168" key="GridCell.Tab.0.bottom/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810357312" />
+    <state width="1238" height="168" key="GridCell.Tab.0.center" timestamp="1582810357299">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="1238" height="175" key="GridCell.Tab.0.left/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582735975296" />
-    <state width="1238" height="175" key="GridCell.Tab.0.right" timestamp="1582735975298">
+    <state width="1238" height="168" key="GridCell.Tab.0.center/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810357299" />
+    <state width="1238" height="168" key="GridCell.Tab.0.left" timestamp="1582810357293">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="1238" height="175" key="GridCell.Tab.0.right/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582735975298" />
+    <state width="1238" height="168" key="GridCell.Tab.0.left/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810357293" />
+    <state width="1238" height="168" key="GridCell.Tab.0.right" timestamp="1582810357306">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state width="1238" height="168" key="GridCell.Tab.0.right/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810357306" />
+    <state x="-302" y="-1165" width="1900" height="1163" maximized="true" key="dock-window-1" timestamp="1582810559404">
+      <screen x="-315" y="-1177" width="1920" height="1177" />
+    </state>
+    <state x="-302" y="-1165" width="1900" height="1163" maximized="true" key="dock-window-1/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810559404" />
   </component>
 </project>
