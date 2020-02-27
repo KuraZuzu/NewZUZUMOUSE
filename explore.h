@@ -3,10 +3,6 @@
 
 
 #include "Machine.h"
-#include "mslm_v3/PositionEstimator.h"
-#include "mslm_v3/map3.h"
-#include "mslm_v3/vector.h"
-#include "mslm_v3/Point.h"
 
 
 class Explore {

@@ -1,8 +1,5 @@
 #include "mslm_v3/switch.h"
 #include "explore.h"
-#include "mslm_v3/PositionEstimator.h"
-#include "serial_utility.h"
-#include "mbed.h"
 
 BusOut led(LED4,LED3,LED2,LED1);
 Serial pc(USBTX, USBRX);

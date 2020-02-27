@@ -3,7 +3,6 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="newzuzumouse" targetName="new_zuzumouse" />
-      <config projectName="newzuzumouse" targetName="sercon" />
       <config projectName="newzuzumouse" targetName="upload" />
       <config projectName="newzuzumouse" targetName="MSLMv3" />
     </generated>
@@ -16,6 +15,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mbed-cmake/arm_mbed.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/mbed-cmake/arm_mbed.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" afterDir="false" />
     </list>
@@ -72,7 +72,7 @@
       <recent name="$PROJECT_DIR$/mslm_v3" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.Build All">
+  <component name="RunManager" selected="CMake Application.upload">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="newzuzumouse" RUN_TARGET_NAME="new_zuzumouse" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -88,11 +88,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="sercon" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="newzuzumouse" TARGET_NAME="sercon" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="upload" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="newzuzumouse" TARGET_NAME="new_zuzumouse" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="newzuzumouse" RUN_TARGET_NAME="new_zuzumouse">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -102,7 +97,6 @@
       <item itemvalue="CMake Application.Build All" />
       <item itemvalue="CMake Application.MSLMv3" />
       <item itemvalue="CMake Application.new_zuzumouse" />
-      <item itemvalue="CMake Application.sercon" />
       <item itemvalue="CMake Application.upload" />
     </list>
   </component>
@@ -359,22 +353,26 @@
       <screen x="0" y="23" width="1280" height="732" />
     </state>
     <state x="378" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810438211" />
-    <state width="1238" height="168" key="GridCell.Tab.0.bottom" timestamp="1582810357312">
-      <screen x="0" y="23" width="1280" height="732" />
+    <state width="1238" height="168" key="GridCell.Tab.0.bottom" timestamp="1582827531112">
+      <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state width="1238" height="168" key="GridCell.Tab.0.bottom/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810357312" />
-    <state width="1238" height="168" key="GridCell.Tab.0.center" timestamp="1582810357299">
-      <screen x="0" y="23" width="1280" height="732" />
+    <state width="1238" height="168" key="GridCell.Tab.0.bottom/0.23.1280.777/-315.-1177.1920.1111@0.23.1280.777" timestamp="1582827531112" />
+    <state width="1238" height="168" key="GridCell.Tab.0.center" timestamp="1582827531111">
+      <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state width="1238" height="168" key="GridCell.Tab.0.center/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810357299" />
-    <state width="1238" height="168" key="GridCell.Tab.0.left" timestamp="1582810357293">
-      <screen x="0" y="23" width="1280" height="732" />
+    <state width="1238" height="168" key="GridCell.Tab.0.center/0.23.1280.777/-315.-1177.1920.1111@0.23.1280.777" timestamp="1582827531111" />
+    <state width="1238" height="168" key="GridCell.Tab.0.left" timestamp="1582827531110">
+      <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state width="1238" height="168" key="GridCell.Tab.0.left/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810357293" />
-    <state width="1238" height="168" key="GridCell.Tab.0.right" timestamp="1582810357306">
-      <screen x="0" y="23" width="1280" height="732" />
+    <state width="1238" height="168" key="GridCell.Tab.0.left/0.23.1280.777/-315.-1177.1920.1111@0.23.1280.777" timestamp="1582827531110" />
+    <state width="1238" height="168" key="GridCell.Tab.0.right" timestamp="1582827531111">
+      <screen x="0" y="23" width="1280" height="777" />
     </state>
     <state width="1238" height="168" key="GridCell.Tab.0.right/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810357306" />
+    <state width="1238" height="168" key="GridCell.Tab.0.right/0.23.1280.777/-315.-1177.1920.1111@0.23.1280.777" timestamp="1582827531111" />
     <state x="-302" y="-1165" width="1900" height="1163" maximized="true" key="dock-window-1" timestamp="1582810559404">
       <screen x="-315" y="-1177" width="1920" height="1177" />
     </state>
