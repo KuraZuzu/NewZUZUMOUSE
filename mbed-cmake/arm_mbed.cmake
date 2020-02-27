@@ -12,17 +12,17 @@ set(ARM_GCC_PATH "/usr/local/opt/gcc-arm-none-eabi")
 
 # ------------------------------------------------------------------------------
 # custom target for copying to mbed device
-add_custom_target(upload
-        arm-none-eabi-objcopy -O binary ${BIN} ${BIN}.bin
-        COMMAND cp ${BIN}.bin ${MBEDMOUNT}
-        DEPENDS ${BIN}
-        )
+#add_custom_target(upload
+#        arm-none-eabi-objcopy -O binary ${BIN} ${BIN}.bin
+#        COMMAND cp ${BIN}.bin ${MBEDMOUNT}
+#        DEPENDS ${BIN}
+#        )
 
 # ------------------------------------------------------------------------------
 # custom target for opening serial console
-add_custom_target(sercon
-        command screen ${SERCON} 9600
-        )
+#add_custom_target(sercon
+#        command screen ${SERCON} 9600
+#        )
 
 
 # ------------------------------------------------------------------------------

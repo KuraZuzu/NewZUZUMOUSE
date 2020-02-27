@@ -6,7 +6,6 @@
       <config projectName="newzuzumouse" targetName="sercon" />
       <config projectName="newzuzumouse" targetName="upload" />
       <config projectName="newzuzumouse" targetName="MSLMv3" />
-      <config projectName="newzuzumouse" targetName="SIM" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -18,6 +17,7 @@
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +39,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/mslm_v3" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
@@ -72,18 +72,13 @@
       <recent name="$PROJECT_DIR$/mslm_v3" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.new_zuzumouse">
+  <component name="RunManager" selected="CMake Application.Build All">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="newzuzumouse" RUN_TARGET_NAME="new_zuzumouse" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="MSLMv3" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="newzuzumouse" TARGET_NAME="MSLMv3" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SIM" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="newzuzumouse" TARGET_NAME="SIM" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="newzuzumouse" RUN_TARGET_NAME="SIM">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -106,7 +101,6 @@
     <list>
       <item itemvalue="CMake Application.Build All" />
       <item itemvalue="CMake Application.MSLMv3" />
-      <item itemvalue="CMake Application.SIM" />
       <item itemvalue="CMake Application.new_zuzumouse" />
       <item itemvalue="CMake Application.sercon" />
       <item itemvalue="CMake Application.upload" />
