@@ -1,13 +1,8 @@
-#include "new_zuzumouse.h"
-#include "Machine.h"
 #include "mslm_v3/switch.h"
 #include "explore.h"
 #include "mslm_v3/PositionEstimator.h"
-#include "mslm_v3/map3.h"
-#include "mslm_v3/SensorManager.h"
 #include "serial_utility.h"
 #include "mbed.h"
-#include "lp_ticker_api.h"
 
 BusOut led(LED4,LED3,LED2,LED1);
 Serial pc(USBTX, USBRX);
@@ -21,15 +16,14 @@ SensorManager sensor(p17, p20, p16);
 PositionEstimator pe(motor._position,sensor);
 Map3 map(4, 4);
 Machine me(motor, sensor, pe, map);
-Block block;
-Explore test(me, map);
+Explore explore(me, map);
 
 
 int main() {
-    uint8_t wait_tima = 1;
-    wait(wait_tima);
+    constexpr uint8_t wait_time = 1;
+    wait(wait_time);
     ZUZU::MODE mode = ZUZU::COMMAND_MODE;
-    uint8_t mode_i = 0b0000;
+    uint8_t mode_i = 0b0000; // マイコンに付いているLEDを2進数トレラントで管理。1(点灯), 0(消灯)
     while (true) {
 
         switch (mode) {
@@ -56,12 +50,12 @@ int main() {
 
 ///////////( 1 )//////////////////////////////////////////////////// 最初のバージョンの求心法モード
 
-            case ZUZU::ORIGINAL_KYUSIN:
+            case ZUZU::KYUSIN_PARAM1:
                 led = 0b1111;
-                wait(wait_tima);
+                wait(wait_time);
                 motor.motor_on();
-                wait(wait_tima);
-                test.original_kyusin(3, 3, 200, 70);
+                wait(wait_time);
+                explore.kyusin(3, 3, 200, 70);
                 motor.motor_off();
 
                 mode = ZUZU::COMMAND_MODE;
@@ -70,25 +64,25 @@ int main() {
 
                 //////)//////////////////////////////////////////////////// 最初のバージョンの求心法モード2222222222
 
-            case ZUZU::ORIGINAL_KYUSIN_2:
+            case ZUZU::KYUSIN_PARAM2:
                 led = 0b1111;
-                wait(wait_tima);
+                wait(wait_time);
                 motor.motor_on();
-                wait(wait_tima);
-                test.original_kyusin(3, 3, 650, 150);
-                wait(wait_tima);
+                wait(wait_time);
+                explore.kyusin(3, 3, 650, 150);
+                wait(wait_time);
                 motor.motor_off();
 
                 mode = ZUZU::COMMAND_MODE;
                 break;
 
-            case ZUZU::ORIGINAL_KYUSIN_3:
+            case ZUZU::KYUSIN_PARAM3:
                 led = 0b1111;
-                wait(wait_tima);
+                wait(wait_time);
                 motor.motor_on();
-                wait(wait_tima);
-                test.original_kyusin(8, 8, 600, 90);
-                wait(wait_tima);
+                wait(wait_time);
+                explore.kyusin(8, 8, 600, 90);
+                wait(wait_time);
                 motor.motor_off();
 
                 mode = ZUZU::COMMAND_MODE;
@@ -96,43 +90,29 @@ int main() {
 
 
 
-
-///////////( 2 )//////////////////////////////////////////////////// もはや意味不明な求心法モード
-            case ZUZU::KYUSIN:
-                led = 0b1111;
-                wait(wait_tima);
-                motor.motor_on();
-                wait(wait_tima);
-                test.kyusin();
-                wait(wait_tima);
-                motor.motor_off();
-
-                mode = ZUZU::COMMAND_MODE;
-                break;
-
-///////////( 3 )//////////////////////////////////////////////////// マップ無し左手(単純左手)法
+///////////( 2 )//////////////////////////////////////////////////// マップ無し左手(単純左手)法
             case ZUZU::LEFT_HAND_WITHOUT_MAP: //2
                 led = 0b1111;
-                wait(wait_tima);
+                wait(wait_time);
                 motor.motor_on();
-                wait(wait_tima);
-                test.marking_exprole();
-                wait(wait_tima);
+                wait(wait_time);
+                explore.left_hand(7, 7, 400, 60);
+                wait(wait_time);
                 motor.motor_off();
 
                 mode = ZUZU::COMMAND_MODE;
                 break;
 
-///////////( 4 )//////////////////////////////////////////////////// (シリアルモード)
+///////////( 3 )//////////////////////////////////////////////////// (シリアルモード)
             case ZUZU::SERIAL_MODE: //3
                 led = 0b1111;
                 serial_map(map);
-                for (int i = 0; i < test.log.size(); ++i) printf("X:%.3f Y:%.3f R:%.3f \r\n", test.log.at(i).x/180.0, test.log.at(i).y/180.0, test.log.at(i).rad);
+                for (int i = 0; i < explore.log.size(); ++i) printf("X:%.3f Y:%.3f R:%.3f \r\n", explore.log.at(i).x / 180.0, explore.log.at(i).y / 180.0, explore.log.at(i).rad);
 
                 mode = ZUZU::COMMAND_MODE;
                 break;
 
-///////////( 5 )//////////////////////////////////////////////////// (テストモード)
+///////////( 4 )//////////////////////////////////////////////////// (テストモード) 任意のコードを挿入
             case ZUZU::TEST_MODE:
                 led = 0b1111;
                 pe.set_position(90,90,0.0);
@@ -147,7 +127,7 @@ int main() {
                 mode = ZUZU::COMMAND_MODE;
                 break;
 
-///////////( 6 )//////////////////////////////////////////////////// (センサーチェックモード)
+///////////( 5 )//////////////////////////////////////////////////// (センサーチェックモード)
             case ZUZU::SENSOR_MODE:
                 led = 0b1100;
                 wait(1);

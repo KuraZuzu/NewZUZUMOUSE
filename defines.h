@@ -9,10 +9,9 @@
 namespace ZUZU{
     enum MODE{
         COMMAND_MODE,
-        ORIGINAL_KYUSIN,
-        ORIGINAL_KYUSIN_2,
-        ORIGINAL_KYUSIN_3,
-        KYUSIN,
+        KYUSIN_PARAM1,
+        KYUSIN_PARAM2,
+        KYUSIN_PARAM3,
         LEFT_HAND_WITHOUT_MAP,
         SERIAL_MODE,
         TEST_MODE,

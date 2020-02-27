@@ -1,6 +1,7 @@
 #include "explore.h"
 
 
+/* 方向が合っているか実機でのデバッグ */
 void debug(const Explore &_t) {
     printf("X=%d Y=%d \r\n",_t.mouse._pe.get_map_position().x, _t.mouse._pe.get_map_position().y);
 
@@ -10,26 +11,20 @@ void debug(const Explore &_t) {
     else printf("Direction:WEST");
 
     printf("\n");
-//    printf("X=%.3f Y=%.3f rad=%.3f \r\n",_t.log.push_back(), _t.p, _t.pe.get_position().rad*(180.0/PI));
-//    printf("walk_cnt: %d, next_cnt: %d", _t.map.at(point).walk_cnt, _t.map.at(next_point).walk_cnt);
-
-
 }
 
-void Explore::marking_exprole() {
+
+void Explore::left_hand(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed) {
 
     MapPosition stop_point;
-    stop_point.x = 0;
-    stop_point.y = 2;
+    stop_point.x = _x;
+    stop_point.y = _y;
 
-    const double _speed = 400;
-    const double _turn_speed = 60;
+    const double speed = _speed;
+    const double turn_speed = _turn_speed;
     const int wait_time = 300;
 
-//    make_walkmap(map,2,2);
-//    printf("walk_cnt: %d, next_cnt: %d", )
     mouse.move(_speed/10 , START_BLOCK);
-//    mouse._pe.update_map(map);
     mouse.stop();
     wait_ms(wait_time);
     mouse._pe.set_position(90.0, 90.0, 0.0);
@@ -40,174 +35,64 @@ void Explore::marking_exprole() {
 
         mouse._pe.update_map(map);
         make_walkmap(map,8,8);
-        if(mouse._pe.get_map_position()==stop_point)break;
+        if(mouse._pe.get_map_position()==stop_point) break;
 
         if(mouse._sensor.is_opened_left_wall()){
 
-            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+            mouse.move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
             wait_ms(wait_time);
-            mouse.old_turn(_turn_speed, ZUZU::LEFT_MACHINE);
+            mouse.turn(turn_speed, ZUZU::LEFT_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
-            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            mouse.move_d(speed, 0, ZUZU::ACCELERATION);
 
 
         }else if(mouse._sensor.is_opened_front_wall()){
 
-            mouse.move_p(_speed);
+            mouse.move_p(speed);
 
         }else if(mouse._sensor.is_opened_right_wall()){
 
-            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+            mouse.move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
             printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
             wait_ms(wait_time);
-            mouse.old_turn(_turn_speed, ZUZU::RIGHT_MACHINE);
+            mouse.turn(turn_speed, ZUZU::RIGHT_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
-            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+            mouse.move_d(speed, 0, ZUZU::ACCELERATION);
 
 
         }else {
 
-            mouse.move_d(_speed, HALF_BLOCK, ZUZU::DECELERATION);
+            mouse.move_d(speed, HALF_BLOCK, ZUZU::DECELERATION);
             mouse.stop();
             printf("X=%.3f Y=%.3f Direction=%.3f \r\n", mouse._pe.get_position().x, mouse._pe.get_position().y, mouse._pe.get_position().rad);
             wait_ms(wait_time);
-            mouse.old_turn(_turn_speed, ZUZU::TURN_MACHINE);
+            mouse.turn(turn_speed, ZUZU::TURN_MACHINE);
             mouse.stop();
             wait_ms(wait_time);
-            mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-
+            mouse.move_d(speed, 0, ZUZU::ACCELERATION);
 
         }
     }
     mouse.stop();
     wait_ms(wait_time);
-    mouse.move(_speed, HALF_BLOCK);
+    mouse.move(speed, HALF_BLOCK);
 //    debug(*this);
-
-
 }
 
-void Explore::kyusin() {
 
-    uint8_t i;
-
-    MapPosition stop_point;
-    stop_point.x = 7;
-    stop_point.y = 7;
-
-    const double _speed = 250;
-    const double _turn_speed = 100;
-    int wait_time = 200;
-
-
-    mouse.move(50 , START_BLOCK);
-    mouse.stop();
-    wait_ms(wait_time);
-    mouse._pe.set_position(90.0, 90.0, 0.0);
-    mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
-
-    while (true){
-        Point<uint8_t> point;
-        Point<uint8_t> next_center_point;
-        Point<uint8_t> next_left_point;
-        Point<uint8_t> next_right_point;
-
-        next_center_point.x = 0;
-        next_center_point.y = 0;
-        next_left_point.x = 0;
-        next_left_point.y = 0;
-        next_right_point.x = 0;
-        next_right_point.y = 0;
-
-
-        point.x = mouse._pe.get_map_position().x;
-        point.y = mouse._pe.get_map_position().y;
-
-        mouse._pe.update_map(map);
-        make_walkmap(map,7,7);
-//        log.push_back(mouse._pe.get_position());
-
-        if(mouse._pe.get_map_position() == stop_point) break;
-
-        if(mouse._pe.get_map_position().direction == NORTH_MASK){
-
-            next_center_point.x = point.x;
-            if(point.y < (map.size().y - 1)) next_center_point.y = point.y + (uint8_t)1;
-
-            if(0 < point.x) next_left_point.x = point.x - (uint8_t)1;
-            next_left_point.y = point.y;
-
-            if(point.x < (map.size().x - 1)) next_right_point.x = point.x + (uint8_t)1;
-            next_right_point.y = point.y;
-
-            mouse.kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
-
-
-        }else if(mouse._pe.get_map_position().direction == EAST_MASK){
-
-            if(point.x < (map.size().x - 1)) next_center_point.x = point.x + (uint8_t)1;
-            next_center_point.y = point.y;
-
-            next_left_point.x = point.x;
-            if(point.x < (map.size().y - 1)) next_left_point.y = point.y + (uint8_t)1;
-
-            next_right_point.x = point.x;
-            if(0 < point.y) next_right_point.y = point.y - (uint8_t)1;
-
-            mouse.kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
-
-
-        }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
-
-            next_center_point.x = point.x;
-            if(0 < point.y) next_center_point.y = point.y - (uint8_t)1;
-
-            if( point.x < (map.size().x - 1)) next_left_point.x = point.x + (uint8_t)1;
-            next_left_point.y = point.y;
-
-            if(0 < point.x) next_right_point.x = point.x - (uint8_t)1;
-            next_right_point.y = point.y;
-
-            mouse.kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
-
-
-        }else{ //west
-
-            if(0 < point.x) next_center_point.x = point.x - (uint8_t)1;
-            next_center_point.y = point.y;
-
-            next_left_point.x = point.x;
-            if(0 < point.y) next_left_point.y = point.y - (uint8_t)1;
-
-            next_right_point.x = point.x;
-            if(point.y < (map.size().y - 1)) next_right_point.y = point.y + (uint8_t)1;
-
-            mouse.kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
-
-        }
-
-
-
-    }
-    mouse.stop();
-    wait_ms(wait_time);
-    mouse.move(_speed,HALF_BLOCK);
-    mouse.stop();
-}
-
-void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t turn_speed) {
+void Explore::kyusin(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed) {
 
 
     MapPosition stop_point;
     stop_point.x = _x;
     stop_point.y = _y;
 
-    const double _speed = speed;
-    const double _turn_speed = turn_speed;
+    const double speed = _speed;
+    const double turn_speed = _turn_speed;
     int wait_time = 150;
 
 
@@ -215,7 +100,7 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
     mouse.stop();
     wait_ms(wait_time);
     mouse._pe.set_position(90.0, 90.0, 0.0);
-    mouse.move_d(_speed, 0, ZUZU::ACCELERATION);
+    mouse.move_d(speed, 0, ZUZU::ACCELERATION);
 
     while (true){
 
@@ -230,7 +115,6 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
         next_left_point.y = 0;
         next_right_point.x = 0;
         next_right_point.y = 0;
-
 
         point.x = mouse._pe.get_map_position().x;
         point.y = mouse._pe.get_map_position().y;
@@ -251,7 +135,7 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
             next_right_point.x = point.x + (uint8_t)1;
             next_right_point.y = point.y;
 
-            mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
+            mouse.original_kyusin_running(speed, turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 
 
 
@@ -266,7 +150,7 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
             next_right_point.x = point.x;
             next_right_point.y = point.y - (uint8_t)1;
 
-            mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
+            mouse.original_kyusin_running(speed, turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 
         }else if(mouse._pe.get_map_position().direction == SOUTH_MASK){
 
@@ -279,7 +163,7 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
             next_right_point.x = point.x - (uint8_t)1;
             next_right_point.y = point.y;
 
-            mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
+            mouse.original_kyusin_running(speed, turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 
 
         }else{ //west
@@ -293,14 +177,76 @@ void Explore::original_kyusin(uint8_t _x, uint8_t _y, double_t speed, double_t t
             next_right_point.x = point.x;
             next_right_point.y = point.y + (uint8_t)1;
 
-            mouse.original_kyusin_running(_speed, _turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
+            mouse.original_kyusin_running(speed, turn_speed, wait_time, point, next_center_point, next_left_point, next_right_point);
 
         }
 
-
-
     }
-    mouse.move(_speed,HALF_BLOCK);
+    mouse.move(speed, HALF_BLOCK);
     mouse.stop();
+
+}
+
+void Explore::make_walkmap(Map3 &map, uint8_t x, uint8_t y) {
+    int tmp_cnt = 0;
+    Point<uint8_t > v_point, c_point;
+    Block tmp_block;
+    bool change_flg=false;
+    c_point.x=x;
+    c_point.y=y;
+    map.set_walk_cnt(c_point, 0);
+    for(uint8_t i=0; i<map.size().x; i++) {
+        for (uint8_t j = 0; j < map.size().y; j++) {
+            v_point.x=i;
+            v_point.y=j;
+            if(!(i==x&&j==y))map.set_walk_cnt(v_point, 255);
+        }
+    }
+    do {
+        change_flg = false;
+        for(uint8_t i=0; i<map.size().x; i++){
+            for(uint8_t j=0; j<map.size().y; j++){
+                v_point.x=i;
+                v_point.y=j;
+                tmp_block = map.at(v_point);
+                tmp_cnt = tmp_block.walk_cnt;
+                if(map.at(v_point).walk_cnt==255) continue;
+
+                if(j<map.size().y-1 && ((tmp_block.get_wall() & NORTH_MASK) != NORTH_MASK)){
+                    v_point.y++;
+                    if(map.at(v_point).walk_cnt == 255){
+                        map.set_walk_cnt(v_point, tmp_cnt+1);
+                        change_flg = true;
+                    }
+                    v_point.y--;
+                }
+                if(i<map.size().x-1 &&((tmp_block.get_wall() & EAST_MASK) != EAST_MASK)){
+                    v_point.x++;
+                    if(map.at(v_point).walk_cnt == 255){
+                        map.set_walk_cnt(v_point, tmp_cnt+1);
+                        change_flg = true;
+                    }
+                    v_point.x--;
+                }
+                if(0<j&&((tmp_block.get_wall() & SOUTH_MASK) != SOUTH_MASK)){
+                    v_point.y--;
+                    if(map.at(v_point).walk_cnt == 255){
+                        map.set_walk_cnt(v_point, tmp_cnt+1);
+                        change_flg = true;
+                    }
+                    v_point.y++;
+                }
+                if(0<i&&((tmp_block.get_wall() & WEST_MASK) != WEST_MASK)){
+                    v_point.x--;
+                    if(map.at(v_point).walk_cnt == 255){
+                        map.set_walk_cnt(v_point, tmp_cnt+1);
+                        change_flg = true;
+                    }
+                    v_point.x++;
+                }
+            }
+        }
+
+    }while(change_flg);
 
 }

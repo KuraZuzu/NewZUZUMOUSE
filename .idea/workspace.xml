@@ -17,9 +17,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Machine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/defines.h" beforeDir="false" afterPath="$PROJECT_DIR$/defines.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/explore.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/explore.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/explore.h" beforeDir="false" afterPath="$PROJECT_DIR$/explore.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3/Motor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/new_zuzumouse.h" beforeDir="false" afterPath="$PROJECT_DIR$/new_zuzumouse.h" afterDir="false" />
     </list>
@@ -43,7 +46,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/mslm_v3" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
@@ -76,7 +79,7 @@
       <recent name="$PROJECT_DIR$/mslm_v3" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.upload">
+  <component name="RunManager" selected="CMake Application.new_zuzumouse">
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="newzuzumouse" RUN_TARGET_NAME="new_zuzumouse" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -361,32 +364,25 @@
     <option name="LAST_COMMIT_MESSAGE" value="map map map" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="591" height="111" key="GridCell.Tab.0.bottom" timestamp="1582734457484">
+    <state x="240" y="55" key="#Code_Folding" timestamp="1582807898591">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="591" height="111" key="GridCell.Tab.0.bottom/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582734457484" />
-    <state width="591" height="111" key="GridCell.Tab.0.center" timestamp="1582734457482">
+    <state x="240" y="55" key="#Code_Folding/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582807898591" />
+    <state width="1238" height="175" key="GridCell.Tab.0.bottom" timestamp="1582735975299">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="591" height="111" key="GridCell.Tab.0.center/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582734457482" />
-    <state width="591" height="111" key="GridCell.Tab.0.left" timestamp="1582734457481">
+    <state width="1238" height="175" key="GridCell.Tab.0.bottom/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582735975299" />
+    <state width="1238" height="175" key="GridCell.Tab.0.center" timestamp="1582735975296">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="591" height="111" key="GridCell.Tab.0.left/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582734457481" />
-    <state width="591" height="111" key="GridCell.Tab.0.right" timestamp="1582734457484">
+    <state width="1238" height="175" key="GridCell.Tab.0.center/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582735975296" />
+    <state width="1238" height="175" key="GridCell.Tab.0.left" timestamp="1582735975296">
       <screen x="0" y="23" width="1280" height="732" />
     </state>
-    <state width="591" height="111" key="GridCell.Tab.0.right/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582734457484" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/new_zuzumouse.h</url>
-          <line>6</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state width="1238" height="175" key="GridCell.Tab.0.left/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582735975296" />
+    <state width="1238" height="175" key="GridCell.Tab.0.right" timestamp="1582735975298">
+      <screen x="0" y="23" width="1280" height="732" />
+    </state>
+    <state width="1238" height="175" key="GridCell.Tab.0.right/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582735975298" />
   </component>
 </project>
