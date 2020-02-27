@@ -17,18 +17,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/Machine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/explore.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/explore.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/explore.h" beforeDir="false" afterPath="$PROJECT_DIR$/explore.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/Motor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/Motor.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/Point.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Point.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/PositionEstimator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/PositionEstimator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/PositionEstimator.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/PositionEstimator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/map3.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/map3.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serial_utility.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/serial_utility.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serial_utility.h" beforeDir="false" afterPath="$PROJECT_DIR$/serial_utility.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
