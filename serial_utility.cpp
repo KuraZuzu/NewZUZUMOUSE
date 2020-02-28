@@ -1,6 +1,7 @@
 //
-// Created by 倉澤　一詩 on 2018/11/29.
+// Created by 倉澤　一詩
 //
+
 #include "serial_utility.h"
 #include "mslm_v3/vector.h"
 

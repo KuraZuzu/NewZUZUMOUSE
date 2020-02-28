@@ -1,5 +1,5 @@
 //
-// Created by 倉澤　一詩 on 2018/11/29.
+// Created by 倉澤　一詩
 //
 
 #ifndef NEWZUZUMOUSE_SERIAL_UTILITY_H

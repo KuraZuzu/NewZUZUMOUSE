@@ -5,7 +5,7 @@
 #ifndef NEWZUZUMOUSE_DEFINES_H
 #define NEWZUZUMOUSE_DEFINES_H
 
-
+/* 操作のモード番号 */
 namespace ZUZU{
     enum MODE{
         COMMAND_MODE,
@@ -18,18 +18,15 @@ namespace ZUZU{
         SENSOR_MODE,
     };
 
-    enum D_MODE{
-        IN,
-        OUT
-    };
 
-
+/* 機体の旋回方向 */
     enum DIRECTION{
         LEFT_MACHINE,
         TURN_MACHINE,
         RIGHT_MACHINE
     };
 
+/* 台形(加減速)制御の加速・減速 */
     enum ACCEL{
         ACCELERATION,
         DECELERATION
@@ -37,26 +34,14 @@ namespace ZUZU{
 }
 
 
-
-//#define LEFT 0x50  //50
-#define LEFT 0x50  //60
-#define CENTER 0x60   //70
-#define RIGHT 0x80
-#define CENTER_TH 100
-#define WALL_TH 150 //170
-#define P_TH 140
-//      元は1000パルスで 109mm 前身
-//#define MM_TO_PULSE (2000/218)
-#define ONE_BLOCK 180.0 //(180 * MM_TO_PULSE)
-#define HALF_BLOCK (ONE_BLOCK / 2.0)
-#define START_BLOCK 44.2 //* MM_TO_PULSE
-#define WIDTH 77.7   // 76.1
-#define HALF_TURN (WIDTH * 3.141592 / 2 )
-#define LEFT_TURN (WIDTH * 3.141592 / 4 )
-#define RIGHT_TURN (WIDTH * 3.141592 / 4 )
-#define KP 1.5 //0.5
-#define SINGLE_KP 1.5
-#define EMR_TH 0
-#define ODOMETRY_KP 1.0
+#define CENTER_TH 100    // 中央壁検知の閾値
+#define WALL_TH 150      // 横壁検知の閾値
+#define P_TH 140         // P制御の可否の横壁閾値
+#define ONE_BLOCK 180.0  // 1ブロックの距離(mm)
+#define HALF_BLOCK (ONE_BLOCK / 2.0) // 半ブロックの距離(mm)
+#define START_BLOCK 44.2 // スタート地点へ前進する距離
+#define WIDTH 77.7       // 車幅
+#define KP 1.5           // P制御の左右モーターの差分に対する速度倍率
+#define SINGLE_KP 1.5    // P制御の左右モーターの差分に対する速度倍率
 
 #endif //NEWZUZUMOUSE_DEFINES_H

@@ -1,5 +1,8 @@
-#include "explore.h"
+//
+// Created by 倉澤　一詩
+//
 
+#include "explore.h"
 
 /* 方向が合っているか実機でのデバッグ */
 void debug(const Explore &_t) {

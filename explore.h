@@ -1,3 +1,7 @@
+//
+// Created by 倉澤　一詩
+//
+
 #ifndef NEWZUZUMOUSE_EXPLORE_H
 #define NEWZUZUMOUSE_EXPLORE_H
 
