@@ -16,14 +16,19 @@ public:
     Map3& map;
     Vector<Position> log;
 
-    Explore(machine& _mouse, Map3& _map): mouse(_mouse), map(_map){  //コンストラクタ
+    Explore(machine& _mouse, Map3& _map): mouse(_mouse), map(_map){
     }
 
-    void kyusin(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed); // ゴール座標に向かって制御する。マップを参照。
+/* 求心手法(ゴール座標へ最短で向かう) */
+    void kyusin(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed);
 
-    void left_hand(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed); // 古典的な左手方で走る。マップは参照しない。
 
-    void make_walkmap(Map3 &map, uint8_t x, uint8_t y); // 歩数情報を更新。更新した壁情報を反映。
+/* 左手法。マップは参照せずに、古典的な手法。 */
+    void left_hand(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed);
+
+
+/* 歩数情報を更新。更新した壁情報を反映。 */
+    void make_walkmap(Map3 &map, uint8_t x, uint8_t y);
 
 };
 

@@ -8,7 +8,7 @@
 #include "defines.h"
 #include "mslm_v3/deftype.h"
 #include "mslm_v3/motor.h"
-#include "mslm_v3/SensorManager.h"
+#include "mslm_v3/sensor_manager.h"
 #include "serial_utility.h"
 
 class machine {

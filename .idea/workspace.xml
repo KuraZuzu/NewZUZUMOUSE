@@ -15,8 +15,18 @@
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/explore.h" beforeDir="false" afterPath="$PROJECT_DIR$/explore.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/machine.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/Motor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/SensorManager.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/block.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/block.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/deftype.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/deftype.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/map3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/map3.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/map3.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/map3.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3/position_estimator.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/position_estimator.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -242,6 +252,8 @@
       <workItem from="1582836829876" duration="4556000" />
       <workItem from="1582930569764" duration="4164000" />
       <workItem from="1582935615406" duration="10000" />
+      <workItem from="1582935705999" duration="7431000" />
+      <workItem from="1582978477837" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="動的確保">
       <created>1542109937173</created>

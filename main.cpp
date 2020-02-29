@@ -7,7 +7,6 @@
 
 BusOut led(LED4,LED3,LED2,LED1);
 Serial pc(USBTX, USBRX);
-Switch sw2(p8,PullUp);
 Switch select_sw3(p7,PullNone);
 Switch plus_sw4(p6,PullUp);
 Switch minus_sw5(p5,PullNone);
