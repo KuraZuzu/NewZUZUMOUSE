@@ -33,7 +33,8 @@ set(SOURCE_FILE
         defines.h
         explore.cpp
         explore.h
-        Machine.h
+        machine.h
+        machine.cpp
         serial_utility.cpp
         )
 

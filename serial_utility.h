@@ -5,7 +5,7 @@
 #ifndef NEWZUZUMOUSE_SERIAL_UTILITY_H
 #define NEWZUZUMOUSE_SERIAL_UTILITY_H
 
-#include "mslm_v3/PositionEstimator.h"
+#include "mslm_v3/position_estimator.h"
 //#include "mslm_v3/map3.h"
 #include "mslm_v3/Point.h"
 #include "mslm_v3/sensor.h"

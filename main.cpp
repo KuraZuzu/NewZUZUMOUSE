@@ -14,9 +14,9 @@ Switch minus_sw5(p5,PullNone);
 
 MotorManager motor(StepMotor(p28, p29, p27, true, p30), StepMotor(p23, p24, p25, false, p26), p18);
 SensorManager sensor(p17, p20, p16);
-PositionEstimator pe(motor._position,sensor);
+PositionEstimator pe(motor._position, sensor);
 Map3 map(4, 4);
-Machine me(motor, sensor, pe, map);
+machine me(motor, sensor, pe, map);
 Explore explore(me, map);
 
 

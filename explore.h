@@ -6,17 +6,17 @@
 #define NEWZUZUMOUSE_EXPLORE_H
 
 
-#include "Machine.h"
+#include "machine.h"
 
 
 class Explore {
 public:
 
-    Machine& mouse;
+    machine& mouse;
     Map3& map;
     Vector<Position> log;
 
-    Explore(Machine& _mouse, Map3& _map):mouse(_mouse), map(_map){  //コンストラクタ
+    Explore(machine& _mouse, Map3& _map): mouse(_mouse), map(_map){  //コンストラクタ
     }
 
     void kyusin(uint8_t _x, uint8_t _y, double_t _speed, double_t _turn_speed); // ゴール座標に向かって制御する。マップを参照。
