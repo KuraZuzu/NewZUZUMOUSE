@@ -1,6 +1,11 @@
-//
-// Created by 倉澤　一詩 on 2018/09/22.
-//
+/*!
+* @file defines.h v1.0
+* @Copyright © 2018 Kazushi Kurasawa
+* @date 2018.09.22
+*
+* Released under the MIT license.
+* see https://opensource.org/licenses/MIT
+*/
 
 #ifndef NEWZUZUMOUSE_DEFINES_H
 #define NEWZUZUMOUSE_DEFINES_H

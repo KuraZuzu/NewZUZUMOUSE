@@ -1,6 +1,11 @@
-//
-// Created by 倉澤　一詩
-//
+/*!
+* @file serial_utility.cpp v1.0
+* @Copyright © 2018 Kazushi Kurasawa
+* @date 2018.11.16
+*
+* Released under the MIT license.
+* see https://opensource.org/licenses/MIT
+*/
 
 #include "serial_utility.h"
 #include "MSLMv3/vector.h"
