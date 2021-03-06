@@ -26,7 +26,7 @@ void machine::p_control(double _speed) {
         _motor.set_left_speed(_speed);
         _motor.set_right_speed(_speed);
 
-        // 両方の距離せんさが閾値以下の時、両方の値を参考にP制御
+    // 両方の距離せんさが閾値以下の時、両方の値を参考にP制御
     } else if (_sensor.get_left_wall_distance() < P_TH && _sensor.get_right_wall_distance() < P_TH) {
         const int y_t = _sensor.get_left_wall_distance() - _sensor.get_right_wall_distance();
         const int e_t = 0 - y_t;
@@ -34,21 +34,21 @@ void machine::p_control(double _speed) {
         _motor.set_left_speed(_speed + e_t * KP);
         _motor.set_right_speed(_speed - e_t * KP);
 
-        // 左の距離せんさが閾値以下の時、両方の値を参考にP制御
+    // 左の距離せんさが閾値以下の時、両方の値を参考にP制御
     } else if (_sensor.get_left_wall_distance() < P_TH) {
         const int y_t = (_sensor.get_left_wall_distance() - 122); //122とは、左のセンサの中央からの距離(個体差を考慮)
 
         _motor.set_left_speed(_speed - y_t * SINGLE_KP);
         _motor.set_right_speed(_speed + y_t * SINGLE_KP);
 
-        // 左の距離せんさが閾値以下の時、両方の値を参考にP制御
+    // 左の距離せんさが閾値以下の時、両方の値を参考にP制御
     } else if (_sensor.get_right_wall_distance() < P_TH) {
         const int y_t = (104 - _sensor.get_right_wall_distance()); //104とは、左のセンサの中央からの距離(個体差を考慮)
 
         _motor.set_left_speed(_speed - y_t * SINGLE_KP);
         _motor.set_right_speed(_speed + y_t * SINGLE_KP);
 
-        //両方のセンサ距離が閾値以下だと、P制御はしない
+    //両方のセンサ距離が閾値以下だと、P制御はしない
     } else {
         _motor.set_left_speed(_speed);
         _motor.set_right_speed(_speed);

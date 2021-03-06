@@ -40,7 +40,7 @@ void serial_odometry(PositionEstimator &_pe) {
     double_t rad = _pe.get_position().rad;
     double_t deg = rad * 180.0/3.1415;
 
-    //(ブロックx, ブロックy,  座標x, 座標y,  角度rad, 角度deg) が表示される
+    // (ブロックx, ブロックy,  座標x, 座標y,  角度rad, 角度deg) が表示される
     printf("x:%d y:%d  x:%.3f y:%.3f rad:%.3f deg:%.3f \r\n", _pe.get_map_position().x,
            _pe.get_map_position().y,
            _pe.get_position().x,

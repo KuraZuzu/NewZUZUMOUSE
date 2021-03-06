@@ -10,8 +10,12 @@
 #ifndef NEWZUZUMOUSE_DEFINES_H
 #define NEWZUZUMOUSE_DEFINES_H
 
-/* 操作のモード番号 */
-namespace ZUZU{
+namespace ZUZU
+{
+
+    /**
+     * @brief 操作のモード選択
+     */
     enum MODE{
         COMMAND_MODE,
         KYUSIN_PARAM1,
@@ -24,14 +28,18 @@ namespace ZUZU{
     };
 
 
-/* 機体の旋回方向 */
+    /**
+     * @fn 機体の旋回方向
+     */
     enum DIRECTION{
         LEFT_MACHINE,
         TURN_MACHINE,
         RIGHT_MACHINE
     };
 
-/* 台形(加減速)制御の加速・減速 */
+    /**
+     * @brief 台形(加減速)制御の加速・減速
+     */
     enum ACCEL{
         ACCELERATION,
         DECELERATION
