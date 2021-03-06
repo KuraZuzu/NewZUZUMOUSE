@@ -4,7 +4,7 @@ set(CMAKE_TOOLCHAIN_FILE mbed-cmake/arm_toolchain.cmake)
 
 cmake_minimum_required(VERSION 3.0.1)
 
-project (newzuzumouse C CXX ASM)
+project (NewZUZUMOUSE C CXX ASM)
 
 # ------------------------------------------------------------------------------
 # set the target processor and include settings for cmake
@@ -41,13 +41,13 @@ set(SOURCE_FILE
 
 
 set(BIN
-  new_zuzumouse
+  NewZUZUMOUSE
 )
 
 include(mbed-cmake/arm_mbed.cmake)
 
 
-add_subdirectory(mslm_v3)
+add_subdirectory(MSLMv3)
 
 # ------------------------------------------------------------------------------
 # build the executable

@@ -2,7 +2,7 @@
 // Created by 倉澤　一詩
 //
 
-#include "mslm_v3/switch.h"
+#include "MSLMv3/switch.h"
 #include "explore.h"
 
 BusOut led(LED4,LED3,LED2,LED1);

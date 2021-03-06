@@ -2,31 +2,22 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="newzuzumouse" targetName="new_zuzumouse" />
-      <config projectName="newzuzumouse" targetName="upload" />
-      <config projectName="newzuzumouse" targetName="MSLMv3" />
+      <config projectName="NewZUZUMOUSE" targetName="upload" />
+      <config projectName="NewZUZUMOUSE" targetName="MSLMv3" />
+      <config projectName="NewZUZUMOUSE" targetName="NewZUZUMOUSE" />
     </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" ENABLED="true" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b6d1e06e-8308-4e94-a483-12b1de310c4f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/explore.h" beforeDir="false" afterPath="$PROJECT_DIR$/explore.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machine.h" beforeDir="false" afterPath="$PROJECT_DIR$/machine.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/Motor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/Motor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/SensorManager.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/block.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/block.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/deftype.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/deftype.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/map3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/map3.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/map3.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/map3.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mslm_v3/position_estimator.h" beforeDir="false" afterPath="$PROJECT_DIR$/mslm_v3/position_estimator.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mslm_v3" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +39,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/MSLMv3" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
@@ -58,12 +49,12 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -73,6 +64,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CPPToolchains" />
   </component>
   <component name="RecentsManager">
@@ -81,32 +73,42 @@
       <recent name="$PROJECT_DIR$/mslm_v3" />
     </key>
   </component>
-  <component name="RunManager" selected="CMake Application.new_zuzumouse">
-    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="newzuzumouse" RUN_TARGET_NAME="new_zuzumouse" EXPLICIT_BUILD_TARGET_NAME="all">
+  <component name="RunManager" selected="CMake Application.upload">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NewZUZUMOUSE" RUN_TARGET_NAME="NewZUZUMOUSE" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MSLMv3" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="newzuzumouse" TARGET_NAME="MSLMv3" CONFIG_NAME="Debug">
+    <configuration name="MSLMv3" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NewZUZUMOUSE" TARGET_NAME="MSLMv3" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="new_zuzumouse" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="newzuzumouse" TARGET_NAME="new_zuzumouse" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="newzuzumouse" RUN_TARGET_NAME="new_zuzumouse">
+    <configuration name="NewZUZUMOUSE" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="NewZUZUMOUSE" TARGET_NAME="NewZUZUMOUSE" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NewZUZUMOUSE" RUN_TARGET_NAME="NewZUZUMOUSE">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="upload" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="newzuzumouse" TARGET_NAME="new_zuzumouse" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="newzuzumouse" RUN_TARGET_NAME="new_zuzumouse">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="upload" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="NewZUZUMOUSE" RUN_TARGET_NAME="NewZUZUMOUSE" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="CMake Application.Build All" />
-      <item itemvalue="CMake Application.MSLMv3" />
-      <item itemvalue="CMake Application.new_zuzumouse" />
       <item itemvalue="CMake Application.upload" />
+      <item itemvalue="CMake Application.NewZUZUMOUSE" />
+      <item itemvalue="CMake Application.MSLMv3" />
     </list>
   </component>
   <component name="ServiceViewManager">
@@ -121,6 +123,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -254,6 +257,10 @@
       <workItem from="1582935615406" duration="10000" />
       <workItem from="1582935705999" duration="7431000" />
       <workItem from="1582978477837" duration="308000" />
+      <workItem from="1615033772240" duration="8000" />
+      <workItem from="1615033798504" duration="141000" />
+      <workItem from="1615033963875" duration="97000" />
+      <workItem from="1615034172514" duration="90000" />
     </task>
     <task id="LOCAL-00001" summary="動的確保">
       <created>1542109937173</created>
@@ -282,58 +289,29 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="1">
           <value>
-            <State>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
         <entry key="2">
           <value>
-            <State>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
         <entry key="3">
           <value>
-            <State>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -352,48 +330,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="動的確保" />
     <MESSAGE value="map map map" />
     <option name="LAST_COMMIT_MESSAGE" value="map map map" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="240" y="55" key="#Code_Folding" timestamp="1582807898591">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state x="240" y="55" key="#Code_Folding/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582807898591" />
-    <state x="378" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1582810438211">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state x="378" y="132" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810438211" />
-    <state width="1238" height="106" key="GridCell.Tab.0.bottom" timestamp="1582843223797">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state width="1238" height="106" key="GridCell.Tab.0.bottom/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582843223797" />
-    <state width="1238" height="168" key="GridCell.Tab.0.bottom/0.23.1280.777/-315.-1177.1920.1111@0.23.1280.777" timestamp="1582832256881" />
-    <state width="1238" height="106" key="GridCell.Tab.0.center" timestamp="1582843223794">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state width="1238" height="106" key="GridCell.Tab.0.center/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582843223794" />
-    <state width="1238" height="168" key="GridCell.Tab.0.center/0.23.1280.777/-315.-1177.1920.1111@0.23.1280.777" timestamp="1582832256880" />
-    <state width="1238" height="106" key="GridCell.Tab.0.left" timestamp="1582843223794">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state width="1238" height="106" key="GridCell.Tab.0.left/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582843223794" />
-    <state width="1238" height="168" key="GridCell.Tab.0.left/0.23.1280.777/-315.-1177.1920.1111@0.23.1280.777" timestamp="1582832256880" />
-    <state width="1238" height="106" key="GridCell.Tab.0.right" timestamp="1582843223795">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state width="1238" height="106" key="GridCell.Tab.0.right/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582843223795" />
-    <state width="1238" height="168" key="GridCell.Tab.0.right/0.23.1280.777/-315.-1177.1920.1111@0.23.1280.777" timestamp="1582832256881" />
-    <state x="317" y="221" key="com.intellij.ide.util.TipDialog" timestamp="1582930570839">
-      <screen x="0" y="23" width="1280" height="732" />
-    </state>
-    <state x="317" y="221" key="com.intellij.ide.util.TipDialog/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582930570839" />
-    <state x="-302" y="-1165" width="1900" height="1163" maximized="true" key="dock-window-1" timestamp="1582810559404">
-      <screen x="-315" y="-1177" width="1920" height="1177" />
-    </state>
-    <state x="-302" y="-1165" width="1900" height="1163" maximized="true" key="dock-window-1/0.23.1280.732/-315.-1177.1920.1177@0.23.1280.732" timestamp="1582810559404" />
   </component>
 </project>

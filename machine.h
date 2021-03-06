@@ -6,9 +6,9 @@
 #define NEWZUZUMOUSE_MACHINE_H
 
 #include "defines.h"
-#include "mslm_v3/deftype.h"
-#include "mslm_v3/motor.h"
-#include "mslm_v3/sensor_manager.h"
+#include "MSLMv3/deftype.h"
+#include "MSLMv3/motor.h"
+#include "MSLMv3/sensor_manager.h"
 #include "serial_utility.h"
 
 class machine {

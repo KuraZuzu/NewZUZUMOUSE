@@ -5,10 +5,9 @@
 #ifndef NEWZUZUMOUSE_SERIAL_UTILITY_H
 #define NEWZUZUMOUSE_SERIAL_UTILITY_H
 
-#include "mslm_v3/position_estimator.h"
-//#include "mslm_v3/map3.h"
-#include "mslm_v3/Point.h"
-#include "mslm_v3/sensor.h"
+#include "MSLMv3/position_estimator.h"
+#include "MSLMv3/Point.h"
+#include "MSLMv3/sensor.h"
 
 /* デバッグにおいて、シリアル通信(USBで、マップの壁情報を見る) */
 void serial_map(Map3& map);
