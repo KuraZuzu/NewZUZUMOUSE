@@ -11,7 +11,7 @@
 #define NEWZUZUMOUSE_SERIAL_UTILITY_H
 
 #include "MSLMv3/position_estimator.h"
-#include "MSLMv3/Point.h"
+#include "MSLMv3/point.h"
 #include "MSLMv3/sensor.h"
 
 /**
