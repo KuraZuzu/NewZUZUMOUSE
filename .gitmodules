@@ -1,0 +1,3 @@
+[submodule "MSLMv3"]
+	path = MSLMv3
+	url = git@github.com:KuraZuzu/MSLMv3.git
